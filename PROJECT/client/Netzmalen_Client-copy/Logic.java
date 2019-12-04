@@ -1,18 +1,15 @@
 
-/**
- * Beschreiben Sie hier die Klasse Logic.
- * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
- */
 public class Logic
 {
-    // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
-    private int x;
-
-    /**
-     * Konstruktor für Objekte der Klasse Logic
-     */
+    int timer;
+    int color;
+    int playerPoints;
+    boolean painting;
+    
+    String drawnWord;
+    
+    
+    
     public Logic()
     {
         // Instanzvariable initialisieren
