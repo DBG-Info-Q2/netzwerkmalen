@@ -40,6 +40,15 @@ public class Communication
                 @Override
                 public void run(){
                     Logger.log("Listening for new connections..");
+                    while(serverRunning){
+                        try{
+                            Socket newClient = SocketServer.accept();
+                            
+                            
+                        }catch(Exception e){
+                            Logger.error("Error listening for new connections");
+                        }
+                    }
                 }
             });
             Listener.start();
@@ -55,4 +64,39 @@ public class Communication
     {
         
     }
+    
+    public static class COMMSocket extends Socket{
+        
+        public Thread incomeListener;
+        public String id;
+        
+        public COMMSocket(String identifier){
+            super();
+            id=identifier;
+            Logger.log("Setting up new Client Connection");
+            incomeListener=new Thread(new Runnable(){
+                @Override
+                public void run(){
+                    try{
+                        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(getInputStream()));
+                        
+                        //TODO:while(){
+                        //}
+                    }catch(IOException e){
+                        Logger.error("Error receiving message from client with ID "+id);
+                    }
+                }
+            });
+            incomeListener.start();
+        }
+    
+       public void schreibeNachricht(String nachricht) throws IOException {
+            PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(getOutputStream()));
+            printWriter.print(nachricht);
+            printWriter.flush();
+        }
+        
+    
+    }
+    
 }
