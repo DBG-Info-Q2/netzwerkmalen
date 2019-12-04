@@ -12,7 +12,7 @@ public class Gameserver
     public String spielwort;
     public String drawerID;
     public int gameAmountCounter;
-    private int gameUntilReset;
+    private int gameUntilReset = 5;
     public int currentRightGuesses;
     private int maxPlayer = 5;
     private int timerLength = 60;
@@ -35,10 +35,12 @@ public class Gameserver
     public void startNewServer()
     {
         COMunit.startListener();
-        while (COMunit.playerList.size()<maxPlayer)
+        long time = System.currentTimeMillis()+60000;
+        while (COMunit.playerList.size()<maxPlayer && System.currentTimeMillis()<time)
         {
             //LOG schreiben!!!!!
         }
+        startNewGame();
     }
     
     /**
@@ -51,6 +53,7 @@ public class Gameserver
         timer.startCounter(timerLength, timerUpdateTime);
         selectDrawerFromPlayerlist();
         //COMunit.sendPaket
+        // muss noch überlegt werden, wie gameserver wartet während gezeichnet wird
     }
     
     /**
@@ -69,7 +72,12 @@ public class Gameserver
      */
     public void resetGame()
     {
-        
+        gameAmountCounter++;
+        spielwort = null;
+        timer.stopCounter();
+        drawerID = null;
+        //COMunit.sendPaket
+        startNewGame();
     }
     
     /**
@@ -78,6 +86,12 @@ public class Gameserver
      */
     public void stopGame()
     {
-        
+        //COMunit.sendPaket in 5 sek
+        long time = System.currentTimeMillis()+5000;
+        while (System.currentTimeMillis()<time)
+        {
+            
+        }
+        System.exit(1);
     }
 }
