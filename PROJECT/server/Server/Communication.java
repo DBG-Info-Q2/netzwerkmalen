@@ -22,7 +22,6 @@ public class Communication
     
     public Communication(){
         playerList = new HashMap<String,Socket>();
-        
     }
     
     public void startListener() //thread mit Schleife
