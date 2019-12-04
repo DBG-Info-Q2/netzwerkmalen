@@ -11,14 +11,14 @@ public class Timer
     private long countdownStart;
     private int countdownDuration;
     
-    public void startCounter(int counter, int updatedelay)
+    public void startCounter(int counter, int updatedelay) //updatedelay in ms | Kuss von Dima :D
     {
         
     }
     
     public void sendUpdateToUsers()
     {
-        
+        //Gameserver.GOTT.COMunit.
     }
     
     public void stopCounter()
