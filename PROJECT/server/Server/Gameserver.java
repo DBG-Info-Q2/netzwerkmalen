@@ -5,6 +5,8 @@
  * @author (Ihr Name) 
  * @version (eine Versionsnummer oder ein Datum)
  */
+import java.util.*;
+
 public class Gameserver
 {
     public String spielwort;
@@ -19,11 +21,11 @@ public class Gameserver
     public Communication COMunit = new Communication();
     public Spielwörter wort = new Spielwörter();
     public Timer timer = new Timer();
-    static Gameserver gott;
+    static Gameserver GOTT;
     
     public Gameserver()
     {
-        gott = this;
+        GOTT = this;
     }
     
     /**
@@ -47,6 +49,8 @@ public class Gameserver
     {
         spielwort = wort.gibNeueswort();
         timer.startCounter(timerLength, timerUpdateTime);
+        selectDrawerFromPlayerlist();
+        //COMunit.sendPaket
     }
     
     /**
@@ -55,7 +59,8 @@ public class Gameserver
      */
     public void selectDrawerFromPlayerlist()
     {
-        
+        ArrayList<String> randomList = new ArrayList<String>(COMunit.playerList.keySet());
+        drawerID = randomList.get((int)(Math.random() * (COMunit.playerList.size() + 1)));
     }
     
     /**

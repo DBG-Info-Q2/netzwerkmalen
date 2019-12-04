@@ -18,7 +18,7 @@ public class Timer
     
     public void sendUpdateToUsers()
     {
-        
+        //Gameserver.GOTT.COMunit.
     }
     
     public void stopCounter()
