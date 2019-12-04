@@ -7,8 +7,10 @@
  */
 public class Eingabekontrolle
 {
+    Gameserver server;
     public boolean checkWord(String word)
-    {
-        return true; //umändern
+    { if(server.spielwort.equalsIgnoreCase(word)){
+            return true; //umändern
+        } return false;
     }
 }
