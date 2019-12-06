@@ -67,7 +67,7 @@ public class Communication
     }
     
     public static class PaketUtil{
-        public String createTimeUpdatePaket(){
+        public String createTimeUpdatePaket(int leftoverTime){
             return null;
         }
     }
