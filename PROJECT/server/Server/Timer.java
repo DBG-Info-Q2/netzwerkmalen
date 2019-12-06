@@ -7,38 +7,54 @@
  */
 public class Timer
 {
-    private int updatedelay;
+    private static int updatedelay;
     private long countdownStart;
     private int countdownDuration;
     public Thread timer;
-    
+    private static boolean timerRunning = false;
+    int currentCountdown;
+
     public void startCounter(int counter, int updatedelay) //updatedelay in ms | Kuss von Dima :D
     {
-        countdownStart = System.currentTimeMillis();
-        countdownDuration = counter;
-        updatedelay = this.updatedelay;
-        timer = new Thread(new Runnable()
+        if (!timerRunning)
         {
-            @Override
-            public void run()
-            {
-                
-            }
-        });
+            timerRunning = true;
+            countdownStart = System.currentTimeMillis();
+            countdownDuration = counter;
+            this.updatedelay = updatedelay;
+            timer = new Thread(new Runnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        while (System.currentTimeMillis()<countdownStart+countdownDuration)
+                        {
+                            long updatewaiting = System.currentTimeMillis()+Timer.updatedelay;
+                            while (updatewaiting<System.currentTimeMillis())
+                            {
+
+                            }
+                            currentCountdown = (int)(countdownStart+countdownDuration-System.currentTimeMillis());
+                        }
+                    }
+                });
+            timer.start();
+        }
     }
-    
+
     public void sendUpdateToUsers()
     {
         //Gameserver.GOTT.COMunit.
     }
-    
+
     public void stopCounter()
     {
-        
+        timer.stop();
+        timerRunning = false;
     }
-    
-    public void getTime()
+
+    public int getTime()
     {
-        
+        return currentCountdown;
     }
 }
