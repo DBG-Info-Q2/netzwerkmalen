@@ -12,7 +12,7 @@ import java.lang.*;
 
 public class Communication
 {
-    public HashMap<String,Socket> playerList; 
+    public HashMap<String,COMMSocket> playerList; 
     public ServerSocket SocketServer;
     public Thread Listener;
     private boolean serverRunning = false;
@@ -21,7 +21,7 @@ public class Communication
     
     
     public Communication(){
-        playerList = new HashMap<String,Socket>();
+        playerList = new HashMap<String,COMMSocket>();
     }
     
     public void startListener() //thread mit Schleife
@@ -44,6 +44,7 @@ public class Communication
                         try{
                             Socket newClient = SocketServer.accept();
                             
+                            COMMSocket socket = new COMMSocket("test",newClient);
                             
                         }catch(Exception e){
                             Logger.error("Error listening for new connections");
@@ -65,23 +66,38 @@ public class Communication
         
     }
     
-    public static class COMMSocket extends Socket{
+    public static class PaketUtil{
+        public String createTimeUpdatePaket(){
+            return null;
+        }
+    }
+    
+    public static class COMMSocket{
         
         public Thread incomeListener;
         public String id;
+        public Socket connection;
         
-        public COMMSocket(String identifier){
+        public COMMSocket(String identifier,Socket socket){
             super();
             id=identifier;
+            connection=socket;
             Logger.log("Setting up new Client Connection");
             incomeListener=new Thread(new Runnable(){
                 @Override
                 public void run(){
                     try{
-                        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(getInputStream()));
-                        
-                        //TODO:while(){
-                        //}
+                        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                        String incomeLine = null;
+                        // Lauft durch und ließt Nachrichten, solange wie der Teufel Leben mag.
+                        while(true){
+                            // Lese Lines aus.
+                            if((incomeLine=bufferedReader.readLine())!=null){
+                                // Verarbeite die einkommende Nachricht.
+                                Logger.log("Neue Nachricht von "+id+":"+incomeLine);
+                            }
+                                
+                        }
                     }catch(IOException e){
                         Logger.error("Error receiving message from client with ID "+id);
                     }
@@ -90,9 +106,9 @@ public class Communication
             incomeListener.start();
         }
     
-       public void schreibeNachricht(String nachricht) throws IOException {
-            PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(getOutputStream()));
-            printWriter.print(nachricht);
+       public void sendPaket(String paket) throws IOException {
+            PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(connection.getOutputStream()));
+            printWriter.print(paket);
             printWriter.flush();
         }
         
