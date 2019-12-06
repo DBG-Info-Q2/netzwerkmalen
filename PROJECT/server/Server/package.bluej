@@ -3,16 +3,21 @@ dependency1.from=Gameserver
 dependency1.to=Communication
 dependency1.type=UsesDependency
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 dependency2.from=Eingabekontrolle
 dependency2.to=Gameserver
 =======
 <<<<<<< HEAD
+>>>>>>> 4bb5c68fe236afa02db762f46ca4a1b38ab6bb39
 dependency2.from=Gameserver
 dependency2.to=Spielw\u00F6rter
 dependency2.type=UsesDependency
 dependency3.from=Gameserver
 dependency3.to=Timer
 dependency3.type=UsesDependency
+<<<<<<< HEAD
+=======
 dependency4.from=Eingabekontrolle
 dependency4.to=Gameserver
 dependency4.type=UsesDependency
@@ -40,11 +45,25 @@ dependency2.type=UsesDependency
 dependency3.from=Communication
 dependency3.to=Logger
 dependency3.type=UsesDependency
+>>>>>>> 4bb5c68fe236afa02db762f46ca4a1b38ab6bb39
 editor.fx.0.height=754
 editor.fx.0.width=1382
 editor.fx.0.x=-8
 editor.fx.0.y=-8
 objectbench.height=95
+<<<<<<< HEAD
+objectbench.width=1342
+package.divider.horizontal=0.600297176820208
+package.divider.vertical=0.8442748091603054
+package.editor.height=546
+package.editor.width=1231
+package.editor.x=0
+package.editor.y=0
+package.frame.height=754
+package.frame.width=1382
+package.numDependencies=3
+package.numTargets=6
+=======
 objectbench.width=643
 package.divider.horizontal=0.6
 package.divider.vertical=0.8403755868544601
@@ -57,6 +76,7 @@ package.frame.width=683
 package.numDependencies=3
 package.numTargets=7
 >>>>>>> d114ce8cebd4703f5b16b04393bd586fe277a04a
+>>>>>>> 4bb5c68fe236afa02db762f46ca4a1b38ab6bb39
 package.showExtends=true
 package.showUses=true
 project.charset=UTF-8
@@ -70,58 +90,40 @@ target1.name=Spielw\u00F6rter
 target1.showInterface=false
 target1.type=ClassTarget
 target1.width=100
-<<<<<<< HEAD
-target1.x=10
-target1.y=140
-=======
-target1.x=190
-target1.y=220
->>>>>>> d114ce8cebd4703f5b16b04393bd586fe277a04a
+target1.x=210
+target1.y=200
 target2.height=50
 target2.name=Gameserver
 target2.showInterface=false
 target2.type=ClassTarget
 target2.width=100
-target2.x=150
-target2.y=20
+target2.x=180
+target2.y=50
 target3.height=50
 target3.name=Punktemanager
 target3.showInterface=false
 target3.type=ClassTarget
 target3.width=120
-target3.x=10
-target3.y=200
+target3.x=40
+target3.y=250
 target4.height=50
 target4.name=Timer
 target4.showInterface=false
 target4.type=ClassTarget
 target4.width=80
-target4.x=10
-target4.y=80
+target4.x=30
+target4.y=120
 target5.height=50
 target5.name=Eingabekontrolle
 target5.showInterface=false
 target5.type=ClassTarget
 target5.width=130
-target5.x=120
-target5.y=140
+target5.x=340
+target5.y=240
 target6.height=50
-target6.name=Logger
+target6.name=Communication
 target6.showInterface=false
 target6.type=ClassTarget
-<<<<<<< HEAD
 target6.width=120
-target6.x=300
-target6.y=80
-=======
-target6.width=80
-target6.x=240
-target6.y=361
-target7.height=50
-target7.name=Communication
-target7.showInterface=false
-target7.type=ClassTarget
-target7.width=120
-target7.x=340
-target7.y=140
->>>>>>> d114ce8cebd4703f5b16b04393bd586fe277a04a
+target6.x=340
+target6.y=140
