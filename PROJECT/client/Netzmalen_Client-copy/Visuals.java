@@ -23,6 +23,7 @@ public class Visuals
     JLabel Label;
     JLabel Netzwerkmalen;
     JTextArea Chat;
+    JTextArea Punkte;
     boolean Test = true;
     String zuraten = "EINEN BAUM";
     public void Window(){
@@ -33,13 +34,17 @@ public class Visuals
     public void schreiben(String Wort, String Spieler){
         Chat.append(Spieler+Wort+"\n");
     }
+    
+    void Punkteschreiben(){
+        //Punkte.setText(
+    }
 
 
     public void setup(){
         Fenster = new JFrame(){
             public void paint(Graphics g) {
                 super.paint(g);
-                g.drawLine(400, 400, 800, 800);
+                //g.drawLine(400, 400, 800, 800);
                 //g.drawOval(400, 400, 50, 50);
                 //g.drawString("Blah, blah");   
             }
@@ -48,13 +53,17 @@ public class Visuals
         Panel = new JPanel();
         Label = new JLabel();
         Chat = new JTextArea();
-
+        Punkte = new JTextArea();
+        
         Netzwerkmalen = new JLabel();
         Chat.setBounds(100,100,200,500);
         Chat.setEditable(false);
         Chat.setColumns(1);
         Chat.setLineWrap(true);
         Chat.setWrapStyleWord(true);
+        
+        Punkte.setBounds(1000,100,200,200);
+        Punkte.setEditable(false);
 
         Netzwerkmalen.setText("Netzwerkmalen");
         Netzwerkmalen.setBounds(450,10,600,65);
@@ -65,6 +74,7 @@ public class Visuals
         Eingabefarbe();
 
         Fenster.setSize(1300,800);
+        Panel.add(Punkte);
         Panel.add(Chat);
         Panel.add(Label);
         Panel.add(Netzwerkmalen);
