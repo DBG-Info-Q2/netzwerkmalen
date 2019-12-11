@@ -143,33 +143,33 @@ public class Communication
     }
     
     public static class PaketUtil{
-        public String createLoginUpdatePaket(String name, boolean du)
+        public static String createLoginUpdatePaket(String name, boolean du)
         {
-            return ";0;"+name+";"+du+";";
+            return "0;"+name+";"+du+";";
         }
-        public String createTimeUpdatePaket(int leftoverTime)
+        public static String createTimeUpdatePaket(int leftoverTime)
         {
-            return ";1;"+leftoverTime+";";
+            return "1;"+leftoverTime+";";
         }
-        public String createChatUpdatePaket(String recievedText)
+        public static String createChatUpdatePaket(String recievedText)
         {
-            return ";2;"+recievedText+";";
+            return "2;"+recievedText+";";
         }
-        public String createPointsUpdatePaket(int newPionts, String id)
+        public static String createPointsUpdatePaket(int newPionts, String id)
         {
-            return ";3;"+newPionts+";"+id+";";
+            return "3;"+newPionts+";"+id+";";
         }
-        public String createDrawUpdatePaket(int x, int y, int colour)
+        public static String createDrawUpdatePaket(int x, int y, int colour)
         {
-            return ";4;"+x+","+y+","+colour+";";
+            return "4;"+x+","+y+","+colour+";";
         }
-        public String createRoleUpdatePaket()
+        public static String createRoleUpdatePaket()
         {
-            return ";5;true;";
+            return "5;true;";
         }
-        public String createWordUpdatePaket(String word)
+        public static String createWordUpdatePaket(String word)
         {
-            return ";6;"+word+";";
+            return "6;"+word+";";
         }
     }
     
