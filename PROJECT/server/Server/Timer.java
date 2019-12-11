@@ -46,7 +46,7 @@ public class Timer
     public void sendUpdateToUsers()
     {
         Logger.log("timer by: "+currentCountdown);
-        //Gameserver.GOTT.COMunit.
+        Gameserver.GOTT.COMunit.sendPaket("-1", Communication.PaketUtil.createTimeUpdatePaket(currentCountdown));
     }
 
     public void stopCounter()

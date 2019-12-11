@@ -16,7 +16,8 @@ public class Punktemanager
 
     }
 
-    public HashMap<String,Integer> getMap(){
+    public HashMap<String,Integer> getMap()
+    {
         return pointList;
     }
 
