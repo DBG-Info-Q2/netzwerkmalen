@@ -11,6 +11,20 @@ dependency3.type=UsesDependency
 dependency4.from=Gameserver
 dependency4.to=Timer
 dependency4.type=UsesDependency
+<<<<<<< HEAD
+dependency5.from=Communication
+dependency5.to=Logger
+dependency5.type=UsesDependency
+editor.fx.0.height=738
+editor.fx.0.width=816
+editor.fx.0.x=181
+editor.fx.0.y=27
+objectbench.height=96
+objectbench.width=1342
+package.divider.horizontal=0.6
+package.divider.vertical=0.8427480916030534
+package.editor.height=545
+=======
 dependency5.from=Gameserver
 dependency5.to=Logger
 dependency5.type=UsesDependency
@@ -32,12 +46,17 @@ objectbench.width=1342
 package.divider.horizontal=0.6
 package.divider.vertical=0.8381679389312977
 package.editor.height=542
+>>>>>>> 6d79eb4c3e691a58ecf00500e4dbfc88c3f6c3f9
 package.editor.width=1231
 package.editor.x=0
 package.editor.y=0
 package.frame.height=754
 package.frame.width=1382
+<<<<<<< HEAD
+package.numDependencies=5
+=======
 package.numDependencies=8
+>>>>>>> 6d79eb4c3e691a58ecf00500e4dbfc88c3f6c3f9
 package.numTargets=7
 package.showExtends=true
 package.showUses=true
@@ -52,8 +71,13 @@ target1.name=Spielw\u00F6rter
 target1.showInterface=false
 target1.type=ClassTarget
 target1.width=100
+<<<<<<< HEAD
+target1.x=10
+target1.y=140
+=======
 target1.x=260
 target1.y=190
+>>>>>>> 6d79eb4c3e691a58ecf00500e4dbfc88c3f6c3f9
 target2.height=50
 target2.name=Gameserver
 target2.showInterface=false
@@ -80,19 +104,34 @@ target5.name=Eingabekontrolle
 target5.showInterface=false
 target5.type=ClassTarget
 target5.width=130
+<<<<<<< HEAD
+target5.x=220
+target5.y=210
+=======
 target5.x=440
 target5.y=260
+>>>>>>> 6d79eb4c3e691a58ecf00500e4dbfc88c3f6c3f9
 target6.height=50
 target6.name=Logger
 target6.showInterface=false
 target6.type=ClassTarget
 target6.width=80
+<<<<<<< HEAD
+target6.x=100
+target6.y=80
+=======
 target6.x=810
 target6.y=0
+>>>>>>> 6d79eb4c3e691a58ecf00500e4dbfc88c3f6c3f9
 target7.height=50
 target7.name=Communication
 target7.showInterface=false
 target7.type=ClassTarget
 target7.width=120
+<<<<<<< HEAD
+target7.x=300
+target7.y=80
+=======
 target7.x=590
 target7.y=110
+>>>>>>> 6d79eb4c3e691a58ecf00500e4dbfc88c3f6c3f9
