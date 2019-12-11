@@ -1,5 +1,7 @@
+import java.util.ArrayList;
 import java.awt.*;
 import javax.swing.*;
+
 /**
  * Beschreiben Sie hier die Klasse Visuals.
  * 
@@ -26,42 +28,58 @@ public class Visuals
     JTextArea Punkte;
     boolean Test = true;
     String zuraten = "EINEN BAUM";
+    private int Counter = 0;
+    int []Punktearray;
+    String [] Namen;
     public void Window(){
         setup();
 
     }
 
     public void schreiben(String Wort, String Spieler){
-        Chat.append(Spieler+Wort+"\n");
-    }
-    
-    void Punkteschreiben(){
-        //Punkte.setText(
+        Chat.append(Spieler+": "+Wort+"\n");
     }
 
+    void PunkteListen(String Name, int Punkte){
+        Namen= new String[5];
+        Punktearray = new int[5];
+        Namen [Counter] = Name; 
+        Punktearray [Counter]= Punkte;
+        Counter++;
+    }
+
+    public void Punkteschreiben(){
+
+        for(int i=0;i<Counter;i++){
+
+            //Punkte.append();   
+        }
+    }
 
     public void setup(){
         Fenster = new JFrame(){
+
             public void paint(Graphics g) {
                 super.paint(g);
                 //g.drawLine(400, 400, 800, 800);
                 //g.drawOval(400, 400, 50, 50);
                 //g.drawString("Blah, blah");   
             }
+
         };
-        
+
         Panel = new JPanel();
         Label = new JLabel();
         Chat = new JTextArea();
         Punkte = new JTextArea();
-        
+
         Netzwerkmalen = new JLabel();
         Chat.setBounds(100,100,200,500);
         Chat.setEditable(false);
         Chat.setColumns(1);
         Chat.setLineWrap(true);
         Chat.setWrapStyleWord(true);
-        
+
         Punkte.setBounds(1000,100,200,200);
         Punkte.setEditable(false);
 
