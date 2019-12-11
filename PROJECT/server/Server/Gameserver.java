@@ -19,6 +19,7 @@ public class Gameserver
     private int timerUpdateTime = 10;
     
     public Communication COMunit = new Communication();
+    public Punktemanager points = new Punktemanager();
     public Spielwörter wort = new Spielwörter();
     public Timer timer = new Timer();
     static Gameserver GOTT;
@@ -35,11 +36,22 @@ public class Gameserver
     public void startNewServer()
     {
         COMunit.startListener();
+        
         long time = System.currentTimeMillis()+60000;
         while (COMunit.playerList.size()<maxPlayer && System.currentTimeMillis()<time)
         {
-            //LOG schreiben!!!!!
+            
         }
+        
+        if (COMunit.playerList.size()==maxPlayer)
+        {
+            Logger.log("maximal player nummber is reached");
+        }
+        else
+        {
+            Logger.log("60 sec are over");
+        }
+
         startNewGame();
     }
     
@@ -49,9 +61,12 @@ public class Gameserver
      */
     public void startNewGame()
     {
+        Logger.log("starting game...");
         spielwort = wort.gibNeueswort();
+        Logger.log("gameword is set to: "+spielwort);
         timer.startCounter(timerLength, timerUpdateTime);
         selectDrawerFromPlayerlist();
+        Logger.log("drawerID is: "+drawerID);
         //COMunit.sendPaket
         // muss noch überlegt werden, wie gameserver wartet während gezeichnet wird
     }
@@ -77,7 +92,15 @@ public class Gameserver
         timer.stopCounter();
         drawerID = null;
         //COMunit.sendPaket
-        startNewGame();
+        Logger.log("game reseted...");
+        if (gameAmountCounter<=gameUntilReset)
+        {
+            startNewGame();
+        }
+        else
+        {
+            stopGame();
+        }
     }
     
     /**
@@ -87,6 +110,7 @@ public class Gameserver
     public void stopGame()
     {
         //COMunit.sendPaket in 5 sek
+        Logger.log("server is closing in 5sec...");
         long time = System.currentTimeMillis()+5000;
         while (System.currentTimeMillis()<time)
         {

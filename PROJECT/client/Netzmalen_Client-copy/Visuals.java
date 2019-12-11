@@ -22,33 +22,50 @@ public class Visuals
     JButton Farbe10;
     JLabel Label;
     JLabel Netzwerkmalen;
-    boolean Test = false;
+    JTextArea Chat;
+    boolean Test = true;
     String zuraten = "EINEN BAUM";
     public void Window(){
         setup();
 
     }
 
+    public void schreiben(String Wort, String Spieler){
+        Chat.append(Spieler+Wort+"\n");
+    }
+
+
     public void setup(){
-        Fenster = new JFrame();
+        Fenster = new JFrame(){
+            public void paint(Graphics g) {
+                super.paint(g);
+                g.drawLine(400, 400, 800, 800);
+                //g.drawOval(400, 400, 50, 50);
+                //g.drawString("Blah, blah");   
+            }
+        };
+        
         Panel = new JPanel();
         Label = new JLabel();
-        
-        
+        Chat = new JTextArea();
+
         Netzwerkmalen = new JLabel();
-        
+        Chat.setBounds(100,100,200,500);
+        Chat.setEditable(false);
+        Chat.setColumns(1);
+        Chat.setLineWrap(true);
+        Chat.setWrapStyleWord(true);
+
         Netzwerkmalen.setText("Netzwerkmalen");
         Netzwerkmalen.setBounds(450,10,600,65);
-        Netzwerkmalen.setFont(new Font("Serif", Font.PLAIN, 60));
+        Netzwerkmalen.setFont(new Font("Pacifico", Font.PLAIN, 60));
         Label.setText(""+zuraten+"");
         Label.setBounds(530,100,300,40);
         Label.setFont(new Font("Serif", Font.PLAIN, 30));
         Eingabefarbe();
-        
 
         Fenster.setSize(1300,800);
-       
-        
+        Panel.add(Chat);
         Panel.add(Label);
         Panel.add(Netzwerkmalen);
         Panel.setVisible(true);
@@ -57,6 +74,7 @@ public class Visuals
         Fenster.setVisible(true);
 
     }
+
     public void Eingabefarbe (){
         if(Test== true){
             Farbe1 = new JButton(); 
