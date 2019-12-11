@@ -18,7 +18,7 @@ public class Communication
     private boolean serverRunning = false;
     
     public static final int SERVER_PORT=55555;
-    
+
     
     public Communication(){
         playerList = new HashMap<String,COMMSocket>();
@@ -45,6 +45,8 @@ public class Communication
                             Socket newClient = SocketServer.accept();
                             
                             COMMSocket socket = new COMMSocket("test",newClient);
+                            Logger.log("Connecting new Player with ID player"+playerList.size());
+                            playerList.put("player"+playerList.size(),socket);
                             
                         }catch(Exception e){
                             Logger.error("Error listening for new connections");
@@ -90,14 +92,11 @@ public class Communication
                         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                         String incomeLine = null;
                         // Lauft durch und ließt Nachrichten, solange wie der Teufel Leben mag.
-                        while(true){
-                            // Lese Lines aus.
-                            if((incomeLine=bufferedReader.readLine())!=null){
-                                // Verarbeite die einkommende Nachricht.
-                                Logger.log("Neue Nachricht von "+id+":"+incomeLine);
-                            }
-                                
+                        while((incomeLine=bufferedReader.readLine())!=null){
+                            // Verarbeite die einkommende Nachricht.
+                            Logger.log("Neue Nachricht von "+id+":"+incomeLine);    
                         }
+                        
                     }catch(IOException e){
                         Logger.error("Error receiving message from client with ID "+id);
                     }
