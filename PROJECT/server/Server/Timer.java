@@ -18,6 +18,7 @@ public class Timer
     {
         if (!timerRunning)
         {
+            Logger.log("starting timer...");
             timerRunning = true;
             countdownStart = System.currentTimeMillis();
             countdownDuration = counter;
@@ -44,11 +45,13 @@ public class Timer
 
     public void sendUpdateToUsers()
     {
+        Logger.log("timer by: "+currentCountdown);
         //Gameserver.GOTT.COMunit.
     }
 
     public void stopCounter()
     {
+        Logger.log("stopping timer...");
         timer.stop();
         timerRunning = false;
     }

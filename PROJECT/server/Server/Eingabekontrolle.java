@@ -7,15 +7,14 @@
  */
 public class Eingabekontrolle
 {
-    Gameserver server;
-    
-    public Eingabekontrolle(Gameserver gs){
-        server = gs;
-    }
-    
     public boolean checkWord(String word)
-    { if(server.spielwort.equalsIgnoreCase(word)){
-            return true; //umändern
-        } return false;
+    { 
+        if(Gameserver.GOTT.spielwort.equalsIgnoreCase(word))
+        {
+            Logger.log(word+" is a right guess");
+            return true;
+        } 
+        Logger.log(word+" is a false guess");
+        return false;
     }
 }
