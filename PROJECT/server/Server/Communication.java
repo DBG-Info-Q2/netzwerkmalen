@@ -57,6 +57,8 @@ public class Communication
                             Logger.log("Connected new Player with ID "+clientID);
                             playerList.put(clientID,socket);
                             
+                            Communication.sendPaket(clientID,PaketUtil.createLoginUpdatePaket(clientID,true));
+                            Communication.sendPaket("-1",PaketUtil.createLoginUpdatePaket(clientID,false));
                         }catch(Exception e){
                             Logger.error("Error listening for new connections");
                             e.printStackTrace();
@@ -99,9 +101,19 @@ public class Communication
     
     public static void sendPaket(String id, String paket)
     {
-        if(id==null||paket==null||Gameserver.GOTT.COMunit.playerList.get(id)==null){
-            Logger.error("ID, Paket equal null, or Player ID "+id+" not found");
+        if(id==null||paket==null){
+            Logger.error("ID, Paket equal null");
             return;
+        }
+        if(id=="-1"){
+            // Broadcast
+            for(HashMap.Entry<String,COMMSocket>  a: Gameserver.GOTT.COMunit.playerList.entrySet()){
+                a.getValue().sendPaket(paket);
+            }
+        }
+        if(Gameserver.GOTT.COMunit.playerList.get(id)==null){
+          Logger.error("Player ID "+id+" not found");
+          return;
         }
         
         COMMSocket client = Gameserver.GOTT.COMunit.playerList.get(id);
@@ -133,7 +145,7 @@ public class Communication
              if(suggestedNameAddon==null)
                 return findNewName(existingNames,"1");
              else
-                return findNewName(existingNames,suggestedNameAddon+"1");
+                return findNewName(existingNames,suggestedNameAddon+"!");
           return name;  
         }
         
