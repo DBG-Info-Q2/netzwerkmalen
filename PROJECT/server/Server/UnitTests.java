@@ -25,8 +25,8 @@ public class UnitTests
     public static void sendTestMessage(String msg){
         try{
             PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(s.getOutputStream()));
-            Logger.log(msg);
-            printWriter.print(msg);
+            Logger.log("socket sending "+msg);
+            printWriter.println(msg);
             printWriter.flush();
         }catch(Exception e){
             e.printStackTrace();

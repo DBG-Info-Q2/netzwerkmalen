@@ -24,6 +24,13 @@ public class Communication
         playerList = new HashMap<String,COMMSocket>();
     }
     
+    public void forceShutdown(){
+        for(HashMap.Entry<String,COMMSocket>  a: playerList.entrySet()){
+            a.getValue().incomeListener.stop();
+        }
+        Listener.stop();
+    }
+    
     public void startListener() //thread mit Schleife
     {
         if(!serverRunning){
@@ -43,13 +50,16 @@ public class Communication
                     while(serverRunning){
                         try{
                             Socket newClient = SocketServer.accept();
+                            String clientID =PlayerNames.findNewName(playerList.keySet().toArray(new String[playerList.keySet().size()]),null); 
+                            Logger.log("Created new name for Socket #"+playerList.size()+": "+clientID);
                             
-                            COMMSocket socket = new COMMSocket("test",newClient);
-                            Logger.log("Connecting new Player with ID player"+playerList.size());
-                            playerList.put("player"+playerList.size(),socket);
+                            COMMSocket socket = new COMMSocket(clientID,newClient);
+                            Logger.log("Connected new Player with ID "+clientID);
+                            playerList.put(clientID,socket);
                             
                         }catch(Exception e){
                             Logger.error("Error listening for new connections");
+                            e.printStackTrace();
                         }
                     }
                 }
@@ -63,9 +73,49 @@ public class Communication
         
     }
     
-    public void sendPaket(String id, String paket)
+    public static void sendPaket(String id, String paket)
     {
+        if(id==null||paket==null||Gameserver.GOTT.COMunit.playerList.get(id)==null){
+            Logger.error("ID, Paket equal null, or Player ID "+id+" not found");
+            return;
+        }
         
+        COMMSocket client = Gameserver.GOTT.COMunit.playerList.get(id);
+        client.sendPaket(paket);
+    }
+    
+    public static class PlayerNames{
+        public static final String[] sampleNames;
+        
+        public static String findNewName(String[] existingNames,String suggestedNameAddon){
+          if(existingNames==null)
+            return null;
+          
+          String name = sampleNames[((int)(Math.random() * (sampleNames.length + 1)))];
+          if(suggestedNameAddon!=null)
+            name=name+suggestedNameAddon;
+          boolean foundExistingName=false;
+          boolean nameEmpty=false;
+          for(String exName: existingNames)
+            if(exName.equalsIgnoreCase(name))
+                foundExistingName=true;
+            else
+                nameEmpty=true;
+          
+          if(nameEmpty&&foundExistingName)
+            return findNewName(existingNames,null);
+          
+          if(!nameEmpty&&foundExistingName)
+             if(suggestedNameAddon==null)
+                return findNewName(existingNames,"1");
+             else
+                return findNewName(existingNames,suggestedNameAddon+"1");
+          return name;  
+        }
+        
+        static{
+            sampleNames=new String[]{"Hermann","Jonas","Peter","Kacka","Bratan","Aran","Ketchup","Majo","Senf","Butterbrot","Netzwerkadmin","H41","C4"};
+        }
     }
     
     public static class PaketUtil{
@@ -79,24 +129,32 @@ public class Communication
         public Thread incomeListener;
         public String id;
         public Socket connection;
+        public BufferedReader in;
+        public PrintWriter out; 
         
         public COMMSocket(String identifier,Socket socket){
-            super();
             id=identifier;
             connection=socket;
             Logger.log("Setting up new Client Connection");
+            try{
+                in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                out = new PrintWriter(new OutputStreamWriter(connection.getOutputStream()));
+            }catch(IOException e){
+                Logger.error("Error while Client Connection Creation");
+                e.printStackTrace();
+            }
             incomeListener=new Thread(new Runnable(){
                 @Override
                 public void run(){
                     try{
-                        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                         String incomeLine = null;
                         // Lauft durch und ließt Nachrichten, solange wie der Teufel Leben mag.
-                        while((incomeLine=bufferedReader.readLine())!=null){
+                        while((incomeLine=in.readLine())!=null){
                             // Verarbeite die einkommende Nachricht.
-                            Logger.log("Neue Nachricht von "+id+":"+incomeLine);    
+                            Logger.debug("Reveived new paket from "+id+": "+incomeLine); 
+                            Communication.handlePaket(id,incomeLine);
                         }
-                        
+                        Logger.log("Exit");
                     }catch(IOException e){
                         Logger.error("Error receiving message from client with ID "+id);
                     }
@@ -105,10 +163,9 @@ public class Communication
             incomeListener.start();
         }
     
-       public void sendPaket(String paket) throws IOException {
-            PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(connection.getOutputStream()));
-            printWriter.print(paket);
-            printWriter.flush();
+       public void sendPaket(String paket) {
+            out.println(paket);
+            out.flush();
         }
         
     
