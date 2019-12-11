@@ -68,9 +68,33 @@ public class Communication
         }
     }
     
-    public void handlePaket(String id, String paket)
+    public static void handlePaket(String id, String paket)
     {
-        
+        String[]anaylse = paket.split(";");
+        switch (anaylse[0])
+        {
+            case "0": Logger.error("False protocol. Client "+id+" send LoginUpdatePaket."); break;
+            case "1": Logger.error("False protocol. Client "+id+" send TimeUpdatePaket."); break;
+            case "2": 
+                Logger.log("Client "+id+" send ChatUpdatePaket."); 
+                if (Eingabekontrolle.checkWord(anaylse[1]))
+                {
+                    Gameserver.GOTT.points.calculateANDaddPoints(id, id.equals(Gameserver.GOTT.drawerID));
+                }
+                else
+                {
+                    sendPaket("-1", paket);
+                }
+                break;
+            case "3": Logger.error("False protocol. Client "+id+" send PointsUpdatePaket."); break;
+            case "4":
+                Logger.log("Client "+id+" send DrawUpdatePaket.");
+                sendPaket("-1", paket);
+                break;
+            case "5": Logger.error("False protocol. Client "+id+" send RoleUpdatePaket."); break;
+            case "6": Logger.error("False protocol. Client "+id+" send WordUpdatePaket."); break;
+            default:  Logger.error("False protocol. Client "+id+" send trash."); break;
+        }
     }
     
     public static void sendPaket(String id, String paket)
@@ -119,8 +143,33 @@ public class Communication
     }
     
     public static class PaketUtil{
-        public String createTimeUpdatePaket(int leftoverTime){
-            return null;
+        public String createLoginUpdatePaket(String name, boolean du)
+        {
+            return ";0;"+name+";"+du+";";
+        }
+        public String createTimeUpdatePaket(int leftoverTime)
+        {
+            return ";1;"+leftoverTime+";";
+        }
+        public String createChatUpdatePaket(String recievedText)
+        {
+            return ";2;"+recievedText+";";
+        }
+        public String createPointsUpdatePaket(int newPionts, String id)
+        {
+            return ";3;"+newPionts+";"+id+";";
+        }
+        public String createDrawUpdatePaket(int x, int y, int colour)
+        {
+            return ";4;"+x+","+y+","+colour+";";
+        }
+        public String createRoleUpdatePaket()
+        {
+            return ";5;true;";
+        }
+        public String createWordUpdatePaket(String word)
+        {
+            return ";6;"+word+";";
         }
     }
     

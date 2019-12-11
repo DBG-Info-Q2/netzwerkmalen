@@ -19,6 +19,7 @@ public class Gameserver
     private int timerUpdateTime = 10;
     
     public Communication COMunit = new Communication();
+    public Punktemanager points = new Punktemanager();
     public Spielwörter wort = new Spielwörter();
     public Timer timer = new Timer();
     static Gameserver GOTT;
@@ -92,7 +93,14 @@ public class Gameserver
         drawerID = null;
         //COMunit.sendPaket
         Logger.log("game reseted...");
-        startNewGame();
+        if (gameAmountCounter<=gameUntilReset)
+        {
+            startNewGame();
+        }
+        else
+        {
+            stopGame();
+        }
     }
     
     /**

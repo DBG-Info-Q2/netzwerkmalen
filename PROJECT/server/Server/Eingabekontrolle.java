@@ -7,7 +7,7 @@
  */
 public class Eingabekontrolle
 {
-    public boolean checkWord(String word)
+    public static boolean checkWord(String word)
     { 
         if(Gameserver.GOTT.spielwort.equalsIgnoreCase(word))
         {
