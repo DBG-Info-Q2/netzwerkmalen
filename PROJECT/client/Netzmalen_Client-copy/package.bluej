@@ -1,8 +1,14 @@
 #BlueJ package file
-editor.fx.0.height=754
-editor.fx.0.width=1382
-editor.fx.0.x=-8
-editor.fx.0.y=-8
+dependency1.from=Logic
+dependency1.to=Netzwerkkommunikation
+dependency1.type=UsesDependency
+dependency2.from=Logic
+dependency2.to=Visuals
+dependency2.type=UsesDependency
+editor.fx.0.height=738
+editor.fx.0.width=816
+editor.fx.0.x=275
+editor.fx.0.y=0
 objectbench.height=151
 objectbench.width=760
 package.divider.horizontal=0.6
@@ -13,7 +19,7 @@ package.editor.x=364
 package.editor.y=102
 package.frame.height=595
 package.frame.width=800
-package.numDependencies=0
+package.numDependencies=2
 package.numTargets=3
 package.showExtends=true
 package.showUses=true
