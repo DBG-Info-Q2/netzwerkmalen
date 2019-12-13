@@ -1,10 +1,15 @@
 #BlueJ package file
+<<<<<<< HEAD
 dependency1.from=UnitTests
+=======
+dependency1.from=Gameserver
+>>>>>>> 604b9e0ab3883c23ed70f91eac3850b86f777c91
 dependency1.to=Communication
 dependency1.type=UsesDependency
 dependency10.from=Timer
 dependency10.to=Communication
 dependency10.type=UsesDependency
+<<<<<<< HEAD
 dependency11.from=Gameserver
 dependency11.to=Communication
 dependency11.type=UsesDependency
@@ -37,6 +42,40 @@ dependency6.to=Eingabekontrolle
 dependency6.type=UsesDependency
 dependency7.from=Communication
 dependency7.to=Gameserver
+=======
+dependency11.from=Eingabekontrolle
+dependency11.to=Gameserver
+dependency11.type=UsesDependency
+dependency12.from=Eingabekontrolle
+dependency12.to=Logger
+dependency12.type=UsesDependency
+dependency13.from=Communication
+dependency13.to=Logger
+dependency13.type=UsesDependency
+dependency14.from=Communication
+dependency14.to=Eingabekontrolle
+dependency14.type=UsesDependency
+dependency15.from=Communication
+dependency15.to=Gameserver
+dependency15.type=UsesDependency
+dependency2.from=Gameserver
+dependency2.to=Punktemanager
+dependency2.type=UsesDependency
+dependency3.from=Gameserver
+dependency3.to=Spielw\u00F6rter
+dependency3.type=UsesDependency
+dependency4.from=Gameserver
+dependency4.to=Timer
+dependency4.type=UsesDependency
+dependency5.from=Gameserver
+dependency5.to=Logger
+dependency5.type=UsesDependency
+dependency6.from=UnitTests
+dependency6.to=Communication
+dependency6.type=UsesDependency
+dependency7.from=UnitTests
+dependency7.to=Logger
+>>>>>>> 604b9e0ab3883c23ed70f91eac3850b86f777c91
 dependency7.type=UsesDependency
 dependency8.from=Timer
 dependency8.to=Logger
@@ -44,6 +83,7 @@ dependency8.type=UsesDependency
 dependency9.from=Timer
 dependency9.to=Gameserver
 dependency9.type=UsesDependency
+<<<<<<< HEAD
 editor.fx.0.height=754
 editor.fx.0.width=1382
 editor.fx.0.x=-8
@@ -58,6 +98,22 @@ package.editor.x=0
 package.editor.y=0
 package.frame.height=754
 package.frame.width=1382
+=======
+editor.fx.0.height=738
+editor.fx.0.width=683
+editor.fx.0.x=0
+editor.fx.0.y=0
+objectbench.height=93
+objectbench.width=643
+package.divider.horizontal=0.6
+package.divider.vertical=0.8435054773082942
+package.editor.height=532
+package.editor.width=532
+package.editor.x=0
+package.editor.y=0
+package.frame.height=738
+package.frame.width=683
+>>>>>>> 604b9e0ab3883c23ed70f91eac3850b86f777c91
 package.numDependencies=15
 package.numTargets=8
 package.showExtends=true
@@ -73,54 +129,84 @@ target1.name=Spielw\u00F6rter
 target1.showInterface=false
 target1.type=ClassTarget
 target1.width=100
+<<<<<<< HEAD
 target1.x=270
 target1.y=210
+=======
+target1.x=10
+target1.y=140
+>>>>>>> 604b9e0ab3883c23ed70f91eac3850b86f777c91
 target2.height=50
 target2.name=Gameserver
 target2.showInterface=false
 target2.type=ClassTarget
 target2.width=100
-target2.x=190
-target2.y=60
+target2.x=150
+target2.y=20
 target3.height=50
 target3.name=Punktemanager
 target3.showInterface=false
 target3.type=ClassTarget
 target3.width=120
+<<<<<<< HEAD
 target3.x=40
 target3.y=250
+=======
+target3.x=10
+target3.y=200
+>>>>>>> 604b9e0ab3883c23ed70f91eac3850b86f777c91
 target4.height=50
 target4.name=UnitTests
 target4.showInterface=false
 target4.type=ClassTarget
 target4.width=80
+<<<<<<< HEAD
 target4.x=720
 target4.y=260
+=======
+target4.x=140
+target4.y=200
+>>>>>>> 604b9e0ab3883c23ed70f91eac3850b86f777c91
 target5.height=50
 target5.name=Timer
 target5.showInterface=false
 target5.type=ClassTarget
 target5.width=80
-target5.x=60
-target5.y=110
+target5.x=10
+target5.y=80
 target6.height=50
 target6.name=Eingabekontrolle
 target6.showInterface=false
 target6.type=ClassTarget
 target6.width=130
+<<<<<<< HEAD
 target6.x=440
 target6.y=260
+=======
+target6.x=120
+target6.y=140
+>>>>>>> 604b9e0ab3883c23ed70f91eac3850b86f777c91
 target7.height=50
 target7.name=Logger
 target7.showInterface=false
 target7.type=ClassTarget
 target7.width=80
+<<<<<<< HEAD
 target7.x=810
 target7.y=10
+=======
+target7.x=10
+target7.y=260
+>>>>>>> 604b9e0ab3883c23ed70f91eac3850b86f777c91
 target8.height=50
 target8.name=Communication
 target8.showInterface=false
 target8.type=ClassTarget
 target8.width=120
+<<<<<<< HEAD
 target8.x=570
 target8.y=150
+=======
+target8.x=100
+target8.y=80
+>>>>>>> 604b9e0ab3883c23ed70f91eac3850b86f777c91

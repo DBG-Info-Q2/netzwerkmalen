@@ -3,7 +3,7 @@
  * Beschreiben Sie hier die Klasse Communication.
  * 
  * @author Aleksander Stepien
- * @version pre0.0.0.0.0.0.0.2
+ * @version pre0.0.0.0.0.2
  */
 import java.util.*;
 import java.net.*;
