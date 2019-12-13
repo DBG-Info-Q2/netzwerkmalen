@@ -82,6 +82,7 @@ public class Communication
                 if (Eingabekontrolle.checkWord(anaylse[1]))
                 {
                     Gameserver.GOTT.points.calculateANDaddPoints(id, id.equals(Gameserver.GOTT.drawerID));
+                    Gameserver.GOTT.currentRightGuesses++;
                 }
                 else
                 {
