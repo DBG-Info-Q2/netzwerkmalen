@@ -7,27 +7,66 @@
  */
 public class Timer
 {
-    private int updatedelay;
+    private static int updatedelay;
     private long countdownStart;
     private int countdownDuration;
+    public Thread timer;
+    private static boolean timerRunning = false;
+    int currentCountdown;
+
+    public boolean timerRuns()
+    {
+        return timerRunning;
+    }
     
     public void startCounter(int counter, int updatedelay) //updatedelay in ms | Kuss von Dima :D
     {
-        
+        if (!timerRunning)
+        {
+            Logger.log("starting timer...");
+            timerRunning = true;
+            countdownStart = System.currentTimeMillis();
+            countdownDuration = counter;
+            this.updatedelay = updatedelay;
+            timer = new Thread(new Runnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        while (System.currentTimeMillis()<countdownStart+countdownDuration)
+                        {
+                            long updatewaiting = System.currentTimeMillis()+Timer.updatedelay;
+                            while (updatewaiting<System.currentTimeMillis())
+                            {
+
+                            }
+                            currentCountdown = (int)(countdownStart+countdownDuration-System.currentTimeMillis());
+                            sendUpdateToUsers();
+                        }
+                        currentCountdown=0;
+                        sendUpdateToUsers();
+                        stopCounter();
+                    }
+                });
+            timer.start();
+        }
     }
-    
+
     public void sendUpdateToUsers()
     {
-        //Gameserver.GOTT.COMunit.
+        Logger.log("timer by: "+currentCountdown);
+        Gameserver.GOTT.COMunit.sendPaket("-1", Communication.PaketUtil.createTimeUpdatePaket(currentCountdown));
     }
-    
+
     public void stopCounter()
     {
-        
+        Logger.log("stopping timer...");
+        timer.stop();
+        timerRunning = false;
     }
-    
-    public void getTime()
+
+    public int getTime()
     {
-        
+        return currentCountdown;
     }
 }

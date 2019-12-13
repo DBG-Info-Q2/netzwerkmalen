@@ -10,9 +10,16 @@ public class Logger
     public static boolean showDebug=true;
     
     /**
-     * Schreibt text in Konsole
+     * Schreibt text in Konsole mit Server Prefix
      */
     public static void log(String s){
+        System.out.println("Server: "+s);
+    }
+    
+    /**
+     * Schreibt text in Konsole
+     */
+    public static void logPr(String s){
         System.out.println(s);
     }
     

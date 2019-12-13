@@ -1,33 +1,42 @@
-
-/**
- * Beschreiben Sie hier die Klasse Logic.
- * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
- */
+import java.util.*;
 public class Logic
 {
-    // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
-    private int x;
-
-    /**
-     * Konstruktor für Objekte der Klasse Logic
-     */
+    int timer,color,amountPlayers;
+    int[] playerPoints;
+    int[][] drawingCoordinates;
+    boolean painting,loginProcess,gameRunning;
+    ArrayList chat;
+    Netzwerkkommunikation nc;
+    Visuals vs;
+    
+    String drawnWord;
+    
+    public void gameloop(){
+        nc = new Netzwerkkommunikation();   //init
+        vs = new Visuals();
+        
+        loginProcess = true;
+        gameRunning = true;
+        
+  
+        while(loginProcess){
+            
+            
+        }
+                                            //init vars for game
+        
+        
+        
+        while(gameRunning){
+            //repeating stuff
+            
+            
+        }
+    }
+    
+    
+    
     public Logic()
-    {
-        // Instanzvariable initialisieren
-        x = 0;
-    }
-
-    /**
-     * Ein Beispiel einer Methode - ersetzen Sie diesen Kommentar mit Ihrem eigenen
-     * 
-     * @param  y    ein Beispielparameter für eine Methode
-     * @return        die Summe aus x und y
-     */
-    public int beispielMethode(int y)
-    {
-        // tragen Sie hier den Code ein
-        return x + y;
-    }
+    {}
+    
 }

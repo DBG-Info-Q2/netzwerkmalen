@@ -17,17 +17,20 @@ public class Gameserver
     private int maxPlayer = 5;
     private int timerLength = 60;
     private int timerUpdateTime = 10;
-    
+    private static boolean gameRunning = false;
+
     public Communication COMunit = new Communication();
+    public Punktemanager points = new Punktemanager();
     public Spielwörter wort = new Spielwörter();
     public Timer timer = new Timer();
     static Gameserver GOTT;
-    
+    public Thread game;
+
     public Gameserver()
     {
         GOTT = this;
     }
-    
+
     /**
      * Methode for starting all server issues
      *
@@ -35,27 +38,46 @@ public class Gameserver
     public void startNewServer()
     {
         COMunit.startListener();
-        long time = System.currentTimeMillis()+60000;
+
+        /*long time = System.currentTimeMillis()+60000;
         while (COMunit.playerList.size()<maxPlayer && System.currentTimeMillis()<time)
         {
-            //LOG schreiben!!!!!
+
         }
-        startNewGame();
+
+        if (COMunit.playerList.size()==maxPlayer)
+        {
+        Logger.log("maximal player nummber is reached");
+        }
+        else
+        {
+        Logger.log("60 sec are over");
+        }
+
+        startNewGame();*/
     }
-    
+
     /**
      * Methode for starting a game
      *
      */
     public void startNewGame()
     {
+        Logger.log("starting game...");
         spielwort = wort.gibNeueswort();
+        COMunit.sendPaket(drawerID, Communication.PaketUtil.createWordUpdatePaket(spielwort));
+
+        Logger.log("gameword is set to: "+spielwort);
         timer.startCounter(timerLength, timerUpdateTime);
+
         selectDrawerFromPlayerlist();
-        //COMunit.sendPaket
-        // muss noch überlegt werden, wie gameserver wartet während gezeichnet wird
+        Logger.log("drawerID is: "+drawerID);
+        COMunit.sendPaket("-1", Communication.PaketUtil.createRoleUpdatePaket(false));
+        COMunit.sendPaket(drawerID, Communication.PaketUtil.createRoleUpdatePaket(true));
+
+        runningGame();
     }
-    
+
     /**
      * Methode for select the drawer from the playerlist
      *
@@ -65,21 +87,52 @@ public class Gameserver
         ArrayList<String> randomList = new ArrayList<String>(COMunit.playerList.keySet());
         drawerID = randomList.get((int)(Math.random() * (COMunit.playerList.size() + 1)));
     }
-    
+
+    public void runningGame()
+    {
+        if (!gameRunning)
+        {
+            game = new Thread(new Runnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        while (currentRightGuesses<maxPlayer && timer.timerRuns())
+                        {
+                            
+                        }
+                        resetGame();
+                    }
+                });
+            game.start();
+        }
+    }
+
     /**
      * Methode resetGame
      *
      */
     public void resetGame()
     {
+        game.stop();
+        gameRunning=false;
+        
         gameAmountCounter++;
         spielwort = null;
         timer.stopCounter();
         drawerID = null;
         //COMunit.sendPaket
-        startNewGame();
+        Logger.log("game reseted...");
+        if (gameAmountCounter<=gameUntilReset)
+        {
+            startNewGame();
+        }
+        else
+        {
+            stopGame();
+        }
     }
-    
+
     /**
      * Methode stopGame
      *
@@ -87,10 +140,11 @@ public class Gameserver
     public void stopGame()
     {
         //COMunit.sendPaket in 5 sek
+        Logger.log("server is closing in 5sec...");
         long time = System.currentTimeMillis()+5000;
         while (System.currentTimeMillis()<time)
         {
-            
+
         }
         System.exit(1);
     }
