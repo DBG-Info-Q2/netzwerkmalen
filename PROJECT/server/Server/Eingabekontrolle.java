@@ -7,8 +7,14 @@
  */
 public class Eingabekontrolle
 {
-    public boolean checkWord(String word)
-    {
-        return true; //umändern
+    public static boolean checkWord(String word)
+    { 
+        if(Gameserver.GOTT.spielwort.equalsIgnoreCase(word))
+        {
+            Logger.log(word+" is a right guess");
+            return true;
+        } 
+        Logger.log(word+" is a false guess");
+        return false;
     }
 }
