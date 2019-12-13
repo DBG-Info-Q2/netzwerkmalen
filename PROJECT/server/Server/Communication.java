@@ -175,9 +175,9 @@ public class Communication
         {
             return "4;"+x+","+y+","+colour+";";
         }
-        public static String createRoleUpdatePaket()
+        public static String createRoleUpdatePaket(boolean drawer)
         {
-            return "5;true;";
+            return "5;"+drawer+";";
         }
         public static String createWordUpdatePaket(String word)
         {

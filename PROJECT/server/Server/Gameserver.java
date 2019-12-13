@@ -63,11 +63,16 @@ public class Gameserver
     {
         Logger.log("starting game...");
         spielwort = wort.gibNeueswort();
+        COMunit.sendPaket(drawerID, Communication.PaketUtil.createWordUpdatePaket(spielwort));
+        
         Logger.log("gameword is set to: "+spielwort);
         timer.startCounter(timerLength, timerUpdateTime);
+        
         selectDrawerFromPlayerlist();
         Logger.log("drawerID is: "+drawerID);
-        //COMunit.sendPaket
+        COMunit.sendPaket("-1", Communication.PaketUtil.createRoleUpdatePaket(false));
+        COMunit.sendPaket(drawerID, Communication.PaketUtil.createRoleUpdatePaket(true));
+        
         // muss noch überlegt werden, wie gameserver wartet während gezeichnet wird
     }
     
@@ -79,6 +84,11 @@ public class Gameserver
     {
         ArrayList<String> randomList = new ArrayList<String>(COMunit.playerList.keySet());
         drawerID = randomList.get((int)(Math.random() * (COMunit.playerList.size() + 1)));
+    }
+    
+    public void runningGame()
+    {
+        
     }
     
     /**
