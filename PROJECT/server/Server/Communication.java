@@ -110,6 +110,7 @@ public class Communication
             for(HashMap.Entry<String,COMMSocket>  a: Gameserver.GOTT.COMunit.playerList.entrySet()){
                 a.getValue().sendPaket(paket);
             }
+            return;
         }
         if(Gameserver.GOTT.COMunit.playerList.get(id)==null){
           Logger.error("Player ID "+id+" not found");

@@ -37,7 +37,7 @@ public class Gameserver
     {
         COMunit.startListener();
         
-        long time = System.currentTimeMillis()+60000;
+        /*long time = System.currentTimeMillis()+60000;
         while (COMunit.playerList.size()<maxPlayer && System.currentTimeMillis()<time)
         {
             
@@ -52,7 +52,7 @@ public class Gameserver
             Logger.log("60 sec are over");
         }
 
-        startNewGame();
+        startNewGame();*/
     }
     
     /**
