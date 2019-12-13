@@ -9,7 +9,7 @@ public class Netzwerkkommunikation
      */
     public Netzwerkkommunikation()
     {
-        // Instanzvariable initialisieren
+        // Instanzvariable initialisieren ...
         x = 0;
     }
 
