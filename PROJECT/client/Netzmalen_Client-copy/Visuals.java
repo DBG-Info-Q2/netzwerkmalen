@@ -1,5 +1,7 @@
+import java.util.ArrayList;
 import java.awt.*;
 import javax.swing.*;
+
 /**
  * Beschreiben Sie hier die Klasse Visuals.
  * 
@@ -23,31 +25,60 @@ public class Visuals
     JLabel Label;
     JLabel Netzwerkmalen;
     JTextArea Chat;
+    JTextArea Punkte;
     boolean Test = true;
     String zuraten = "EINEN BAUM";
+    private int Counter = 0;
+    int []Punktearray = new int [5];
+    String [] Namen = new String[5];
     public void Window(){
         setup();
 
     }
 
     public void schreiben(String Wort, String Spieler){
-        Chat.append(Spieler+Wort+"\n");
+        Chat.append(Spieler+": "+Wort+"\n");
     }
 
+    void PunkteListen(String Name, int Punkte){
+        for(int o=0;o<5;o++){
+          if (Name == Namen[o]){    
+           Punktearray[o]=Punkte; 
+           
+             }   
+            }
+        Namen [Counter] = Name; 
+        Punktearray [Counter]= Punkte;
+        Counter++;
+        Punkteschreiben();
+         
+    
+        
+  }
+
+      public void Punkteschreiben(){
+        Punkte.setText("");
+        for(int i=0;i<Counter;i++){
+            Punkte.append(Namen[i]+":"+Punktearray[i]+"Punkte"+"\n");   
+        }
+    }
 
     public void setup(){
         Fenster = new JFrame(){
+
             public void paint(Graphics g) {
                 super.paint(g);
-                g.drawLine(400, 400, 800, 800);
+                //g.drawLine(400, 400, 800, 800);
                 //g.drawOval(400, 400, 50, 50);
                 //g.drawString("Blah, blah");   
             }
+
         };
-        
+
         Panel = new JPanel();
         Label = new JLabel();
         Chat = new JTextArea();
+        Punkte = new JTextArea();
 
         Netzwerkmalen = new JLabel();
         Chat.setBounds(100,100,200,500);
@@ -55,6 +86,9 @@ public class Visuals
         Chat.setColumns(1);
         Chat.setLineWrap(true);
         Chat.setWrapStyleWord(true);
+
+        Punkte.setBounds(1000,100,200,200);
+        Punkte.setEditable(false);
 
         Netzwerkmalen.setText("Netzwerkmalen");
         Netzwerkmalen.setBounds(450,10,600,65);
@@ -65,6 +99,7 @@ public class Visuals
         Eingabefarbe();
 
         Fenster.setSize(1300,800);
+        Panel.add(Punkte);
         Panel.add(Chat);
         Panel.add(Label);
         Panel.add(Netzwerkmalen);

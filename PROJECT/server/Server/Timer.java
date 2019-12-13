@@ -14,6 +14,11 @@ public class Timer
     private static boolean timerRunning = false;
     int currentCountdown;
 
+    public boolean timerRuns()
+    {
+        return timerRunning;
+    }
+    
     public void startCounter(int counter, int updatedelay) //updatedelay in ms | Kuss von Dima :D
     {
         if (!timerRunning)
@@ -36,7 +41,11 @@ public class Timer
 
                             }
                             currentCountdown = (int)(countdownStart+countdownDuration-System.currentTimeMillis());
+                            sendUpdateToUsers();
                         }
+                        currentCountdown=0;
+                        sendUpdateToUsers();
+                        stopCounter();
                     }
                 });
             timer.start();

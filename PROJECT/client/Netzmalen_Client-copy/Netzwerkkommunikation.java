@@ -1,33 +1,47 @@
+import java.util.*;
+import java.net.*;
+import java.io.*;
+import java.lang.*;
 
-/**
- * Beschreiben Sie hier die Klasse Netzwerkkommunikation.
- * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
- */
 public class Netzwerkkommunikation
 {
-    // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
-    private int x;
+    public static Thread s = null;
+    public static Socket socket = null;
 
-    /**
-     * Konstruktor für Objekte der Klasse Netzwerkkommunikation
-     */
-    public Netzwerkkommunikation()
-    {
-        // Instanzvariable initialisieren
-        x = 0;
+    
+    public static void createTestSocket(){
+            s=new Thread(new Runnable(){
+                @Override
+                public void run(){
+                    try{
+                        socket=new Socket("localhost",55555);
+                        BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                        
+                        String incomeLine = null;
+                        // Lauft durch und ließt Nachrichten, solange wie der Teufel Leben mag.
+                        while((incomeLine=in.readLine())!=null){
+                            // Verarbeite die einkommende Nachricht.
+                            System.out.println("Reveived new paket from server: "+incomeLine); 
+                        }
+                    }catch(Exception e){
+                        e.printStackTrace();
+                    }
+                }
+            });
+            
+            s.start();
+       
+    }
+    
+    public static void sendTestMessage(String msg){
+        try{
+            PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
+            System.out.println("socket sending "+msg);
+            printWriter.println(msg);
+            printWriter.flush();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
-    /**
-     * Ein Beispiel einer Methode - ersetzen Sie diesen Kommentar mit Ihrem eigenen
-     * 
-     * @param  y    ein Beispielparameter für eine Methode
-     * @return        die Summe aus x und y
-     */
-    public int beispielMethode(int y)
-    {
-        // tragen Sie hier den Code ein
-        return x + y;
-    }
 }
