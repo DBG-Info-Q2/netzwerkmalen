@@ -29,8 +29,8 @@ public class Visuals
     boolean Test = true;
     String zuraten = "EINEN BAUM";
     private int Counter = 0;
-    int []Punktearray;
-    String [] Namen;
+    int []Punktearray = new int [5];
+    String [] Namen = new String[5];
     public void Window(){
         setup();
 
@@ -41,18 +41,25 @@ public class Visuals
     }
 
     void PunkteListen(String Name, int Punkte){
-        Namen= new String[5];
-        Punktearray = new int[5];
+        for(int o=0;o<5;o++){
+          if (Name == Namen[o]){    
+           Punktearray[o]=Punkte; 
+           
+             }   
+            }
         Namen [Counter] = Name; 
         Punktearray [Counter]= Punkte;
         Counter++;
-    }
+        Punkteschreiben();
+         
+    
+        
+  }
 
-    public void Punkteschreiben(){
-
+      public void Punkteschreiben(){
+        Punkte.setText("");
         for(int i=0;i<Counter;i++){
-
-            //Punkte.append();   
+            Punkte.append(Namen[i]+":"+Punktearray[i]+"Punkte"+"\n");   
         }
     }
 
