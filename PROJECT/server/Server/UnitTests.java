@@ -31,7 +31,7 @@ public class UnitTests
                         // Lauft durch und ließt Nachrichten, solange wie der Teufel Leben mag.
                         while((incomeLine=in.readLine())!=null){
                             // Verarbeite die einkommende Nachricht.
-                            Logger.debug("Reveived new paket from server: "+incomeLine); 
+                            Logger.logPr("Reveived new paket from server: "+incomeLine); 
                         }
                     }catch(Exception e){
                         e.printStackTrace();
@@ -46,7 +46,7 @@ public class UnitTests
     public static void sendTestMessage(String msg){
         try{
             PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
-            Logger.log("socket sending "+msg);
+            Logger.logPr("socket sending "+msg);
             printWriter.println(msg);
             printWriter.flush();
         }catch(Exception e){

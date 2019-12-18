@@ -1,4 +1,21 @@
 #BlueJ package file
+<<<<<<< HEAD
+editor.fx.0.height=738
+editor.fx.0.width=910
+editor.fx.0.x=186
+editor.fx.0.y=91
+objectbench.height=103
+objectbench.width=264
+package.divider.horizontal=0.6
+package.divider.vertical=0.7674418604651163
+package.editor.height=343
+package.editor.width=153
+package.editor.x=208
+package.editor.y=146
+package.frame.height=572
+package.frame.width=287
+package.numDependencies=0
+=======
 dependency1.from=Logic
 dependency1.to=Netzwerkkommunikation
 dependency1.type=UsesDependency
@@ -20,6 +37,7 @@ package.editor.y=0
 package.frame.height=738
 package.frame.width=683
 package.numDependencies=2
+>>>>>>> 68ddd86bee1597b7ae90b5ed6c3b437008773e6b
 package.numTargets=3
 package.showExtends=true
 package.showUses=true
@@ -34,7 +52,7 @@ target1.name=Netzwerkkommunikation
 target1.showInterface=false
 target1.type=ClassTarget
 target1.width=180
-target1.x=270
+target1.x=280
 target1.y=80
 target2.height=50
 target2.name=Visuals

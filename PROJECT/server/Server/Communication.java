@@ -1,9 +1,12 @@
-
 /**
  * Beschreiben Sie hier die Klasse Communication.
  * 
  * @author Aleksander Stepien
+<<<<<<< HEAD
+ * @version pre0.0.0.1.41
+=======
  * @version pre0.0.0.0.0.2
+>>>>>>> d8e323bd2d3637b3d3db5b5fa343eebafc938d44
  */
 import java.util.*;
 import java.net.*;
@@ -122,14 +125,22 @@ public class Communication
         client.sendPaket(paket);
     }
     
+    /**
+     * Util to create Names for Players
+     */
     public static class PlayerNames{
         public static final String[] sampleNames;
         
+        /**
+         * Procedure finds an not used name according to Array of names that are already used. 
+         * Also adds 1!!!... at the end if all names are being used.
+         * suggestedNameAddon can be a suffix to the user name
+         */
         public static String findNewName(String[] existingNames,String suggestedNameAddon){
           if(existingNames==null)
             return null;
           
-          String name = sampleNames[((int)(Math.random() * (sampleNames.length + 1)))];
+          String name = sampleNames[((int)(Math.random() * (sampleNames.length - 1)))];
           if(suggestedNameAddon!=null)
             name=name+suggestedNameAddon;
           boolean foundExistingName=false;
@@ -152,10 +163,16 @@ public class Communication
         }
         
         static{
+            /**
+             * This is where all the names are stored.
+             */
             sampleNames=new String[]{"Hermann","Jonas","Peter","Kacka","Bratan","Aran","Ketchup","Majo","Senf","Butterbrot","Netzwerkadmin","H41","C4"};
         }
     }
     
+    /**
+     * Util to create Pakets 
+     */
     public static class PaketUtil{
         public static String createLoginUpdatePaket(String name, boolean du)
         {
@@ -187,6 +204,9 @@ public class Communication
         }
     }
     
+    /**
+     * Socket with a Thread to asynchrounously receive messages from client
+     */
     public static class COMMSocket{
         
         public Thread incomeListener;
