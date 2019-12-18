@@ -16,7 +16,7 @@ public class Gameserver
     public int currentRightGuesses;
     private int maxPlayer = 5;
     private int timerLength = 60;
-    private int timerUpdateTime = 10;
+    private int timerUpdateTime = 500; //in ms
     private static boolean gameRunning = false;
 
     public Communication COMunit = new Communication();
@@ -89,7 +89,7 @@ public class Gameserver
     public void selectDrawerFromPlayerlist()
     {
         ArrayList<String> randomList = new ArrayList<String>(COMunit.playerList.keySet());
-        drawerID = randomList.get((int)(Math.random() * (COMunit.playerList.size() + 1)));
+        drawerID = randomList.get((int)(Math.random() * (COMunit.playerList.size() - 1)));
     }
 
     public void runningGame()
