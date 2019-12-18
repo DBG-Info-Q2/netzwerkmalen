@@ -16,13 +16,14 @@ public class Gameserver
     public int currentRightGuesses;
     private int maxPlayer = 5;
     private int timerLength = 60;
-    private int timerUpdateTime = 10;
+    private int timerUpdateTime = 500; //in ms
     private static boolean gameRunning = false;
 
     public Communication COMunit = new Communication();
     public Punktemanager points = new Punktemanager();
     public Spielwörter wort = new Spielwörter();
     public Timer timer = new Timer();
+    public Konsole console = new Konsole();
     static Gameserver GOTT;
     public Thread game;
 
@@ -37,7 +38,8 @@ public class Gameserver
      */
     public void startNewServer()
     {
-        COMunit.startListener();
+        console.start();
+        //COMunit.startListener();
 
         /*long time = System.currentTimeMillis()+60000;
         while (COMunit.playerList.size()<maxPlayer && System.currentTimeMillis()<time)
@@ -89,7 +91,7 @@ public class Gameserver
     public void selectDrawerFromPlayerlist()
     {
         ArrayList<String> randomList = new ArrayList<String>(COMunit.playerList.keySet());
-        drawerID = randomList.get((int)(Math.random() * (COMunit.playerList.size() + 1)));
+        drawerID = randomList.get((int)(Math.random() * (COMunit.playerList.size() - 1)));
     }
 
     public void runningGame()
@@ -149,8 +151,8 @@ public class Gameserver
         long time = System.currentTimeMillis()+10000;
         while (System.currentTimeMillis()<time)
         {
-
         }
+        COMunit.forceShutdown();
         System.exit(1);
     }
 }

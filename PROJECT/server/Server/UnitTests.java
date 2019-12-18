@@ -32,6 +32,7 @@ public class UnitTests
                         while((incomeLine=in.readLine())!=null){
                             // Verarbeite die einkommende Nachricht.
                             Logger.logPr("Reveived new paket from server: "+incomeLine); 
+                            
                         }
                     }catch(Exception e){
                         e.printStackTrace();
