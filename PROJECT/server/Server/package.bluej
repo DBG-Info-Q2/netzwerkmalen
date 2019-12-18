@@ -1,31 +1,37 @@
 #BlueJ package file
-dependency1.from=Gameserver
+dependency1.from=UnitTests
 dependency1.to=Communication
 dependency1.type=UsesDependency
+<<<<<<< HEAD
 dependency10.from=Timer
 dependency10.to=Communication
+=======
+dependency10.from=Communication
+dependency10.to=Gameserver
+>>>>>>> 2ff69db311161975ca4c245ca72ec53df9f58afb
 dependency10.type=UsesDependency
-dependency11.from=Eingabekontrolle
-dependency11.to=Gameserver
+dependency11.from=Gameserver
+dependency11.to=Communication
 dependency11.type=UsesDependency
-dependency12.from=Eingabekontrolle
-dependency12.to=Logger
+dependency12.from=Gameserver
+dependency12.to=Punktemanager
 dependency12.type=UsesDependency
-dependency13.from=Communication
-dependency13.to=Logger
+dependency13.from=Gameserver
+dependency13.to=Spielw\u00F6rter
 dependency13.type=UsesDependency
-dependency14.from=Communication
-dependency14.to=Eingabekontrolle
+dependency14.from=Gameserver
+dependency14.to=Timer
 dependency14.type=UsesDependency
-dependency15.from=Communication
-dependency15.to=Gameserver
+dependency15.from=Gameserver
+dependency15.to=Logger
 dependency15.type=UsesDependency
-dependency2.from=Gameserver
-dependency2.to=Punktemanager
+dependency2.from=UnitTests
+dependency2.to=Logger
 dependency2.type=UsesDependency
-dependency3.from=Gameserver
-dependency3.to=Spielw\u00F6rter
+dependency3.from=Timer
+dependency3.to=Logger
 dependency3.type=UsesDependency
+<<<<<<< HEAD
 dependency4.from=Gameserver
 dependency4.to=Timer
 dependency4.type=UsesDependency
@@ -36,18 +42,31 @@ dependency6.from=UnitTests
 dependency6.to=Communication
 dependency6.type=UsesDependency
 dependency7.from=UnitTests
+=======
+dependency4.from=Timer
+dependency4.to=Gameserver
+dependency4.type=UsesDependency
+dependency5.from=Timer
+dependency5.to=Communication
+dependency5.type=UsesDependency
+dependency6.from=Eingabekontrolle
+dependency6.to=Gameserver
+dependency6.type=UsesDependency
+dependency7.from=Eingabekontrolle
+>>>>>>> 2ff69db311161975ca4c245ca72ec53df9f58afb
 dependency7.to=Logger
 dependency7.type=UsesDependency
-dependency8.from=Timer
+dependency8.from=Communication
 dependency8.to=Logger
 dependency8.type=UsesDependency
-dependency9.from=Timer
-dependency9.to=Gameserver
+dependency9.from=Communication
+dependency9.to=Eingabekontrolle
 dependency9.type=UsesDependency
 editor.fx.0.height=754
 editor.fx.0.width=1382
 editor.fx.0.x=-8
 editor.fx.0.y=-8
+<<<<<<< HEAD
 objectbench.height=95
 objectbench.width=643
 package.divider.horizontal=0.6
@@ -55,6 +74,15 @@ package.divider.vertical=0.8403755868544601
 package.editor.height=530
 package.editor.width=532
 package.editor.x=0
+=======
+objectbench.height=93
+objectbench.width=643
+package.divider.horizontal=0.6
+package.divider.vertical=0.8435054773082942
+package.editor.height=532
+package.editor.width=532
+package.editor.x=678
+>>>>>>> 2ff69db311161975ca4c245ca72ec53df9f58afb
 package.editor.y=0
 package.frame.height=738
 package.frame.width=683

@@ -2,13 +2,15 @@
 /**
  * Beschreiben Sie hier die Klasse Eingabekontrolle.
  * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
  */
 public class Eingabekontrolle
 {
     public static boolean checkWord(String word)
     { 
+        if(Gameserver.GOTT==null||Gameserver.GOTT.spielwort==null){
+            Logger.error("GOTT or spielwort is null! Can not check word");
+            return false;
+        }
         if(Gameserver.GOTT.spielwort.equalsIgnoreCase(word))
         {
             Logger.log(word+" is a right guess");

@@ -64,12 +64,16 @@ public class Gameserver
     public void startNewGame()
     {
         Logger.log("starting game...");
+        
         spielwort = wort.gibNeueswort();
         COMunit.sendPaket(drawerID, Communication.PaketUtil.createWordUpdatePaket(spielwort));
-
         Logger.log("gameword is set to: "+spielwort);
+        
         timer.startCounter(timerLength, timerUpdateTime);
 
+        Logger.log("Gamestateupdate Paket sending to all users");
+        COMunit.sendPaket("-1", Communication.PaketUtil.createGameStateUpdatePaket(true));
+        
         selectDrawerFromPlayerlist();
         Logger.log("drawerID is: "+drawerID);
         COMunit.sendPaket("-1", Communication.PaketUtil.createRoleUpdatePaket(false));
@@ -92,6 +96,7 @@ public class Gameserver
     {
         if (!gameRunning)
         {
+            gameRunning = true;
             game = new Thread(new Runnable()
                 {
                     @Override
@@ -121,14 +126,15 @@ public class Gameserver
         spielwort = null;
         timer.stopCounter();
         drawerID = null;
-        //COMunit.sendPaket
-        Logger.log("game reseted...");
+        COMunit.sendPaket("-1", Communication.PaketUtil.createGameStateUpdatePaket(false));
+        Logger.log("game resetted...");
         if (gameAmountCounter<=gameUntilReset)
         {
             startNewGame();
         }
         else
         {
+            COMunit.sendPaket("-1", Communication.PaketUtil.createGameEndUpdatePaket(points.getWinner()));
             stopGame();
         }
     }
@@ -139,9 +145,8 @@ public class Gameserver
      */
     public void stopGame()
     {
-        //COMunit.sendPaket in 5 sek
-        Logger.log("server is closing in 5sec...");
-        long time = System.currentTimeMillis()+5000;
+        Logger.log("server is closing in 10sec...");
+        long time = System.currentTimeMillis()+10000;
         while (System.currentTimeMillis()<time)
         {
 

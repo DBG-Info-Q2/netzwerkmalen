@@ -2,11 +2,7 @@
  * Beschreiben Sie hier die Klasse Communication.
  * 
  * @author Aleksander Stepien
-<<<<<<< HEAD
  * @version pre0.0.0.1.41
-=======
- * @version pre0.0.0.0.0.2
->>>>>>> d8e323bd2d3637b3d3db5b5fa343eebafc938d44
  */
 import java.util.*;
 import java.net.*;
@@ -75,14 +71,14 @@ public class Communication
     
     public static void handlePaket(String id, String paket)
     {
-        String[]anaylse = paket.split(";");
-        switch (anaylse[0])
+        String[]analyse = paket.split(";");
+        switch (analyse[0])
         {
-            case "0": Logger.error("False protocol. Client "+id+" send LoginUpdatePaket."); break;
-            case "1": Logger.error("False protocol. Client "+id+" send TimeUpdatePaket."); break;
+            case "0": Logger.error("False protocol. Client "+id+" sent LoginUpdatePaket."); break;
+            case "1": Logger.error("False protocol. Client "+id+" sent TimeUpdatePaket."); break;
             case "2": 
-                Logger.log("Client "+id+" send ChatUpdatePaket."); 
-                if (Eingabekontrolle.checkWord(anaylse[1]))
+                Logger.log("Client "+id+" sent ChatUpdatePaket:"+analyse[1]); 
+                if (Eingabekontrolle.checkWord(analyse[1]))
                 {
                     Gameserver.GOTT.points.calculateANDaddPoints(id, id.equals(Gameserver.GOTT.drawerID));
                     Gameserver.GOTT.currentRightGuesses++;
@@ -92,14 +88,16 @@ public class Communication
                     sendPaket("-1", paket);
                 }
                 break;
-            case "3": Logger.error("False protocol. Client "+id+" send PointsUpdatePaket."); break;
+            case "3": Logger.error("False protocol. Client "+id+" sent PointsUpdatePaket."); break;
             case "4":
-                Logger.log("Client "+id+" send DrawUpdatePaket.");
+                //Logger.log("Client "+id+" sent DrawUpdatePaket.");
                 sendPaket("-1", paket);
                 break;
-            case "5": Logger.error("False protocol. Client "+id+" send RoleUpdatePaket."); break;
-            case "6": Logger.error("False protocol. Client "+id+" send WordUpdatePaket."); break;
-            default:  Logger.error("False protocol. Client "+id+" send trash."); break;
+            case "5": Logger.error("False protocol. Client "+id+" sent RoleUpdatePaket."); break;
+            case "6": Logger.error("False protocol. Client "+id+" sent WordUpdatePaket."); break;
+            case "7": Logger.error("False protocol. Client "+id+" sent GameStateUpdatePaket."); break;
+            case "8": Logger.error("False protocol. Client "+id+" sent GameEndUpdatePaket."); break;
+            default:  Logger.error("False protocol. Client "+id+" sent trash."); break;
         }
     }
     
@@ -201,6 +199,14 @@ public class Communication
         public static String createWordUpdatePaket(String word)
         {
             return "6;"+word+";";
+        }
+        public static String createGameStateUpdatePaket(boolean gameRunning)
+        {
+            return "7;"+gameRunning+";";
+        }
+        public static String createGameEndUpdatePaket(String winner)
+        {
+            return "8;"+winner+";";
         }
     }
     
