@@ -15,7 +15,7 @@ public class Spielwörter
     String[] BOI = new String[117];
     
     
-    public String gibneuesWort()
+    public String gibNeueswort()
     {
         
         int i=1;
