@@ -70,6 +70,9 @@ public class Gameserver
         Logger.log("gameword is set to: "+spielwort);
         timer.startCounter(timerLength, timerUpdateTime);
 
+        Logger.log("Gamestateupdate Paket sending to all users");
+        COMunit.sendPaket("-1", Communication.PaketUtil.createGameStateUpdatePaket(true));
+        
         selectDrawerFromPlayerlist();
         Logger.log("drawerID is: "+drawerID);
         COMunit.sendPaket("-1", Communication.PaketUtil.createRoleUpdatePaket(false));
@@ -92,6 +95,7 @@ public class Gameserver
     {
         if (!gameRunning)
         {
+            gameRunning = true;
             game = new Thread(new Runnable()
                 {
                     @Override
@@ -121,7 +125,7 @@ public class Gameserver
         spielwort = null;
         timer.stopCounter();
         drawerID = null;
-        //COMunit.sendPaket
+        COMunit.sendPaket("-1", Communication.PaketUtil.createGameStateUpdatePaket(true));
         Logger.log("game reseted...");
         if (gameAmountCounter<=gameUntilReset)
         {

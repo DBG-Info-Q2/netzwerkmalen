@@ -2,11 +2,7 @@
  * Beschreiben Sie hier die Klasse Communication.
  * 
  * @author Aleksander Stepien
-<<<<<<< HEAD
  * @version pre0.0.0.1.41
-=======
- * @version pre0.0.0.0.0.2
->>>>>>> d8e323bd2d3637b3d3db5b5fa343eebafc938d44
  */
 import java.util.*;
 import java.net.*;
@@ -201,6 +197,10 @@ public class Communication
         public static String createWordUpdatePaket(String word)
         {
             return "6;"+word+";";
+        }
+        public static String createGameStateUpdatePaket(boolean gameRunning)
+        {
+            return "7;"+gameRunning+";";
         }
     }
     
