@@ -86,6 +86,7 @@ public class Communication
                 else
                 {
                     sendPaket("-1", paket);
+                    
                 }
                 break;
             case "3": Logger.error("False protocol. Client "+id+" send PointsUpdatePaket."); break;
@@ -162,7 +163,7 @@ public class Communication
             /**
              * This is where all the names are stored.
              */
-            sampleNames=new String[]{"Hermann","Jonas","Peter","Kacka","Bratan","Aran","Ketchup","Majo","Senf","Butterbrot","Netzwerkadmin","H41","C4"};
+            sampleNames=new String[]{"Hermann","Jonas","Peter","Kacka","Bratan","Arian","Ketchup","Majo","Senf","Butterbrot","Netzwerkadmin","H41","C4"};
         }
     }
     
@@ -205,7 +206,7 @@ public class Communication
     }
     
     /**
-     * Socket with a Thread to asynchrounously receive messages from client
+     * Socket with a Thread to asynchronously receive messages from client
      */
     public static class COMMSocket{
         

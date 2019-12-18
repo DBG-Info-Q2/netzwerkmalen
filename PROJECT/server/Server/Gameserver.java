@@ -23,6 +23,7 @@ public class Gameserver
     public Punktemanager points = new Punktemanager();
     public Spielwörter wort = new Spielwörter();
     public Timer timer = new Timer();
+    public Konsole console = new Konsole();
     static Gameserver GOTT;
     public Thread game;
 
@@ -37,7 +38,8 @@ public class Gameserver
      */
     public void startNewServer()
     {
-        COMunit.startListener();
+        console.start();
+        //COMunit.startListener();
 
         /*long time = System.currentTimeMillis()+60000;
         while (COMunit.playerList.size()<maxPlayer && System.currentTimeMillis()<time)
@@ -148,8 +150,8 @@ public class Gameserver
         long time = System.currentTimeMillis()+5000;
         while (System.currentTimeMillis()<time)
         {
-
         }
+        COMunit.forceShutdown();
         System.exit(1);
     }
 }
