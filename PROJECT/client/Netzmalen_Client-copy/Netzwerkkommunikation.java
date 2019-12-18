@@ -7,7 +7,6 @@ public class Netzwerkkommunikation
 {
     public static Thread s = null;
     public static Socket socket = null;
-
     
     public static void createTestSocket(){
             s=new Thread(new Runnable(){
@@ -22,7 +21,9 @@ public class Netzwerkkommunikation
                         while((incomeLine=in.readLine())!=null){
                             // Verarbeite die einkommende Nachricht.
                             System.out.println("Reveived new paket from server: "+incomeLine);
+                            if(true){
                             System.out.println("Game starting");
+                            }
                             
                         }
                     }catch(Exception e){
