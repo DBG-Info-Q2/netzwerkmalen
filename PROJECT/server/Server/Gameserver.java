@@ -125,8 +125,8 @@ public class Gameserver
         spielwort = null;
         timer.stopCounter();
         drawerID = null;
-        COMunit.sendPaket("-1", Communication.PaketUtil.createGameStateUpdatePaket(true));
-        Logger.log("game reseted...");
+        COMunit.sendPaket("-1", Communication.PaketUtil.createGameStateUpdatePaket(false));
+        Logger.log("game resetted...");
         if (gameAmountCounter<=gameUntilReset)
         {
             startNewGame();
