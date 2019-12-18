@@ -64,10 +64,11 @@ public class Gameserver
     public void startNewGame()
     {
         Logger.log("starting game...");
+        
         spielwort = wort.gibNeueswort();
         COMunit.sendPaket(drawerID, Communication.PaketUtil.createWordUpdatePaket(spielwort));
-
         Logger.log("gameword is set to: "+spielwort);
+        
         timer.startCounter(timerLength, timerUpdateTime);
 
         Logger.log("Gamestateupdate Paket sending to all users");
@@ -133,6 +134,7 @@ public class Gameserver
         }
         else
         {
+            COMunit.sendPaket("-1", Communication.PaketUtil.createGameEndUpdatePaket(points.getWinner()));
             stopGame();
         }
     }
@@ -143,9 +145,8 @@ public class Gameserver
      */
     public void stopGame()
     {
-        //COMunit.sendPaket in 5 sek
-        Logger.log("server is closing in 5sec...");
-        long time = System.currentTimeMillis()+5000;
+        Logger.log("server is closing in 10sec...");
+        long time = System.currentTimeMillis()+10000;
         while (System.currentTimeMillis()<time)
         {
 

@@ -45,4 +45,18 @@ public class Punktemanager
             pointList.remove(id);
         }
     }
+    
+    public String getWinner()
+    {
+        String winner="";
+        int points=0;
+        for(HashMap.Entry<String,Integer>  a: pointList.entrySet()){
+            if (points<a.getValue())
+            {
+                points=a.getValue();
+                winner=a.getKey();
+            }
+        }
+        return winner;
+    }
 }
