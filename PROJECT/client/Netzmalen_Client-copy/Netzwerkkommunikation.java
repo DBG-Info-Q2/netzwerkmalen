@@ -21,7 +21,9 @@ public class Netzwerkkommunikation
                         // Lauft durch und ließt Nachrichten, solange wie der Teufel Leben mag.
                         while((incomeLine=in.readLine())!=null){
                             // Verarbeite die einkommende Nachricht.
-                            System.out.println("Reveived new paket from server: "+incomeLine); 
+                            System.out.println("Reveived new paket from server: "+incomeLine);
+                            System.out.println("Game starting");
+                            
                         }
                     }catch(Exception e){
                         e.printStackTrace();
@@ -33,7 +35,7 @@ public class Netzwerkkommunikation
        
     }
     
-    public static void sendTestMessage(String msg){
+    public static void sendMessage(String msg){
         try{
             PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
             System.out.println("socket sending "+msg);

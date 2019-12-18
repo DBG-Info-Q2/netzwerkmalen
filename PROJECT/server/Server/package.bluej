@@ -2,8 +2,13 @@
 dependency1.from=UnitTests
 dependency1.to=Communication
 dependency1.type=UsesDependency
+<<<<<<< HEAD
+dependency10.from=Timer
+dependency10.to=Communication
+=======
 dependency10.from=Communication
 dependency10.to=Gameserver
+>>>>>>> 2ff69db311161975ca4c245ca72ec53df9f58afb
 dependency10.type=UsesDependency
 dependency11.from=Gameserver
 dependency11.to=Communication
@@ -26,6 +31,18 @@ dependency2.type=UsesDependency
 dependency3.from=Timer
 dependency3.to=Logger
 dependency3.type=UsesDependency
+<<<<<<< HEAD
+dependency4.from=Gameserver
+dependency4.to=Timer
+dependency4.type=UsesDependency
+dependency5.from=Gameserver
+dependency5.to=Logger
+dependency5.type=UsesDependency
+dependency6.from=UnitTests
+dependency6.to=Communication
+dependency6.type=UsesDependency
+dependency7.from=UnitTests
+=======
 dependency4.from=Timer
 dependency4.to=Gameserver
 dependency4.type=UsesDependency
@@ -36,6 +53,7 @@ dependency6.from=Eingabekontrolle
 dependency6.to=Gameserver
 dependency6.type=UsesDependency
 dependency7.from=Eingabekontrolle
+>>>>>>> 2ff69db311161975ca4c245ca72ec53df9f58afb
 dependency7.to=Logger
 dependency7.type=UsesDependency
 dependency8.from=Communication
@@ -48,6 +66,15 @@ editor.fx.0.height=754
 editor.fx.0.width=1382
 editor.fx.0.x=-8
 editor.fx.0.y=-8
+<<<<<<< HEAD
+objectbench.height=95
+objectbench.width=643
+package.divider.horizontal=0.6
+package.divider.vertical=0.8403755868544601
+package.editor.height=530
+package.editor.width=532
+package.editor.x=0
+=======
 objectbench.height=93
 objectbench.width=643
 package.divider.horizontal=0.6
@@ -55,6 +82,7 @@ package.divider.vertical=0.8435054773082942
 package.editor.height=532
 package.editor.width=532
 package.editor.x=678
+>>>>>>> 2ff69db311161975ca4c245ca72ec53df9f58afb
 package.editor.y=0
 package.frame.height=738
 package.frame.width=683

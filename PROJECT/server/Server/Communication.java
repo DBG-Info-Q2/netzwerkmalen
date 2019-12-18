@@ -164,7 +164,7 @@ public class Communication
             /**
              * This is where all the names are stored.
              */
-            sampleNames=new String[]{"Hermann","Jonas","Peter","Kacka","Bratan","Aran","Ketchup","Majo","Senf","Butterbrot","Netzwerkadmin","H41","C4"};
+            sampleNames=new String[]{"Hermann","Jonas","Peter","Kacka","Bratan","Ayran","Ketchup","Majo","Senf","Butterbrot","Netzwerkadmin","H41","C4"};
         }
     }
     
