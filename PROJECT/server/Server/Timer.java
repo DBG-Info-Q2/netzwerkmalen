@@ -26,7 +26,7 @@ public class Timer
             Logger.log("starting timer...");
             timerRunning = true;
             countdownStart = System.currentTimeMillis();
-            countdownDuration = counter;
+            countdownDuration = counter*1000;
             this.updatedelay = updatedelay;
             timer = new Thread(new Runnable()
                 {
@@ -36,7 +36,7 @@ public class Timer
                         while (System.currentTimeMillis()<countdownStart+countdownDuration)
                         {
                             long updatewaiting = System.currentTimeMillis()+Timer.updatedelay;
-                            while (updatewaiting<System.currentTimeMillis())
+                            while (updatewaiting>System.currentTimeMillis())
                             {
 
                             }
