@@ -1,11 +1,11 @@
 package helper;
 
-import java.io.*;
-import java.lang.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 import gameMech.Gameserver;
 /**
- * Die Konsole ist das Eingabeinterface für den Server. Hier können Befehle
+ * Die Konsole ist das Eingabeinterface fuer den Server. Hier koennen Befehle
  * 
  * @author Aleksander Stepien
  * @version 2.2

@@ -1,11 +1,9 @@
 package gameMech;
 
-import java.util.*;
-import java.io.*;
+import java.util.ArrayList;
 
 import comm.Communication;
 import comm.PaketUtil;
-
 import helper.Konsole;
 import helper.Logger;
 
@@ -28,7 +26,7 @@ public class Gameserver
 
     public Communication COMunit = new Communication();
     public Punktemanager points = new Punktemanager();
-    public Spielwörter wort = new Spielwörter();
+    public Spielwoerter wort = new Spielwoerter();
     public Timer timer = new Timer();
     public Konsole console = new Konsole();
     public static Gameserver GOTT; // Singleton. Static access to main Gameserver Class..
@@ -76,18 +74,18 @@ public class Gameserver
         Logger.log("starting game...");
 
         spielwort = wort.gibNeueswort();
-        COMunit.sendPaket(drawerID, PaketUtil.createWordUpdatePaket(spielwort));
+        Communication.sendPaket(drawerID, PaketUtil.createWordUpdatePaket(spielwort));
         Logger.log("gameword is set to: "+spielwort);
 
         timer.startCounter(timerLength, timerUpdateTime);
 
         Logger.log("Gamestateupdate Paket sending to all users");
-        COMunit.sendPaket("-1", PaketUtil.createGameStateUpdatePaket(true));
+        Communication.sendPaket("-1", PaketUtil.createGameStateUpdatePaket(true));
 
         selectDrawerFromPlayerlist();
         Logger.log("drawerID is: "+drawerID);
-        COMunit.sendPaket("-1", PaketUtil.createRoleUpdatePaket(false));
-        COMunit.sendPaket(drawerID, PaketUtil.createRoleUpdatePaket(true));
+        Communication.sendPaket("-1", PaketUtil.createRoleUpdatePaket(false));
+        Communication.sendPaket(drawerID, PaketUtil.createRoleUpdatePaket(true));
 
         runningGame();
     }
@@ -127,7 +125,8 @@ public class Gameserver
      * Methode resetGame
      *
      */
-    public void resetGame()
+    @SuppressWarnings("deprecation")
+	public void resetGame()
     {
         game.stop();
         gameRunning=false;
@@ -136,7 +135,7 @@ public class Gameserver
         spielwort = null;
         timer.stopCounter();
         drawerID = null;
-        COMunit.sendPaket("-1", PaketUtil.createGameStateUpdatePaket(false));
+        Communication.sendPaket("-1", PaketUtil.createGameStateUpdatePaket(false));
         Logger.log("game resetted...");
         if (gameAmountCounter<=gameUntilReset)
         {
@@ -144,7 +143,7 @@ public class Gameserver
         }
         else
         {
-            COMunit.sendPaket("-1", PaketUtil.createGameEndUpdatePaket(points.getWinner()));
+            Communication.sendPaket("-1", PaketUtil.createGameEndUpdatePaket(points.getWinner()));
             stopGame();
         }
     }
@@ -163,7 +162,8 @@ public class Gameserver
         forceStopGame();
     }
 
-    public void forceStopGame()
+    @SuppressWarnings("deprecation")
+	public void forceStopGame()
     {
         Logger.log("server now closing...");
         COMunit.forceShutdown();

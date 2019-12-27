@@ -1,27 +1,31 @@
 package gameMech;
 
-import java.util.Random;
-import java.io.*;
-import java.net.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
 
 import helper.Logger;
 
 /**
- * Beschreiben Sie hier die Klasse Spielwörter.
+ * Beschreiben Sie hier die Klasse Spielwoerter.
  * 
  * @author (Ihr Name) 
  * @version (eine Versionsnummer oder ein Datum)
  */
-public class Spielwörter
+public class Spielwoerter
 {
     String dateiname;
-    String[] wörter;
+    String[] woerter;
 
     public String gibNeueswort()
     {
         if (leseDateiAus())
         {
-            return wörter[(int)(Math.random() * (wörter.length - 1))];
+            return woerter[(int)(Math.random() * (woerter.length - 1))];
         }
         else
         {
@@ -31,17 +35,18 @@ public class Spielwörter
 
     public boolean leseDateiAus()
     {
-        File Wörterdatei = new File("T:/Klasse q2/BrandIF/Netzmalen Max/PROJECT/server/Server/Woerter.txt"); //TODO: Datei in Cloud
+        File Woerterdatei = new File("T:/Klasse q2/BrandIF/Netzmalen Max/PROJECT/server/Server/Woerter.txt"); //TODO: Datei in Cloud
         BufferedReader reader = null;
         try
         {
-            reader = new BufferedReader(new FileReader(Wörterdatei));
+            reader = new BufferedReader(new FileReader(Woerterdatei));
             String inhalt = "";
             while (reader.readLine() != null)
             {
                 inhalt=inhalt+";"+reader.readLine();
             }
-            wörter=inhalt.split(";");
+            woerter=inhalt.split(";");
+            reader.close();
             return true;
         }
         catch (IOException e)
@@ -70,10 +75,11 @@ public class Spielwörter
             String line = null;
             // Read all the buffered wordlines and put them in a String.
             while ((line = reader.readLine()) != null) 
-                wordsStream=wordsStream+wordsStream+"\n";
+                wordsStream=wordsStream+line+"\n";
                 
             // Split up said String to create an Array of words needed for this.
-            wörter=wordsStream.split("\n");
+            woerter=wordsStream.split("\n");
+            reader.close();
             return true;
 
         }catch(Exception e){

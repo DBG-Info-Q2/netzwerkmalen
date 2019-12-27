@@ -1,14 +1,13 @@
 package comm;
 
-import java.util.*;
-import java.net.*;
-import java.io.*;
-import java.lang.*;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.HashMap;
 
-import helper.Logger;
-
-import gameMech.Gameserver;
 import gameMech.Eingabekontrolle;
+import gameMech.Gameserver;
+import helper.Logger;
 
 /**
  * Beschreiben Sie hier die Klasse Communication.
@@ -101,7 +100,8 @@ public class Communication
     /**
      * This procedure closes all availible Threads and disables all possible traffic to server
      */
-    public void forceShutdown(){
+    @SuppressWarnings("deprecation")
+	public void forceShutdown(){
         // Each communicationthread gets disabled
         for(HashMap.Entry<String,COMMSocket>  a: playerList.entrySet()){
             a.getValue().incomeListener.stop();

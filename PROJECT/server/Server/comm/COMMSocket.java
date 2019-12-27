@@ -1,10 +1,13 @@
 package comm;
 
-import java.io.*;
-import java.net.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.Socket;
 
 import helper.Logger;
-import gameMech.Gameserver;
 /**
  * Socket with a Thread to asynchronously receive messages from client
  */

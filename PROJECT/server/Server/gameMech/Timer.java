@@ -1,7 +1,8 @@
 package gameMech;
 
-import helper.Logger;
+import comm.Communication;
 import comm.PaketUtil;
+import helper.Logger;
 
 /**
  * Beschreiben Sie hier die Klasse Timer.
@@ -31,7 +32,7 @@ public class Timer
             timerRunning = true;
             countdownStart = System.currentTimeMillis();
             countdownDuration = counter*1000;
-            this.updatedelay = updatedelay;
+            Timer.updatedelay = updatedelay;
             timer = new Thread(new Runnable()
                 {
                     @Override
@@ -59,10 +60,11 @@ public class Timer
     public void sendUpdateToUsers()
     {
         Logger.log("timer by: "+currentCountdown);
-        Gameserver.GOTT.COMunit.sendPaket("-1", PaketUtil.createTimeUpdatePaket(currentCountdown));
+        Communication.sendPaket("-1", PaketUtil.createTimeUpdatePaket(currentCountdown));
     }
 
-    public void stopCounter()
+    @SuppressWarnings("deprecation")
+	public void stopCounter()
     {
         Logger.log("stopping timer...");
         if(timer!=null)
