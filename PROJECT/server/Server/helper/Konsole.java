@@ -1,18 +1,22 @@
+package helper;
 
+import java.io.*;
+import java.lang.*;
+
+import gameMech.Gameserver;
 /**
  * Die Konsole ist das Eingabeinterface für den Server. Hier können Befehle
  * 
  * @author Aleksander Stepien
  * @version 2.2
  */
-
-import java.io.*;
-import java.lang.*;
 public class Konsole extends Thread
 {
     public Konsole(){
-    
+        super();
     }
+    
+    
     
     @Override
     public void run(){
@@ -43,21 +47,29 @@ public class Konsole extends Thread
         switch (mainCommand){
         
             case "help":
-                log("Available Commands are: "+"help;exit;playersToStart<1,2,3...>");
+                log("Available Commands are: "+"<help>, <exit>, <playersToStart [number]>");
                 break;
             case "exit":
                 Gameserver.GOTT.stopGame();
                 break;
+            case "stop":
+                Gameserver.GOTT.forceStopGame();
+                break;
             case "playerstostart": 
                 if(commands.length==2){
                     String number = commands[1].split(" ")[0];
-                    log(number);
+                    try{
+                        Integer i = Integer.parseInt(number);
+                        //TODO: Gameserver.GOTT.maxPlayer = i
+                    }catch(NumberFormatException e){
+                        error("Given argument '"+number+"' is not an int!");
+                    }
                 }else{
-                    error("Format for playersToStart: command number");
+                    error("Format for command: <playersToStart [number]>");
                 }
                 break;
             default: 
-                error("Command "+mainCommand+" cannot be found. Use help to get a list of possible commands");
+                error("Command '"+mainCommand+"' cannot be found. Use <help> to get a list of possible commands");
                 break;
         }
         

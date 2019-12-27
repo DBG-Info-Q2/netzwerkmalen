@@ -1,8 +1,10 @@
-
+package gameMech;
 /**
  * Beschreiben Sie hier die Klasse Eingabekontrolle.
  * 
  */
+
+import helper.Logger;
 public class Eingabekontrolle
 {
     public static boolean checkWord(String word)

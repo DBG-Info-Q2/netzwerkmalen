@@ -1,4 +1,4 @@
-
+package gameMech;
 /**
  * Beschreiben Sie hier die Klasse Punktemanager.
  * 

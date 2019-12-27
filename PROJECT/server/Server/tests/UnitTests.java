@@ -1,15 +1,19 @@
+package tests;
 
+import java.util.*;
+import java.net.*;
+import java.io.*;
+import java.lang.*;
+
+import comm.Communication;
+
+import helper.Logger;
 /**
  * Unit tests for functions of programm
  * 
  * @author Aleksander Stepien 
  * @version 0.1
  */
-
-import java.util.*;
-import java.net.*;
-import java.io.*;
-import java.lang.*;
 public class UnitTests
 {
     public static Thread s = null;

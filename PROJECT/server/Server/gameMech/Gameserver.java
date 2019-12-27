@@ -1,12 +1,19 @@
+package gameMech;
+
+import java.util.*;
+import java.io.*;
+
+import comm.Communication;
+import comm.PaketUtil;
+
+import helper.Konsole;
+import helper.Logger;
 
 /**
- * Beschreiben Sie hier die Klasse Gameserver.
+ * All Main issues happening here.
  * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
+ * @author Lord_von_X
  */
-import java.util.*;
-
 public class Gameserver
 {
     public String spielwort;
@@ -24,7 +31,7 @@ public class Gameserver
     public Spielwörter wort = new Spielwörter();
     public Timer timer = new Timer();
     public Konsole console = new Konsole();
-    static Gameserver GOTT;
+    public static Gameserver GOTT; // Singleton. Static access to main Gameserver Class..
     public Thread game;
 
     public Gameserver()
@@ -39,8 +46,9 @@ public class Gameserver
     public void startNewServer()
     {
         console.start();
-        //COMunit.startListener();
+        COMunit.startListener();
 
+        // TODO: Waiting for sufficient number of players.
         /*long time = System.currentTimeMillis()+60000;
         while (COMunit.playerList.size()<maxPlayer && System.currentTimeMillis()<time)
         {
@@ -66,20 +74,20 @@ public class Gameserver
     public void startNewGame()
     {
         Logger.log("starting game...");
-        
+
         spielwort = wort.gibNeueswort();
-        COMunit.sendPaket(drawerID, Communication.PaketUtil.createWordUpdatePaket(spielwort));
+        COMunit.sendPaket(drawerID, PaketUtil.createWordUpdatePaket(spielwort));
         Logger.log("gameword is set to: "+spielwort);
-        
+
         timer.startCounter(timerLength, timerUpdateTime);
 
         Logger.log("Gamestateupdate Paket sending to all users");
-        COMunit.sendPaket("-1", Communication.PaketUtil.createGameStateUpdatePaket(true));
-        
+        COMunit.sendPaket("-1", PaketUtil.createGameStateUpdatePaket(true));
+
         selectDrawerFromPlayerlist();
         Logger.log("drawerID is: "+drawerID);
-        COMunit.sendPaket("-1", Communication.PaketUtil.createRoleUpdatePaket(false));
-        COMunit.sendPaket(drawerID, Communication.PaketUtil.createRoleUpdatePaket(true));
+        COMunit.sendPaket("-1", PaketUtil.createRoleUpdatePaket(false));
+        COMunit.sendPaket(drawerID, PaketUtil.createRoleUpdatePaket(true));
 
         runningGame();
     }
@@ -106,7 +114,7 @@ public class Gameserver
                     {
                         while (currentRightGuesses<maxPlayer && timer.timerRuns())
                         {
-                            
+
                         }
                         resetGame();
                     }
@@ -123,12 +131,12 @@ public class Gameserver
     {
         game.stop();
         gameRunning=false;
-        
+
         gameAmountCounter++;
         spielwort = null;
         timer.stopCounter();
         drawerID = null;
-        COMunit.sendPaket("-1", Communication.PaketUtil.createGameStateUpdatePaket(false));
+        COMunit.sendPaket("-1", PaketUtil.createGameStateUpdatePaket(false));
         Logger.log("game resetted...");
         if (gameAmountCounter<=gameUntilReset)
         {
@@ -136,7 +144,7 @@ public class Gameserver
         }
         else
         {
-            COMunit.sendPaket("-1", Communication.PaketUtil.createGameEndUpdatePaket(points.getWinner()));
+            COMunit.sendPaket("-1", PaketUtil.createGameEndUpdatePaket(points.getWinner()));
             stopGame();
         }
     }
@@ -152,7 +160,21 @@ public class Gameserver
         while (System.currentTimeMillis()<time)
         {
         }
+        forceStopGame();
+    }
+
+    public void forceStopGame()
+    {
+        Logger.log("server now closing...");
         COMunit.forceShutdown();
+        timer.stopCounter();
+        if(game!=null)
+            game.stop();
+        GOTT=null;
+        //TODO: Clear all Variables to restore space
         System.exit(1);
+        if(console!=null)
+            console.stop();
+        return;
     }
 }

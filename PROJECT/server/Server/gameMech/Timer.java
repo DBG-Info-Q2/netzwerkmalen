@@ -1,3 +1,7 @@
+package gameMech;
+
+import helper.Logger;
+import comm.PaketUtil;
 
 /**
  * Beschreiben Sie hier die Klasse Timer.
@@ -55,13 +59,14 @@ public class Timer
     public void sendUpdateToUsers()
     {
         Logger.log("timer by: "+currentCountdown);
-        Gameserver.GOTT.COMunit.sendPaket("-1", Communication.PaketUtil.createTimeUpdatePaket(currentCountdown));
+        Gameserver.GOTT.COMunit.sendPaket("-1", PaketUtil.createTimeUpdatePaket(currentCountdown));
     }
 
     public void stopCounter()
     {
         Logger.log("stopping timer...");
-        timer.stop();
+        if(timer!=null)
+            timer.stop();
         timerRunning = false;
     }
 
