@@ -1,4 +1,4 @@
-package gameMech;
+package com.dbgq2.netzwerkmalen.server.gameMechanics;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
-import helper.Logger;
+import com.dbgq2.netzwerkmalen.server.helper.Logger;
 
 /**
  * Beschreiben Sie hier die Klasse Spielwoerter.

@@ -1,13 +1,13 @@
-package tests;
+package com.dbgq2.netzwerkmalen.server.tests;
 
 import java.util.*;
+
+import com.dbgq2.netzwerkmalen.server.communication.Communication;
+import com.dbgq2.netzwerkmalen.server.helper.Logger;
+
 import java.net.*;
 import java.io.*;
 import java.lang.*;
-
-import comm.Communication;
-
-import helper.Logger;
 /**
  * Unit tests for functions of programm
  * 

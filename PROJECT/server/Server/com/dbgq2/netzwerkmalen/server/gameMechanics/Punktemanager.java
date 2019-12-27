@@ -1,4 +1,4 @@
-package gameMech;
+package com.dbgq2.netzwerkmalen.server.gameMechanics;
 /**
  * Beschreiben Sie hier die Klasse Punktemanager.
  * 

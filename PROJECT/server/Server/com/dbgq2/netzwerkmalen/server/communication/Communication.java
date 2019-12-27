@@ -1,13 +1,13 @@
-package comm;
+package com.dbgq2.netzwerkmalen.server.communication;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
 
-import gameMech.Eingabekontrolle;
-import gameMech.Gameserver;
-import helper.Logger;
+import com.dbgq2.netzwerkmalen.server.gameMechanics.Eingabekontrolle;
+import com.dbgq2.netzwerkmalen.server.gameMechanics.Gameserver;
+import com.dbgq2.netzwerkmalen.server.helper.Logger;
 
 /**
  * Beschreiben Sie hier die Klasse Communication.

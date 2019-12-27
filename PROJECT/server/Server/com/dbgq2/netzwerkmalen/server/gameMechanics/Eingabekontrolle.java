@@ -1,10 +1,10 @@
-package gameMech;
+package com.dbgq2.netzwerkmalen.server.gameMechanics;
 /**
  * Beschreiben Sie hier die Klasse Eingabekontrolle.
  * 
  */
 
-import helper.Logger;
+import com.dbgq2.netzwerkmalen.server.helper.Logger;
 public class Eingabekontrolle
 {
     public static boolean checkWord(String word)

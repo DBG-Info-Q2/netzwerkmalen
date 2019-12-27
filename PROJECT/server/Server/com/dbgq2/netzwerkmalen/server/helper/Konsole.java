@@ -1,9 +1,9 @@
-package helper;
+package com.dbgq2.netzwerkmalen.server.helper;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-import gameMech.Gameserver;
+import com.dbgq2.netzwerkmalen.server.gameMechanics.Gameserver;
 /**
  * Die Konsole ist das Eingabeinterface fuer den Server. Hier koennen Befehle
  * 

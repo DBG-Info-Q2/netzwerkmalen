@@ -1,11 +1,11 @@
-package gameMech;
+package com.dbgq2.netzwerkmalen.server.gameMechanics;
 
 import java.util.ArrayList;
 
-import comm.Communication;
-import comm.PaketUtil;
-import helper.Konsole;
-import helper.Logger;
+import com.dbgq2.netzwerkmalen.server.communication.Communication;
+import com.dbgq2.netzwerkmalen.server.communication.PaketUtil;
+import com.dbgq2.netzwerkmalen.server.helper.Konsole;
+import com.dbgq2.netzwerkmalen.server.helper.Logger;
 
 /**
  * All Main issues happening here.

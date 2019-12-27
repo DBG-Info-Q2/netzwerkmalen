@@ -1,4 +1,4 @@
-package comm;
+package com.dbgq2.netzwerkmalen.server.communication;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,7 +7,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-import helper.Logger;
+import com.dbgq2.netzwerkmalen.server.helper.Logger;
 /**
  * Socket with a Thread to asynchronously receive messages from client
  */

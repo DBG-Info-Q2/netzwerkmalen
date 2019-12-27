@@ -1,8 +1,8 @@
-package gameMech;
+package com.dbgq2.netzwerkmalen.server.gameMechanics;
 
-import comm.Communication;
-import comm.PaketUtil;
-import helper.Logger;
+import com.dbgq2.netzwerkmalen.server.communication.Communication;
+import com.dbgq2.netzwerkmalen.server.communication.PaketUtil;
+import com.dbgq2.netzwerkmalen.server.helper.Logger;
 
 /**
  * Beschreiben Sie hier die Klasse Timer.
