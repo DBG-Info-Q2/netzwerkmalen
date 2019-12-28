@@ -88,7 +88,7 @@ public class Gameserver {
 	 */
 	public void selectDrawerFromPlayerlist() {
 		ArrayList<String> randomList = new ArrayList<String>(COMunit.playerList.keySet());
-		drawerID = randomList.get((int) (Math.random() * (COMunit.playerList.size() - 1)));
+		drawerID = randomList.get((int) Math.round((Math.random() * (COMunit.playerList.size() - 1))));
 	}
 
 	public void runningGame() {
