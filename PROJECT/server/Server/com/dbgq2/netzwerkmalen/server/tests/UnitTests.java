@@ -1,13 +1,13 @@
 package com.dbgq2.netzwerkmalen.server.tests;
 
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.Socket;
 
 import com.dbgq2.netzwerkmalen.server.communication.Communication;
 import com.dbgq2.netzwerkmalen.server.helper.Logger;
-
-import java.net.*;
-import java.io.*;
-import java.lang.*;
 /**
  * Unit tests for functions of programm
  * 
@@ -19,6 +19,9 @@ public class UnitTests
     public static Thread s = null;
     public static Socket socket = null;
     
+    public static void main(String[] args) {
+    	createTestSocket();
+    }
     
     public static void createTestSocket(){
         

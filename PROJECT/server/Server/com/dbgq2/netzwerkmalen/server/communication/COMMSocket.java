@@ -46,6 +46,7 @@ public class COMMSocket{
                         Logger.log("Exit");
                     }catch(IOException e){
                         Logger.error("Error receiving message from client with ID "+id);
+                        e.printStackTrace();
                     }
                 }
             });

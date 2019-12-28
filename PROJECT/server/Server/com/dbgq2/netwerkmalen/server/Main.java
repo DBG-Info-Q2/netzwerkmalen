@@ -4,6 +4,7 @@ import com.dbgq2.netzwerkmalen.server.gameMechanics.Gameserver;
 
 /**
  * This class launches the server.
+ * 
  * @author Aleks
  *
  */

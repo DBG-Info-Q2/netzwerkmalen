@@ -15,26 +15,25 @@ public class PlayerNamesUtil{
         if(existingNames==null)
             return null;
 
-        String name = sampleNames[((int)(Math.random() * (sampleNames.length - 1)))];
+        String name = selectRandomName();
         if(suggestedNameAddon!=null)
             name=name+suggestedNameAddon;
+        
         boolean foundExistingName=false;
-        boolean nameEmpty=false;
         for(String exName: existingNames)
             if(exName.equalsIgnoreCase(name))
                 foundExistingName=true;
-            else
-                nameEmpty=true;
 
-        if(nameEmpty&&foundExistingName)
-            return findNewName(existingNames,null);
-
-        if(!nameEmpty&&foundExistingName)
+        if(foundExistingName)
             if(suggestedNameAddon==null)
                 return findNewName(existingNames,"1");
             else
                 return findNewName(existingNames,suggestedNameAddon+"!");
         return name;  
+    }
+    
+    private static String selectRandomName() {
+    	return sampleNames[((int)(Math.random() * (sampleNames.length - 1)))]; 
     }
 
     static{

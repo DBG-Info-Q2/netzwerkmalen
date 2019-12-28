@@ -26,6 +26,8 @@ public class Communication
 
     // Defines the port, where all clients should access.
     public static final int SERVER_PORT=55555;
+    
+    public static final String SERVER_MESSAGE_PREFIX = "[SERVER]: ";
 
     /**
      * Creator. Setting some variables on creation to their default states.
@@ -193,5 +195,9 @@ public class Communication
         client.sendPaket(paket);
 
         // Tadaa. Thats all.
+    }
+    
+    public void broadcastMessage(String message) {
+        sendPaket("-1", PaketUtil.createChatUpdatePaket(message));
     }
 }
