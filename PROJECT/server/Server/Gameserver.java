@@ -38,8 +38,8 @@ public class Gameserver
      */
     public void startNewServer()
     {
-        console.start();
-        //COMunit.startListener();
+        //console.start();
+        COMunit.startListener();
 
         /*long time = System.currentTimeMillis()+60000;
         while (COMunit.playerList.size()<maxPlayer && System.currentTimeMillis()<time)
@@ -104,10 +104,11 @@ public class Gameserver
                     @Override
                     public void run()
                     {
-                        while (currentRightGuesses<maxPlayer && timer.timerRuns())
+                        while (currentRightGuesses<maxPlayer-1 && timer.timerRuns())
                         {
-                            
+                            Logger.error(".");
                         }
+                        Logger.error("stop game");
                         resetGame();
                     }
                 });
@@ -139,6 +140,7 @@ public class Gameserver
             COMunit.sendPaket("-1", Communication.PaketUtil.createGameEndUpdatePaket(points.getWinner()));
             stopGame();
         }
+       
     }
 
     /**

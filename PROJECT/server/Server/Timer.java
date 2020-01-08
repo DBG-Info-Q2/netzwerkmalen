@@ -61,8 +61,8 @@ public class Timer
     public void stopCounter()
     {
         Logger.log("stopping timer...");
-        timer.stop();
         timerRunning = false;
+        timer.stop();
     }
 
     public int getTime()
