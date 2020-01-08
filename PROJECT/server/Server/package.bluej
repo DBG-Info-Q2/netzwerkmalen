@@ -1,161 +1,77 @@
 #BlueJ package file
-<<<<<<< HEAD
-dependency1.from=Gameserver
-dependency1.to=Communication
-dependency1.type=UsesDependency
-dependency10.from=Timer
-dependency10.to=Communication
-dependency10.type=UsesDependency
-dependency11.from=Eingabekontrolle
-dependency11.to=Gameserver
-dependency11.type=UsesDependency
-dependency12.from=Eingabekontrolle
-dependency12.to=Logger
-dependency12.type=UsesDependency
-dependency13.from=Communication
-dependency13.to=Logger
-dependency13.type=UsesDependency
-dependency14.from=Communication
-dependency14.to=Eingabekontrolle
-dependency14.type=UsesDependency
-dependency15.from=Communication
-dependency15.to=Gameserver
-dependency15.type=UsesDependency
-dependency2.from=Gameserver
-dependency2.to=Punktemanager
-dependency2.type=UsesDependency
-dependency3.from=Gameserver
-dependency3.to=Spielw\u00F6rter
-dependency3.type=UsesDependency
-dependency4.from=Gameserver
-dependency4.to=Timer
-=======
-dependency1.from=Timer
+dependency1.from=Spielw\u00F6rter
 dependency1.to=Logger
 dependency1.type=UsesDependency
-dependency10.from=Gameserver
-dependency10.to=Punktemanager
+dependency10.from=Timer
+dependency10.to=Logger
 dependency10.type=UsesDependency
-dependency11.from=Gameserver
-dependency11.to=Spielw\u00F6rter
+dependency11.from=Timer
+dependency11.to=Gameserver
 dependency11.type=UsesDependency
-dependency12.from=Gameserver
-dependency12.to=Timer
+dependency12.from=Timer
+dependency12.to=Communication
 dependency12.type=UsesDependency
-dependency13.from=Gameserver
-dependency13.to=Logger
+dependency13.from=Eingabekontrolle
+dependency13.to=Gameserver
 dependency13.type=UsesDependency
-dependency14.from=Timer
+dependency14.from=Eingabekontrolle
 dependency14.to=Logger
 dependency14.type=UsesDependency
-<<<<<<< HEAD
-dependency15.from=Gameserver
-dependency15.to=Konsole
-dependency15.type=UsesDependency
-dependency16.from=Gameserver
-dependency16.to=Logger
-dependency16.type=UsesDependency
-dependency17.from=Konsole
-dependency17.to=Gameserver
-dependency17.type=UsesDependency
-dependency18.from=Konsole
-dependency18.to=Logger
-dependency18.type=UsesDependency
-dependency2.from=Timer
-dependency2.to=Gameserver
-dependency2.type=UsesDependency
-dependency3.from=Timer
-dependency3.to=Communication
-=======
-dependency15.from=Timer
+dependency15.from=Konsole
 dependency15.to=Gameserver
 dependency15.type=UsesDependency
-dependency16.from=Timer
-dependency16.to=Communication
+dependency16.from=Konsole
+dependency16.to=Logger
 dependency16.type=UsesDependency
-dependency2.from=UnitTests
-dependency2.to=Logger
+dependency17.from=Communication
+dependency17.to=Logger
+dependency17.type=UsesDependency
+dependency18.from=Communication
+dependency18.to=Eingabekontrolle
+dependency18.type=UsesDependency
+dependency19.from=Communication
+dependency19.to=Gameserver
+dependency19.type=UsesDependency
+dependency2.from=Gameserver
+dependency2.to=Communication
 dependency2.type=UsesDependency
-dependency3.from=Spielw\u00F6rter
-dependency3.to=Logger
->>>>>>> d67cd5b2a71046ddba440baa83c55e1d4231f716
+dependency3.from=Gameserver
+dependency3.to=Punktemanager
 dependency3.type=UsesDependency
-dependency4.from=Eingabekontrolle
-dependency4.to=Gameserver
->>>>>>> d31754ce1e68d45d837c05ffbab3e86463ef1475
+dependency4.from=Gameserver
+dependency4.to=Spielw\u00F6rter
 dependency4.type=UsesDependency
-dependency5.from=Eingabekontrolle
-dependency5.to=Logger
+dependency5.from=Gameserver
+dependency5.to=Timer
 dependency5.type=UsesDependency
-<<<<<<< HEAD
-dependency6.from=UnitTests
-dependency6.to=Communication
+dependency6.from=Gameserver
+dependency6.to=Konsole
 dependency6.type=UsesDependency
-dependency7.from=UnitTests
+dependency7.from=Gameserver
 dependency7.to=Logger
-<<<<<<< HEAD
 dependency7.type=UsesDependency
-dependency8.from=Timer
-dependency8.to=Logger
+dependency8.from=UnitTests
+dependency8.to=Communication
 dependency8.type=UsesDependency
-dependency9.from=Timer
-dependency9.to=Gameserver
+dependency9.from=UnitTests
+dependency9.to=Logger
 dependency9.type=UsesDependency
-editor.fx.0.height=694
-editor.fx.0.width=796
-editor.fx.0.x=-3
+editor.fx.0.height=0
+editor.fx.0.width=0
+editor.fx.0.x=0
 editor.fx.0.y=0
-objectbench.height=96
-objectbench.width=643
-package.divider.horizontal=0.6
-package.divider.vertical=0.838810641627543
-package.editor.height=529
-package.editor.width=532
-=======
-=======
-dependency6.from=Communication
-dependency6.to=Logger
-dependency6.type=UsesDependency
-dependency7.from=Communication
-dependency7.to=Eingabekontrolle
->>>>>>> d67cd5b2a71046ddba440baa83c55e1d4231f716
-dependency7.type=UsesDependency
-dependency8.from=Communication
-dependency8.to=Gameserver
-dependency8.type=UsesDependency
-dependency9.from=Gameserver
-dependency9.to=Communication
-dependency9.type=UsesDependency
-editor.fx.0.height=754
-editor.fx.0.width=1382
-editor.fx.0.x=-8
-editor.fx.0.y=-8
-<<<<<<< HEAD
-objectbench.height=96
+objectbench.height=216
 objectbench.width=1342
 package.divider.horizontal=0.6
-package.divider.vertical=0.8427480916030534
-package.editor.height=545
-=======
-objectbench.height=217
-objectbench.width=1342
-package.divider.horizontal=0.6
-package.divider.vertical=0.6580152671755726
-package.editor.height=424
->>>>>>> d67cd5b2a71046ddba440baa83c55e1d4231f716
+package.divider.vertical=0.6595419847328244
+package.editor.height=425
 package.editor.width=1231
->>>>>>> d31754ce1e68d45d837c05ffbab3e86463ef1475
 package.editor.x=0
 package.editor.y=0
 package.frame.height=754
 package.frame.width=1382
-<<<<<<< HEAD
-package.numDependencies=18
+package.numDependencies=19
 package.numTargets=9
-=======
-package.numDependencies=16
-package.numTargets=8
->>>>>>> d67cd5b2a71046ddba440baa83c55e1d4231f716
 package.showExtends=true
 package.showUses=true
 project.charset=UTF-8
@@ -169,101 +85,61 @@ target1.name=Spielw\u00F6rter
 target1.showInterface=false
 target1.type=ClassTarget
 target1.width=100
-<<<<<<< HEAD
-target1.x=120
-=======
 target1.x=40
->>>>>>> d67cd5b2a71046ddba440baa83c55e1d4231f716
 target1.y=220
 target2.height=50
 target2.name=Gameserver
 target2.showInterface=false
 target2.type=ClassTarget
 target2.width=100
-<<<<<<< HEAD
-target2.x=420
-target2.y=20
-=======
 target2.x=330
 target2.y=100
->>>>>>> d67cd5b2a71046ddba440baa83c55e1d4231f716
 target3.height=50
 target3.name=Punktemanager
 target3.showInterface=false
 target3.type=ClassTarget
 target3.width=120
-<<<<<<< HEAD
-target3.x=110
-target3.y=430
-=======
 target3.x=190
 target3.y=320
->>>>>>> d67cd5b2a71046ddba440baa83c55e1d4231f716
 target4.height=50
 target4.name=UnitTests
 target4.showInterface=false
 target4.type=ClassTarget
 target4.width=80
-<<<<<<< HEAD
-target4.x=360
-target4.y=200
-=======
 target4.x=870
 target4.y=270
->>>>>>> d67cd5b2a71046ddba440baa83c55e1d4231f716
 target5.height=50
 target5.name=Timer
 target5.showInterface=false
 target5.type=ClassTarget
 target5.width=80
-<<<<<<< HEAD
-target5.x=60
-target5.y=90
-=======
 target5.x=150
 target5.y=50
->>>>>>> d67cd5b2a71046ddba440baa83c55e1d4231f716
 target6.height=50
 target6.name=Eingabekontrolle
 target6.showInterface=false
 target6.type=ClassTarget
 target6.width=130
-<<<<<<< HEAD
-target6.x=590
-target6.y=450
-=======
 target6.x=520
 target6.y=270
->>>>>>> d67cd5b2a71046ddba440baa83c55e1d4231f716
 target7.height=50
 target7.name=Logger
 target7.showInterface=false
 target7.type=ClassTarget
 target7.width=80
-<<<<<<< HEAD
-target7.x=970
-target7.y=280
-=======
 target7.x=940
 target7.y=10
->>>>>>> d67cd5b2a71046ddba440baa83c55e1d4231f716
 target8.height=50
 target8.name=Konsole
 target8.showInterface=false
 target8.type=ClassTarget
-<<<<<<< HEAD
-target8.width=80
-target8.x=318
-target8.y=367
+target8.width=120
+target8.x=690
+target8.y=190
 target9.height=50
 target9.name=Communication
 target9.showInterface=false
 target9.type=ClassTarget
 target9.width=120
-target9.x=630
-target9.y=90
-=======
-target8.width=120
-target8.x=690
-target8.y=190
->>>>>>> d67cd5b2a71046ddba440baa83c55e1d4231f716
+target9.x=10
+target9.y=80

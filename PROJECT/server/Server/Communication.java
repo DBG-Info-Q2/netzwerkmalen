@@ -165,11 +165,11 @@ public class Communication
             /**
              * This is where all the names are stored.
              */
-<<<<<<< HEAD
+ 
             sampleNames=new String[]{"Hermann","Jonas","Peter","Kacka","Bratan","Arian","Ketchup","Majo","Senf","Butterbrot","Netzwerkadmin","H41","C4"};
-=======
-            sampleNames=new String[]{"Hermann","Jonas","Peter","Kacka","Bratan","Ayran","Ketchup","Majo","Senf","Butterbrot","Netzwerkadmin","H41","C4"};
->>>>>>> d67cd5b2a71046ddba440baa83c55e1d4231f716
+
+            //sampleNames=new String[]{"Hermann","Jonas","Peter","Kacka","Bratan","Ayran","Ketchup","Majo","Senf","Butterbrot","Netzwerkadmin","H41","C4"};
+
         }
     }
     
