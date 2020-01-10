@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 import java.awt.*;
 import javax.swing.*;
-
+import java.awt.image.BufferedImage;
+import java.awt.event.*;
 /**
  * Beschreiben Sie hier die Klasse Visuals.
  * 
@@ -10,8 +11,10 @@ import javax.swing.*;
  */
 public class Visuals
 {
+    BufferedImage image = new BufferedImage(450,400,BufferedImage.TYPE_INT_ARGB);
     JFrame Fenster;
     JPanel Panel;
+
     JButton Farbe1;
     JButton Farbe2;
     JButton Farbe3;
@@ -22,44 +25,86 @@ public class Visuals
     JButton Farbe8;
     JButton Farbe9;
     JButton Farbe10;
+    Color c1=new Color(255,219,233); // Rosa
+    Color c2=new Color(0,0,0);// Schwarz
+    Color c3=new Color(255, 0, 0);// Rot
+    Color c4=new Color(242, 255, 0);// Gelb
+    Color c5=new Color(9, 255, 0);// Grün
+    Color c6=new Color(82, 55, 15);// Braun
+    Color c7=new Color(0, 128, 255);// Blau
+    Color c8=new Color(112, 112, 112);// Grau
+    Color c9=new Color(153, 0, 255);// Lila
+    Color c10=new Color(255, 147, 5);// Orange
     JLabel Label;
     JLabel Netzwerkmalen;
     JTextArea Chat;
     JTextArea Punkte;
-    boolean Test = true;
-    String zuraten = "EINEN BAUM";
+    boolean Test = false;
+    String ratewort;
     private int Counter = 0;
     int []Punktearray = new int [5];
     String [] Namen = new String[5];
+    JLabel Malen = new JLabel() ;
+    int x;
+    int y;
+    int x2=450;
+    int y2=400;
+    int b=1;
     public void Window(){
         setup();
 
+    }
+
+    public void zeichne(int X, int Y,int X2, int Y2, int Color){
+
+        if(Color== 1){image.getGraphics().setColor(c1);
+        }
+        if(Color== 2){image.getGraphics().setColor(c2);
+        }
+        if(Color== 3){image.getGraphics().setColor(c3);
+        }
+        if(Color== 4){image.getGraphics().setColor(c4);
+        }
+        if(Color== 5){image.getGraphics().setColor(c5);
+        }
+        if(Color== 6){image.getGraphics().setColor(c6);
+        }
+        if(Color== 7){image.getGraphics().setColor(c7);
+        }
+        if(Color== 8){image.getGraphics().setColor(c8);
+        }
+        if(Color== 9){image.getGraphics().setColor(c9);
+        }
+        if(Color== 10){image.getGraphics().setColor(c10);
+        }
+        image.getGraphics().drawLine(X,Y,X2,Y2);
     }
 
     public void schreiben(String Wort, String Spieler){
         Chat.append(Spieler+": "+Wort+"\n");
     }
 
+    public void Ratewort(String eingabewort){
+        ratewort = ""+eingabewort+"";
+    }
+
     void PunkteListen(String Name, int Punkte){
         for(int o=0;o<5;o++){
-          if (Name == Namen[o]){    
-           Punktearray[o]=Punkte; 
-           
-             }   
-            }
+            if (Name == Namen[o]){    
+                Punktearray[o]=Punkte; 
+
+            }   
+        }
         Namen [Counter] = Name; 
         Punktearray [Counter]= Punkte;
         Counter++;
         Punkteschreiben();
-         
-    
-        
-  }
 
-      public void Punkteschreiben(){
+    }
+    public void Punkteschreiben(){
         Punkte.setText("");
         for(int i=0;i<Counter;i++){
-            Punkte.append(Namen[i]+":"+Punktearray[i]+"Punkte"+"\n");   
+            Punkte.append(Namen[i]+": "+Punktearray[i]+" Punkte"+"\n");   
         }
     }
 
@@ -68,14 +113,32 @@ public class Visuals
 
             public void paint(Graphics g) {
                 super.paint(g);
-                //g.drawLine(400, 400, 800, 800);
-                //g.drawOval(400, 400, 50, 50);
-                //g.drawString("Blah, blah");   
+                g.drawImage(image,100,100,this); 
             }
 
         };
 
         Panel = new JPanel();
+        /*Panel.addMouseListener(new MouseAdapter(){
+        public void MousePressed(MouseEvent arg0){
+        System.out.println("Event");
+        x=arg0.getX();
+        y=arg0.getY();
+        zeichne(x2,y2,x,y,b);
+        x2=x;
+        y2=y;
+
+        }
+        public void mouseEntered(MouseEvent e){
+        System.out.println("Event");
+        }
+        //public void MouseReleased(MouseEvent e){
+        //x2=e.getX();
+        //y2=e.getY();
+        //}
+
+        });*/
+
         Label = new JLabel();
         Chat = new JTextArea();
         Punkte = new JTextArea();
@@ -90,10 +153,12 @@ public class Visuals
         Punkte.setBounds(1000,100,200,200);
         Punkte.setEditable(false);
 
+        Malen.setBounds(450,150,450,400);
+
         Netzwerkmalen.setText("Netzwerkmalen");
         Netzwerkmalen.setBounds(450,10,600,65);
         Netzwerkmalen.setFont(new Font("Pacifico", Font.PLAIN, 60));
-        Label.setText(""+zuraten+"");
+        Label.setText(""+ratewort+"");
         Label.setBounds(530,100,300,40);
         Label.setFont(new Font("Serif", Font.PLAIN, 30));
         Eingabefarbe();
@@ -104,9 +169,34 @@ public class Visuals
         Panel.add(Label);
         Panel.add(Netzwerkmalen);
         Panel.setVisible(true);
+        Panel.add(Malen);
         Fenster.add(Panel);
         Panel.setLayout(null);
         Fenster.setVisible(true);
+
+    }
+
+    public void Zeichenübertragen(int b){
+        Fenster.addMouseListener(new MouseAdapter(){
+                public void mousePressed(MouseEvent arg0){
+                    //System.out.println("Event");
+                    x=arg0.getX();
+                    y=arg0.getY();
+                    zeichne(x2,y2,x,y,b);
+                    x2=x;
+                    y2=y;
+
+                }
+
+                public void mouseEntered(MouseEvent e){
+                    System.out.println("Event");
+                }
+                //public void MouseReleased(MouseEvent e){
+                //x2=e.getX();
+                //y2=e.getY();
+                //}
+
+            });
 
     }
 
