@@ -15,7 +15,7 @@ public class Gameserver
     private int gameUntilReset = 5;
     public int currentRightGuesses;
     private int maxPlayer = 5;
-    private int timerLength = 60;
+    private int timerLength = 10;
     private int timerUpdateTime = 500; //in ms
     private static boolean gameRunning = false;
 
@@ -106,9 +106,9 @@ public class Gameserver
                     {
                         while (currentRightGuesses<maxPlayer-1 && timer.timerRuns())
                         {
-                            Logger.error(".");
+                            Logger.error("Thread läuft...");
                         }
-                        Logger.error("stop game");
+                        //Logger.error("stop game");
                         resetGame();
                     }
                 });
@@ -122,7 +122,8 @@ public class Gameserver
      */
     public void resetGame()
     {
-        game.stop();
+        game.interrupt();
+        //game.stop();
         gameRunning=false;
         
         gameAmountCounter++;

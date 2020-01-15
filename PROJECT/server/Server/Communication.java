@@ -86,7 +86,6 @@ public class Communication
                 else
                 {
                     sendPaket("-1", paket);
-                    
                 }
                 break;
             case "3": Logger.error("False protocol. Client "+id+" sent PointsUpdatePaket."); break;
