@@ -5,17 +5,6 @@ dependency1.type=UsesDependency
 dependency2.from=Logic
 dependency2.to=Visuals
 dependency2.type=UsesDependency
-<<<<<<< HEAD
-editor.fx.0.height=754
-editor.fx.0.width=1382
-editor.fx.0.x=-8
-editor.fx.0.y=-8
-objectbench.height=196
-objectbench.width=1342
-package.divider.horizontal=0.6
-package.divider.vertical=0.6900763358778625
-package.editor.height=445
-=======
 editor.fx.0.height=738
 editor.fx.0.width=816
 editor.fx.0.x=275
@@ -25,7 +14,6 @@ objectbench.width=1342
 package.divider.horizontal=0.6
 package.divider.vertical=0.6809160305343511
 package.editor.height=439
->>>>>>> d31754ce1e68d45d837c05ffbab3e86463ef1475
 package.editor.width=1231
 package.editor.x=0
 package.editor.y=0
