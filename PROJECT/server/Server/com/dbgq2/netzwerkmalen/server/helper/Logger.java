@@ -1,4 +1,4 @@
-
+package com.dbgq2.netzwerkmalen.server.helper;
 /**
  * Logger ist das Equivalente zu Debugs mt System.out.println(String s);
 ;*
