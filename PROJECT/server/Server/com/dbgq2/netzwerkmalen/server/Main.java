@@ -1,4 +1,4 @@
-package com.dbgq2.netwerkmalen.server;
+package com.dbgq2.netzwerkmalen.server;
 
 import com.dbgq2.netzwerkmalen.server.gameMechanics.Gameserver;
 
