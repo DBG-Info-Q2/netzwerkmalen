@@ -3,6 +3,7 @@ package com.dbgq2.netzwerkmalen.server.communication;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.dbgq2.netzwerkmalen.server.gameMechanics.Eingabekontrolle;
@@ -13,10 +14,10 @@ import com.dbgq2.netzwerkmalen.server.helper.Logger;
  * Beschreiben Sie hier die Klasse Communication.
  * 
  * @author Aleksander Stepien
- * @version alpha 1.1
+ * @version alpha 1.4
  */
 public class Communication {
-	public HashMap<String, COMMSocket> playerList;
+	protected HashMap<String, COMMSocket> playerList;
 	public ServerSocket SocketServer;
 	public Thread Listener;
 
@@ -50,7 +51,7 @@ public class Communication {
 				SocketServer = new ServerSocket(SERVER_PORT); // Create ServerSocket that handles first incoming
 																// connections.
 			} catch (IOException e) {
-				// Error on creation. PORT could be occupied or firewall is denialing creation.
+				// Error on creation. PORT could be occupied or firewall is denying creation.
 				Logger.error("Error when creation of Server");
 				// Print detailed error report.
 				e.printStackTrace();
@@ -234,6 +235,53 @@ public class Communication {
 	}
 
 	public void broadcastMessage(String message) {
+		if(message==null) {
+			Logger.error("Message cannot be null");
+			return;
+		}
 		sendPaket("-1", PaketUtil.createChatUpdatePaket(message));
+	}
+
+	public void sendMessage(String id, String message) {
+		if(id==null||message==null) {
+			Logger.error("Player ID or Message cannot be null");
+			return;
+		}
+		if(!isOnline(id)) {
+			Logger.error("Player with ID '"+id+"' is not online!");
+			return;
+		}
+		COMMSocket player = getPlayer(id);
+		player.sendMessage(message);
+	}
+
+	public int getAmountOfOnlinePlayers() {
+		if (playerList == null)
+			return 0;
+		return playerList.size();
+	}
+
+	public ArrayList<String> getAllPlayerIDs() {
+		if (playerList == null)
+			return null;
+		return new ArrayList<String>(playerList.keySet());
+	}
+
+	public ArrayList<COMMSocket> getAllPlayers() {
+		if (playerList == null)
+			return null;
+		return new ArrayList<COMMSocket>(playerList.values());
+	}
+
+	public COMMSocket getPlayer(String id) {
+		if (!isOnline(id))
+			return null;
+		return playerList.get(id);
+	}
+
+	public boolean isOnline(String id) {
+		if (id == null || playerList == null)
+			return false;
+		return playerList.containsKey(id);
 	}
 }

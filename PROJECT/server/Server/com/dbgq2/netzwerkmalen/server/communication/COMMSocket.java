@@ -75,10 +75,14 @@ public class COMMSocket {
 			Logger.error("Error on disconnecting socket on serverside.");
 			e.printStackTrace();
 		}
-		if (Gameserver.GOTT.COMunit.playerList.containsKey(getID()))
+		if (Gameserver.GOTT.COMunit.isOnline(getID()))
 			Gameserver.GOTT.COMunit.playerList.remove(getID());
 		else
 			Logger.log("There never has been a Socket with ID '" + getID() + "' in the playerlist.");
+	}
+
+	public void sendMessage(String message) {
+		sendPaket(PaketUtil.createChatUpdatePaket(message));
 	}
 
 	public void sendPaket(String paket) {
