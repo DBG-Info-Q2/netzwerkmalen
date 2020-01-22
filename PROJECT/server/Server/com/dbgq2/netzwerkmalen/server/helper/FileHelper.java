@@ -23,7 +23,7 @@ public class FileHelper {
 		}
 		return null;
 	}
-	
+
 	private static Class<?>[] getClasses(String packageName) throws ClassNotFoundException, IOException {
 		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 		assert classLoader != null;
