@@ -119,7 +119,6 @@ public class Gameserver {
 	 * Methode resetGame
 	 *
 	 */
-	@SuppressWarnings("deprecation")
 	public void resetGame() {
 		//game.stop();
 		gameRunning=false;

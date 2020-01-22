@@ -35,6 +35,10 @@ public class CommandSetGameLength implements Command {
 		if (arguments.length == 1) {
 			try {
 				int i = Integer.parseInt(arguments[0]);
+				if(i<=0) {
+					Logger.error("Game duration cannot be smaller than 1!");
+					return false;
+				}
 				Gameserver.GOTT.setGameDuration(i);
 				Logger.log("New game duration set to "+i+" seconds.");
 			} catch (NumberFormatException e) {
