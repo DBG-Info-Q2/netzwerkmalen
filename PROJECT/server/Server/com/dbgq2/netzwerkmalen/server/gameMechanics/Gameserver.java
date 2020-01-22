@@ -97,7 +97,7 @@ public class Gameserver {
 			game = new Thread(new Runnable() {
 				@Override
 				public void run() {
-					while (currentRightGuesses < maxPlayer && timer.timerRuns()) {
+					while (currentRightGuesses < maxPlayer-1 && timer.timerRuns()) {
 
 					}
 					resetGame();
@@ -113,9 +113,9 @@ public class Gameserver {
 	 */
 	@SuppressWarnings("deprecation")
 	public void resetGame() {
-		game.stop();
+		//TODO: game.stop();
 		gameRunning = false;
-
+		
 		gameAmountCounter++;
 		spielwort = null;
 		timer.stopCounter();
