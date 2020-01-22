@@ -1,7 +1,7 @@
 import java.util.*;
 public class Logic
 {
-    int timer,color,amountPlayers;
+    int time,color,amountPlayers = 0;
     int[] playerPoints;
     int[][] drawingCoordinates;
     boolean painting,loginProcess,gameRunning;

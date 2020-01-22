@@ -1,4 +1,4 @@
-package com.dbgq2.netzwerkmalen.server.communication;
+ 
 
 import java.io.IOException;
 import java.net.ServerSocket;

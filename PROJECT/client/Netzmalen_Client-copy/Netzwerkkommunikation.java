@@ -8,6 +8,13 @@ public class Netzwerkkommunikation
     public static Thread s = null;
     public static Socket socket = null;
     
+    int time;
+    int chatMsgIndicator;
+    int playerAmount;
+    int[] points;
+    String[] chatMessages = new String[120];
+    
+    
     public static void createTestSocket(){
             s=new Thread(new Runnable(){
                 @Override
@@ -47,4 +54,49 @@ public class Netzwerkkommunikation
         }
     }
 
+    public void decodeMessage(String msg){
+        String[] analyse = msg.split(";");
+        
+        if(analyse.length == 0){
+            return;
+        }else{
+            switch(analyse[0]){
+                case "0" : 
+                    break;
+                case "1" : time = Integer.parseInt(analyse[1]);
+                    break;
+                case "2" : chatMessages[chatMsgIndicator+1]=analyse[1];
+                           chatMsgIndicator++;
+                    break;
+                case "3" : 
+                    break;
+                case "4" : 
+                    break;
+                case "5" : 
+                    break;
+                case "6" : 
+                    break;
+                case "7" : 
+                    break;
+                case "8" : 
+                    break;
+    
+                    
+            
+            
+            
+            
+            
+            
+            }
+        
+        
+        
+        
+        }
+        
+    
+    }
+    
+    
 }
