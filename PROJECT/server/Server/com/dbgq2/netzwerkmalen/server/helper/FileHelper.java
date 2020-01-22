@@ -1,12 +1,12 @@
 package com.dbgq2.netzwerkmalen.server.helper;
 
 public class FileHelper {
-	public boolean localCacheCheck() //existiert schon eine Datei
+	public static boolean localCacheCheck() //existiert schon eine Datei
 	{
 		return false;
 	
 	}
-	public String source() //gibt Pfad an
+	public static String source() //gibt Pfad an
 	{
 		return null;
 	}
