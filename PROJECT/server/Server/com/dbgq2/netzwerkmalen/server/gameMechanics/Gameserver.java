@@ -103,7 +103,6 @@ public class Gameserver {
 						try {
 							Thread.sleep(500);
 						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 						//Logger.log("Läuft3...");
@@ -159,7 +158,6 @@ public class Gameserver {
 		if (game != null)
 			game.stop();
 		GOTT = null;
-		// TODO: Clear all Variables to restore space
 		System.exit(1);
 		if (console != null)
 			console.stop();
