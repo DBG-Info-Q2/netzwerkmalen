@@ -19,7 +19,7 @@ public class Gameserver {
 	private int gameUntilReset = 5;
 	public int currentRightGuesses;
 	private int maxPlayer = 5;
-	private int timerLength = 60;
+	private int timerLength = 5;
 	private int timerUpdateTime = 500; // in ms
 	private static boolean gameRunning = false;
 
@@ -74,7 +74,7 @@ public class Gameserver {
 		Logger.log("Gamestateupdate Paket sending to all users");
 		Communication.sendPaket("-1", PaketUtil.createGameStateUpdatePaket(true));
 
-		selectDrawerFromPlayerlist();
+		//selectDrawerFromPlayerlist();
 		Logger.log("drawerID is: " + drawerID);
 		Communication.sendPaket("-1", PaketUtil.createRoleUpdatePaket(false));
 		Communication.sendPaket(drawerID, PaketUtil.createRoleUpdatePaket(true));
@@ -92,14 +92,23 @@ public class Gameserver {
 	}
 
 	public void runningGame() {
+		//Logger.log("Läuft1...");
 		if (!gameRunning) {
 			gameRunning = true;
+			//Logger.log("Läuft2...");
 			game = new Thread(new Runnable() {
 				@Override
 				public void run() {
 					while (currentRightGuesses < maxPlayer-1 && timer.timerRuns()) {
-
+						try {
+							Thread.sleep(500);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						//Logger.log("Läuft3...");
 					}
+					//Logger.log("Läuft4...");
 					resetGame();
 				}
 			});
@@ -113,8 +122,8 @@ public class Gameserver {
 	 */
 	@SuppressWarnings("deprecation")
 	public void resetGame() {
-		//TODO: game.stop();
-		gameRunning = false;
+		//game.stop();
+		gameRunning=false;
 		
 		gameAmountCounter++;
 		spielwort = null;
@@ -122,7 +131,7 @@ public class Gameserver {
 		drawerID = null;
 		Communication.sendPaket("-1", PaketUtil.createGameStateUpdatePaket(false));
 		Logger.log("game resetted...");
-		if (gameAmountCounter <= gameUntilReset) {
+		if (gameAmountCounter < gameUntilReset) {
 			startNewGame();
 		} else {
 			Communication.sendPaket("-1", PaketUtil.createGameEndUpdatePaket(points.getWinner()));
