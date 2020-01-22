@@ -1,13 +1,16 @@
 package com.dbgq2.netzwerkmalen.server.gameMechanics;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
+import com.dbgq2.netzwerkmalen.server.helper.FileHelper;
 import com.dbgq2.netzwerkmalen.server.helper.Logger;
 
 /**
@@ -29,10 +32,8 @@ public class Spielwoerter {
 	}
 
 	public boolean leseDateiAus() {
-		File Woerterdatei = new File("T:/Klasse q2/BrandIF/Netzmalen Max/PROJECT/server/Server/Woerter.txt"); // TODO:
-																												// Datei
-																												// in
-																												// Cloud
+		readFileFromGitHubRepoOrFromLocal();
+		File Woerterdatei = new File(FileHelper.source()+"spielwörter.txt/");
 		BufferedReader reader = null;
 		try {
 			reader = new BufferedReader(new FileReader(Woerterdatei));
@@ -56,11 +57,18 @@ public class Spielwoerter {
 	 * 
 	 * @author Aleksander Stepien
 	 */
-	// TODO: Locally store the file when once loaded from github and use as a
+
 	// fallback in case the internet is down or some shit.
-	public boolean readFileFromGitHubRepo() {
+	public boolean readFileFromGitHubRepoOrFromLocal() {
+		if (FileHelper.localCacheCheck())
+		{
+			File file = new File(FileHelper.source()+"spielwörter.txt/");
+			file.delete();
+		}
 		try {
-			String wordsStream = "";
+			FileWriter fw = new FileWriter(FileHelper.source()+"spielwörter.txt/");
+		    BufferedWriter bw = new BufferedWriter(fw);
+		    
 			// Create URL or WebLink where the Woerter.txt file is located.
 			URL url = new URL(
 					"https://raw.githubusercontent.com/DBG-Info-Q2/netzwerkmalen/master/PROJECT/server/Server/Woerter.txt");
@@ -71,11 +79,10 @@ public class Spielwoerter {
 			String line = null;
 			// Read all the buffered wordlines and put them in a String.
 			while ((line = reader.readLine()) != null)
-				wordsStream = wordsStream + line + "\n";
-
-			// Split up said String to create an Array of words needed for this.
-			woerter = wordsStream.split("\n");
+				bw.write(line + "\n");
+			
 			reader.close();
+			bw.close();
 			return true;
 
 		} catch (Exception e) {

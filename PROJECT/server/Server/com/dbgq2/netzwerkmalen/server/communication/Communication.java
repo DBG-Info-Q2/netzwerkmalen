@@ -161,11 +161,7 @@ public class Communication {
 				// Increment amount of right guesses for the current game.
 				Gameserver.GOTT.currentRightGuesses++;
 			} else {
-				// Paket could be filtered out to not be the word in search, so broadcast chat
-				// to all clients.
-				// TODO: Alter chat message, so there is the players Name in front of the
-				// message.
-				sendPaket("-1", paket);
+				sendPaket("-1", analyse[0]+";"+id+": "+analyse[1]+";");
 			}
 			break;
 		case "3":
