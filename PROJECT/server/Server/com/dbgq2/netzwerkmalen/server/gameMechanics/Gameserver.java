@@ -69,7 +69,7 @@ public class Gameserver {
 		Communication.sendPaket(drawerID, PaketUtil.createWordUpdatePaket(spielwort));
 		Logger.log("gameword is set to: " + spielwort);
 
-		timer.startCounter(timerLength, timerUpdateTime);
+		timer.startCounter(getGameDuration(), timerUpdateTime);
 
 		Logger.log("Gamestateupdate Paket sending to all users");
 		Communication.sendPaket("-1", PaketUtil.createGameStateUpdatePaket(true));
@@ -162,5 +162,13 @@ public class Gameserver {
 		if (console != null)
 			console.stop();
 		return;
+	}
+
+	public void setGameDuration(int seconds) {
+		timerLength = seconds;
+	}
+
+	public int getGameDuration() {
+		return timerLength;
 	}
 }
