@@ -103,7 +103,6 @@ public class Gameserver {
 						try {
 							Thread.sleep(500);
 						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 						//Logger.log("Läuft3...");
@@ -120,7 +119,6 @@ public class Gameserver {
 	 * Methode resetGame
 	 *
 	 */
-	@SuppressWarnings("deprecation")
 	public void resetGame() {
 		//game.stop();
 		gameRunning=false;
