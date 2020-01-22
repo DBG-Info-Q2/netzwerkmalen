@@ -14,7 +14,7 @@ public class Main {
 		System.out.println("Excecuting programm..");
 
 		Gameserver server = new Gameserver();
-		server.startNewServer();
+		server.startNewGame();
 
 	}
 

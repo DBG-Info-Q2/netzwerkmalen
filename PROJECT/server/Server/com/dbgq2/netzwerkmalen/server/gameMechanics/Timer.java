@@ -58,9 +58,10 @@ public class Timer {
 	@SuppressWarnings("deprecation")
 	public void stopCounter() {
 		Logger.log("stopping timer...");
-		if (timer != null)
-			timer.stop();
-		timerRunning = false;
+		if (timer != null) {
+			timerRunning = false;
+			timer.stop();}
+		
 	}
 
 	public int getTime() {
