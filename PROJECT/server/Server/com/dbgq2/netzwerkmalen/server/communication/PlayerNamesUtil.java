@@ -1,4 +1,4 @@
- 
+package com.dbgq2.netzwerkmalen.server.communication; 
 
 import java.util.ArrayList;
 import java.util.Arrays;
