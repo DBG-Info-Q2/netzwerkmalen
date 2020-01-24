@@ -32,9 +32,7 @@ public class Spielwoerter {
 	}
 
 	public boolean leseDateiAus() {
-		if (localWordCacheChanged) {
-			readFileFromGitHubRepoOrFromLocal();
-		}
+		readFileFromGitHubRepoOrFromLocal();
 		File Woerterdatei = new File(FileHelper.source()+"spielwörter.txt");
 		BufferedReader reader = null;
 		try {
@@ -79,7 +77,7 @@ public class Spielwoerter {
 				}
 			String[]gitDownload = input.split(";");
 			
-			if (localWordCacheChanged(gitDownload)) {
+			if (FileHelper.localWordCacheChanged(gitDownload)) {
 				File file = new File(FileHelper.source()+"spielwörter.txt");
 				file.delete();
 				
