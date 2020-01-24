@@ -21,7 +21,7 @@ public class FileHelper {
 		} catch (ClassNotFoundException | IOException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return "H:\\____________Informatik____________\\NetzmalenProjekt\\JuhuEsFunktioniert\\PROJECT\\server\\Server\\";
 	}
 
 	private static Class<?>[] getClasses(String packageName) throws ClassNotFoundException, IOException {
