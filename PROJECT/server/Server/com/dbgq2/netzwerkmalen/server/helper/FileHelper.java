@@ -1,43 +1,65 @@
 package com.dbgq2.netzwerkmalen.server.helper;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.List;
+import java.net.URISyntaxException;
+
+import com.dbgq2.netzwerkmalen.server.Main;
 
 public class FileHelper {
-	public static boolean localCacheCheck() // existiert schon eine Datei
-	{
-		return false;
 
-	}
+	public static final String WORD_CACHE_FILE_NAME = "spielwoerter_cache.txt";
 
-	public static String source() // gibt Pfad an
-	{
+	/**
+	 * @return true if local cache not equal the currentCache
+	 */
+	public static boolean localWordCacheChanged(String[] currentCache) {
+		if (currentCache == null)
+			return true;
+
+		String newCacheString = "";
+		for (String s : currentCache) {
+			newCacheString += s + "\\n";
+		}
+
+		if (!localCacheCheck())
+			return true;
+
+		// Lese Datei aus.
+		String fileCacheString = "";
+		File wordCacheFile = new File(FileHelper.source() + WORD_CACHE_FILE_NAME);
 		try {
-			getClasses("com.dbgq2.netzwerkmalen.server.konsole");
-		} catch (ClassNotFoundException | IOException e) {
+			BufferedReader reader = new BufferedReader(new FileReader(wordCacheFile));
+
+			while (reader.readLine() != null) {
+				fileCacheString = reader.readLine() + "\\n";
+			}
+			reader.close();
+		} catch (IOException e) {
+			System.err.println("There was an error reading the file.");
 			e.printStackTrace();
+			return true;
 		}
-		return "H:\\____________Informatik____________\\NetzmalenProjekt\\JuhuEsFunktioniert\\PROJECT\\server\\Server\\";
+
+		return newCacheString.equals(fileCacheString);
 	}
 
-	private static Class<?>[] getClasses(String packageName) throws ClassNotFoundException, IOException {
-		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-		assert classLoader != null;
-		String path = packageName.replace('.', '/');
-		Enumeration<URL> resources = classLoader.getResources(path);
-		List<File> dirs = new ArrayList<File>();
-		while (resources.hasMoreElements()) {
-			URL resource = resources.nextElement();
-			dirs.add(new File(resource.getFile()));
+	public static boolean localCacheCheck() { // existiert schon eine Datei
+		return new File(source() + WORD_CACHE_FILE_NAME).exists();
+	}
+
+	public static String source() { // gibt Pfad an
+		String absoluteRuntimePath = null;
+		try {
+			absoluteRuntimePath = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI())
+					.getPath();
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+			// There is no running directory bruh..
+			System.err.println("There was an error with the programm URI");
 		}
-		ArrayList<Class<?>> classes = new ArrayList<Class<?>>();
-		for (File directory : dirs) {
-			System.out.println(directory);
-		}
-		return classes.toArray(new Class[classes.size()]);
+		return absoluteRuntimePath;
 	}
 }
