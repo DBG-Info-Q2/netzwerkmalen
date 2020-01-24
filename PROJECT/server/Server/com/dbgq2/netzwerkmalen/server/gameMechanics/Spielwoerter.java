@@ -33,7 +33,7 @@ public class Spielwoerter {
 
 	public boolean leseDateiAus() {
 		readFileFromGitHubRepoOrFromLocal();
-		File Woerterdatei = new File(FileHelper.source()+"spielwörter.txt");
+		File Woerterdatei = new File(FileHelper.source() + FileHelper.WORD_CACHE_FILE_NAME);
 		BufferedReader reader = null;
 		try {
 			reader = new BufferedReader(new FileReader(Woerterdatei));
@@ -61,7 +61,7 @@ public class Spielwoerter {
 	// fallback in case the internet is down or some shit.
 	public boolean readFileFromGitHubRepoOrFromLocal() {
 		try {
-				    
+
 			// Create URL or WebLink where the Woerter.txt file is located.
 			URL url = new URL(
 					"https://raw.githubusercontent.com/DBG-Info-Q2/netzwerkmalen/master/PROJECT/server/Server/Woerter.txt");
@@ -70,26 +70,26 @@ public class Spielwoerter {
 
 			BufferedReader reader = new BufferedReader(new InputStreamReader(connect.getInputStream()));
 			String line = null;
-			String input="";
+			String input = "";
 			// Read all the buffered wordlines and put them in a String.
 			while ((line = reader.readLine()) != null) {
-				input=input+";"+line;
-				}
-			String[]gitDownload = input.split(";");
-			
+				input = input + ";" + line;
+			}
+			String[] gitDownload = input.split(";");
+
 			if (FileHelper.localWordCacheChanged(gitDownload)) {
-				File file = new File(FileHelper.source()+"spielwörter.txt");
+				File file = new File(FileHelper.source() + FileHelper.WORD_CACHE_FILE_NAME);
 				file.delete();
-				
-				FileWriter fw = new FileWriter(FileHelper.source()+"spielwörter.txt");
-			    BufferedWriter bw = new BufferedWriter(fw);
-			    
-			    for (int i=0; i<gitDownload.length; i++) {
-			    	bw.write(gitDownload[i]);
+
+				FileWriter fw = new FileWriter(FileHelper.source() + FileHelper.WORD_CACHE_FILE_NAME);
+				BufferedWriter bw = new BufferedWriter(fw);
+
+				for (int i = 0; i < gitDownload.length; i++) {
+					bw.write(gitDownload[i]);
 					bw.newLine();
-			    }
-			    
-			    reader.close();
+				}
+
+				reader.close();
 				bw.close();
 				return true;
 			}
