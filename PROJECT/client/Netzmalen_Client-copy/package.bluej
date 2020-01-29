@@ -6,12 +6,27 @@ dependency2.from=Logic
 dependency2.to=Visuals
 dependency2.type=UsesDependency
 editor.fx.0.height=738
-editor.fx.0.width=816
-editor.fx.0.x=275
+<<<<<<< HEAD
+editor.fx.0.width=683
+editor.fx.0.x=0
 editor.fx.0.y=0
+=======
+editor.fx.0.width=816
+editor.fx.0.x=398
+editor.fx.0.y=8
+>>>>>>> 8716e210ab04a3f15add168da6e1c71fac9345c7
 objectbench.height=202
-objectbench.width=1342
+objectbench.width=647
 package.divider.horizontal=0.6
+<<<<<<< HEAD
+package.divider.vertical=0.6682539682539682
+package.editor.height=414
+package.editor.width=536
+package.editor.x=211
+package.editor.y=1
+package.frame.height=729
+package.frame.width=687
+=======
 package.divider.vertical=0.6809160305343511
 package.editor.height=439
 package.editor.width=1231
@@ -19,6 +34,7 @@ package.editor.x=0
 package.editor.y=0
 package.frame.height=754
 package.frame.width=1382
+>>>>>>> f612eefc97f7ec0f87565165aaf7f7522cdc3ec0
 package.numDependencies=2
 package.numTargets=3
 package.showExtends=true
@@ -42,7 +58,7 @@ target2.showInterface=false
 target2.type=ClassTarget
 target2.width=80
 target2.x=150
-target2.y=130
+target2.y=140
 target3.height=50
 target3.name=Logic
 target3.showInterface=false

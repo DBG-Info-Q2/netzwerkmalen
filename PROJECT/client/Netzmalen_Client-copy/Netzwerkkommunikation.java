@@ -8,12 +8,16 @@ public class Netzwerkkommunikation
     public static Thread s = null;
     public static Socket socket = null;
     
+    boolean du;
+    boolean drawer;
+    boolean gameRunning;
     int time;
     int chatMsgIndicator;
     int playerAmount;
+    int winner;
+    String word;
     int[] points;
     String[] chatMessages = new String[120];
-    
     
     public static void createTestSocket(){
             s=new Thread(new Runnable(){
@@ -24,10 +28,10 @@ public class Netzwerkkommunikation
                         BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                         
                         String incomeLine = null;
-                        // Lauft durch und ließt Nachrichten, solange wie der Teufel Leben mag.
+                        // Leauft durch und ließt Nachrichten, solange wie der Teufel Leben mag.
                         while((incomeLine=in.readLine())!=null){
                             // Verarbeite die einkommende Nachricht.
-                            System.out.println("Reveived new paket from server: "+incomeLine);
+                            System.out.println("Received new paket from server: "+incomeLine);
                             if(true){
                             System.out.println("Game starting");
                             }
@@ -37,10 +41,9 @@ public class Netzwerkkommunikation
                         e.printStackTrace();
                     }
                 }
-            });
-            
+            }
+            );
             s.start();
-       
     }
     
     public static void sendMessage(String msg){
@@ -61,7 +64,7 @@ public class Netzwerkkommunikation
             return;
         }else{
             switch(analyse[0]){
-                case "0" : 
+                case "0" : du = Boolean.parseBoolean(analyse[1]);
                     break;
                 case "1" : time = Integer.parseInt(analyse[1]);
                     break;
@@ -72,13 +75,13 @@ public class Netzwerkkommunikation
                     break;
                 case "4" : 
                     break;
-                case "5" : 
+                case "5" : drawer = Boolean.parseBoolean(analyse[1]);
                     break;
-                case "6" : 
+                case "6" : word = analyse[1];
                     break;
-                case "7" : 
+                case "7" : gameRunning = Boolean.parseBoolean(analyse[1]);
                     break;
-                case "8" : 
+                case "8" : winner = Integer.parseInt(analyse[1]);
                     break;
     
                     
