@@ -28,10 +28,10 @@ public class Netzwerkkommunikation
                         BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                         
                         String incomeLine = null;
-                        // Lauft durch und ließt Nachrichten, solange wie der Teufel Leben mag.
+                        // Leauft durch und ließt Nachrichten, solange wie der Teufel Leben mag.
                         while((incomeLine=in.readLine())!=null){
                             // Verarbeite die einkommende Nachricht.
-                            System.out.println("Reveived new paket from server: "+incomeLine);
+                            System.out.println("Received new paket from server: "+incomeLine);
                             if(true){
                             System.out.println("Game starting");
                             }
