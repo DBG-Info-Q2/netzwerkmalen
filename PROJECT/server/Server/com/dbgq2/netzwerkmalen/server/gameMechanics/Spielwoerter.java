@@ -38,10 +38,12 @@ public class Spielwoerter {
 		try {
 			reader = new BufferedReader(new FileReader(Woerterdatei));
 			String inhalt = "";
-			while (reader.readLine() != null) {
-				inhalt = inhalt + ";" + reader.readLine();
+			String line;
+			while ((line = reader.readLine()) != null) {
+				inhalt = inhalt + line + ";";
 			}
 			woerter = inhalt.split(";");
+						
 			reader.close();
 			return true;
 		} catch (IOException e) {
@@ -73,11 +75,11 @@ public class Spielwoerter {
 			String input = "";
 			// Read all the buffered wordlines and put them in a String.
 			while ((line = reader.readLine()) != null) {
-				input = input + ";" + line;
+				input = input + line + ";";
 			}
 			String[] gitDownload = input.split(";");
 
-			if (FileHelper.localWordCacheChanged(gitDownload)) {
+			if (FileHelper.localWordCacheChanged(gitDownload)) {	
 				File file = new File(FileHelper.source() + FileHelper.WORD_CACHE_FILE_NAME);
 				file.delete();
 

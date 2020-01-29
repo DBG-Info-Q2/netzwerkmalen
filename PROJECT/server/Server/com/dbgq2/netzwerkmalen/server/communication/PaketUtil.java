@@ -40,8 +40,8 @@ public class PaketUtil{
     /**
      * WIP
      */
-    public static String createDrawUpdatePaket(int x, int y, int colour){
-        return "4;"+x+","+y+","+colour+";";
+    public static String createDrawUpdatePaket(int x1, int y1, int x2, int y2, int colour){
+        return "4;"+x1+","+y1+","+x2+","+y2+","+colour+";";
     }
 
     /**
