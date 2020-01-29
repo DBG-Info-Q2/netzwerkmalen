@@ -37,10 +37,9 @@ public class Netzwerkkommunikation
                         e.printStackTrace();
                     }
                 }
-            });
-            
+            }
+            );
             s.start();
-       
     }
     
     public static void sendMessage(String msg){
