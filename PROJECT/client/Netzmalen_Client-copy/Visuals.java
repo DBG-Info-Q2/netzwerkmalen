@@ -11,7 +11,12 @@ import java.awt.event.*;
  */
 public class Visuals
 {
+    final int POSX=450;
+    final int POSY=200;
+    final int OFFX=8;
+    final int OFFY=30;
     BufferedImage image = new BufferedImage(450,400,BufferedImage.TYPE_INT_ARGB);
+    Graphics2D canvas=(Graphics2D)image.getGraphics();
     JFrame Fenster;
     JPanel Panel;
 
@@ -25,21 +30,21 @@ public class Visuals
     JButton Farbe8;
     JButton Farbe9;
     JButton Farbe10;
-    Color c1=new Color(255,219,233); // Rosa
+    Color c1=new Color (255,105, 180 ); // Rosa
     Color c2=new Color(0,0,0);// Schwarz
     Color c3=new Color(255, 0, 0);// Rot
     Color c4=new Color(242, 255, 0);// Gelb
     Color c5=new Color(9, 255, 0);// Grün
-    Color c6=new Color(82, 55, 15);// Braun
+    Color c6=new Color(139, 87, 66);// Braun
     Color c7=new Color(0, 128, 255);// Blau
     Color c8=new Color(112, 112, 112);// Grau
-    Color c9=new Color(153, 0, 255);// Lila
+    Color c9=new Color(186, 85, 211  );// Lila
     Color c10=new Color(255, 147, 5);// Orange
     JLabel Label;
     JLabel Netzwerkmalen;
     JTextArea Chat;
     JTextArea Punkte;
-    boolean Test = false;
+    boolean Test = true;
     String ratewort;
     private int Counter = 0;
     int []Punktearray = new int [5];
@@ -49,37 +54,55 @@ public class Visuals
     int y;
     int x2=450;
     int y2=400;
-    int b=1;
+    int color;
+
+    public Visuals(){
+        Window();
+    }
+
     public void Window(){
         setup();
-
+        Zeichenübertragen(5);
     }
 
-    public void zeichne(int X, int Y,int X2, int Y2, int Color){
+    public void zeichne(int X, int Y,int X2, int Y2, int color){
 
-        if(Color== 1){image.getGraphics().setColor(c1);
+        if(color== 1){canvas.setColor(c1);
         }
-        if(Color== 2){image.getGraphics().setColor(c2);
+        if(color== 2){canvas.setColor(c2);
         }
-        if(Color== 3){image.getGraphics().setColor(c3);
+        if(color== 3){canvas.setColor(c3);
         }
-        if(Color== 4){image.getGraphics().setColor(c4);
+        if(color== 4){canvas.setColor(c4);
         }
-        if(Color== 5){image.getGraphics().setColor(c5);
+        if(color== 5){canvas.setColor(c5);
         }
-        if(Color== 6){image.getGraphics().setColor(c6);
+        if(color== 6){canvas.setColor(c6);
         }
-        if(Color== 7){image.getGraphics().setColor(c7);
+        if(color== 7){canvas.setColor(c7);
         }
-        if(Color== 8){image.getGraphics().setColor(c8);
+        if(color== 8){canvas.setColor(c8);
         }
-        if(Color== 9){image.getGraphics().setColor(c9);
+        if(color== 9){canvas.setColor(c9);
         }
-        if(Color== 10){image.getGraphics().setColor(c10);
+        if(color== 10){canvas.setColor(c10);
         }
-        image.getGraphics().drawLine(X,Y,X2,Y2);
+        //canvas.setColor(Color.pink);
+        canvas.setStroke(new BasicStroke(3));
+        //canvas.setPaintMode();
+        //System.out.println(canvas.getColor());
+        canvas.drawLine(X,Y,X2,Y2);
+        //Fenster.repaint();
+        //Welche Koordinate ist groesser??Tauschn...
+        int minx=Math.min(X,X2)+POSX-5;
+        int miny=Math.min(Y,Y2)+POSY-5;
+        int width=Math.abs(X-X2)+10;
+        int height=Math.abs(Y-Y2)+10;
+       
+        Fenster.repaint(100,minx,miny, width,height);
+        
+
     }
-
     public void schreiben(String Wort, String Spieler){
         Chat.append(Spieler+": "+Wort+"\n");
     }
@@ -101,6 +124,7 @@ public class Visuals
         Punkteschreiben();
 
     }
+
     public void Punkteschreiben(){
         Punkte.setText("");
         for(int i=0;i<Counter;i++){
@@ -113,31 +137,12 @@ public class Visuals
 
             public void paint(Graphics g) {
                 super.paint(g);
-                g.drawImage(image,100,100,this); 
+                g.drawImage(image,POSX,POSY,this);
             }
 
         };
 
         Panel = new JPanel();
-        /*Panel.addMouseListener(new MouseAdapter(){
-        public void MousePressed(MouseEvent arg0){
-        System.out.println("Event");
-        x=arg0.getX();
-        y=arg0.getY();
-        zeichne(x2,y2,x,y,b);
-        x2=x;
-        y2=y;
-
-        }
-        public void mouseEntered(MouseEvent e){
-        System.out.println("Event");
-        }
-        //public void MouseReleased(MouseEvent e){
-        //x2=e.getX();
-        //y2=e.getY();
-        //}
-
-        });*/
 
         Label = new JLabel();
         Chat = new JTextArea();
@@ -177,26 +182,36 @@ public class Visuals
     }
 
     public void Zeichenübertragen(int b){
-        Fenster.addMouseListener(new MouseAdapter(){
-                public void mousePressed(MouseEvent arg0){
-                    //System.out.println("Event");
-                    x=arg0.getX();
-                    y=arg0.getY();
-                    zeichne(x2,y2,x,y,b);
-                    x2=x;
-                    y2=y;
+        MouseAdapter ma=new MouseAdapter(){
+                boolean drawing;
+
+                public void mouseReleased(MouseEvent arg0){
+
+                    // drawing = false;
 
                 }
 
-                public void mouseEntered(MouseEvent e){
-                    System.out.println("Event");
+                public void mouseMoved(MouseEvent e){
+                    x2=e.getX()-POSX+OFFX;
+                    y2=e.getY()-POSY+OFFY;
                 }
-                //public void MouseReleased(MouseEvent e){
-                //x2=e.getX();
-                //y2=e.getY();
-                //}
 
-            });
+                public void mouseDragged(MouseEvent e){  //Wird nicht ausgeführt?????
+                    //System.out.println("moved");
+                    if (true){
+                        //System.out.println("moved+drawing");
+                        x=e.getX()-POSX+OFFX;
+                        y=e.getY()-POSY+OFFY;
+                        zeichne(x2,y2,x,y,color);
+                        //System.out.println(""+x+","+y+","+x2+","+y2+"");
+                        x2=x;
+                        y2=y;
+                    }
+                }  
+
+            };
+        Panel.addMouseMotionListener(ma);
+        Panel.addMouseListener(ma);
 
     }
 
@@ -212,7 +227,18 @@ public class Visuals
             Farbe8 = new JButton(); 
             Farbe9 = new JButton(); 
             Farbe10 = new JButton();
-
+            
+            Farbe1.setBackground(c1);
+            Farbe2.setBackground(c2);
+            Farbe3.setBackground(c3);
+            Farbe4.setBackground(c4);
+            Farbe5.setBackground(c5);
+            Farbe6.setBackground(c6);
+            Farbe7.setBackground(c7);
+            Farbe8.setBackground(c8);
+            Farbe9.setBackground(c9);
+            Farbe10.setBackground(c10);
+            
             int a=400;
             int b=50;
             int c=40;
@@ -228,7 +254,9 @@ public class Visuals
             Farbe8.setBounds(a+7*b,e,c,d);
             Farbe9.setBounds(a+8*b,e,c,d);
             Farbe10.setBounds(a+9*b,e,c,d);
-
+            
+            
+            
             Panel.add(Farbe1);
             Panel.add(Farbe2);
             Panel.add(Farbe3);
@@ -239,7 +267,56 @@ public class Visuals
             Panel.add(Farbe8);
             Panel.add(Farbe9);
             Panel.add(Farbe10);
-
+            Farbe1.addActionListener(new ActionListener(){
+                 public void actionPerformed(ActionEvent e){
+                     color=1;
+                    }
+            });
+             Farbe2.addActionListener(new ActionListener(){
+                 public void actionPerformed(ActionEvent e){
+                     color=2;
+                    }
+            });
+             Farbe3.addActionListener(new ActionListener(){
+                 public void actionPerformed(ActionEvent e){
+                     color=3;
+                    }
+            });
+             Farbe4.addActionListener(new ActionListener(){
+                 public void actionPerformed(ActionEvent e){
+                     color=4;
+                    }
+            });
+             Farbe5.addActionListener(new ActionListener(){
+                 public void actionPerformed(ActionEvent e){
+                     color=5;
+                    }
+            });
+             Farbe6.addActionListener(new ActionListener(){
+                 public void actionPerformed(ActionEvent e){
+                     color=6;
+                    }
+            });
+             Farbe7.addActionListener(new ActionListener(){
+                 public void actionPerformed(ActionEvent e){
+                     color=7;
+                    }
+            });
+             Farbe8.addActionListener(new ActionListener(){
+                 public void actionPerformed(ActionEvent e){
+                     color=8;
+                    }
+            });
+             Farbe9.addActionListener(new ActionListener(){
+                 public void actionPerformed(ActionEvent e){
+                     color=9;
+                    }
+            });
+             Farbe10.addActionListener(new ActionListener(){
+                 public void actionPerformed(ActionEvent e){
+                     color=10;
+                    }
+            });
         }
         else{
             JTextField TFeingabe = new JTextField( 15);
