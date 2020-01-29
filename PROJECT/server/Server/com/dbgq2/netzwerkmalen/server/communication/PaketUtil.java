@@ -1,4 +1,4 @@
- 
+package com.dbgq2.netzwerkmalen.server.communication; 
 
 /**
  * Util to create Pakets 
