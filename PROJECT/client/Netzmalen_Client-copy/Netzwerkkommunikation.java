@@ -8,6 +8,13 @@ public class Netzwerkkommunikation
     public static Thread s = null;
     public static Socket socket = null;
     
+    int time;
+    int chatMsgIndicator;
+    int playerAmount;
+    int[] points;
+    String[] chatMessages = new String[120];
+    
+    
     public static void createTestSocket(){
             s=new Thread(new Runnable(){
                 @Override
@@ -17,10 +24,10 @@ public class Netzwerkkommunikation
                         BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                         
                         String incomeLine = null;
-                        // Lauft durch und ließt Nachrichten, solange wie der Teufel Leben mag.
+                        // Leauft durch und ließt Nachrichten, solange wie der Teufel Leben mag.
                         while((incomeLine=in.readLine())!=null){
                             // Verarbeite die einkommende Nachricht.
-                            System.out.println("Reveived new paket from server: "+incomeLine);
+                            System.out.println("Received new paket from server: "+incomeLine);
                             if(true){
                             System.out.println("Game starting");
                             }
@@ -47,4 +54,49 @@ public class Netzwerkkommunikation
         }
     }
 
+    public void decodeMessage(String msg){
+        String[] analyse = msg.split(";");
+        
+        if(analyse.length == 0){
+            return;
+        }else{
+            switch(analyse[0]){
+                case "0" : 
+                    break;
+                case "1" : time = Integer.parseInt(analyse[1]);
+                    break;
+                case "2" : chatMessages[chatMsgIndicator+1]=analyse[1];
+                           chatMsgIndicator++;
+                    break;
+                case "3" : 
+                    break;
+                case "4" : 
+                    break;
+                case "5" : 
+                    break;
+                case "6" : 
+                    break;
+                case "7" : 
+                    break;
+                case "8" : 
+                    break;
+    
+                    
+            
+            
+            
+            
+            
+            
+            }
+        
+        
+        
+        
+        }
+        
+    
+    }
+    
+    
 }
