@@ -16,19 +16,26 @@ public class Logic
         vs = new Visuals();
         
         loginProcess = true;
-        gameRunning = true;
+        login();
         
-  
-        while(loginProcess){
+        gameRunning = true;
+        game();
+    }
+    
+    public void login()
+    {
+        nc.createSocket();
+        while(loginProcess)
+        {
             
             
         }
-                                            //init vars for game
-        
-        
-        
+    }
+    
+    public void game()
+    {
         while(gameRunning){
-            //repeating stuff
+            
             
             
         }

@@ -8,18 +8,18 @@ public class Netzwerkkommunikation
     public static Thread s = null;
     public static Socket socket = null;
     
-    boolean du;
-    boolean drawer;
-    boolean gameRunning;
-    int time;
-    int chatMsgIndicator;
-    int playerAmount;
-    int winner;
-    String word;
+    static boolean du;
+    static boolean drawer;
+    static boolean gameRunning;
+    static int time;
+    static int chatMsgIndicator;
+    static int playerAmount;
+    static int winner;
+    static String word;
     int[] points;
-    String[] chatMessages = new String[120];
+    static String[] chatMessages = new String[120];
     
-    public static void createTestSocket(){
+    public static void createSocket(){
             s=new Thread(new Runnable(){
                 @Override
                 public void run(){
@@ -31,7 +31,7 @@ public class Netzwerkkommunikation
                         // Leauft durch und ließt Nachrichten, solange wie der Teufel Leben mag.
                         while((incomeLine=in.readLine())!=null){
                             // Verarbeite die einkommende Nachricht.
-                            System.out.println("Received new paket from server: "+incomeLine);
+                            decodeMessage(incomeLine);
                             if(true){
                             System.out.println("Game starting");
                             }
@@ -57,8 +57,12 @@ public class Netzwerkkommunikation
         }
     }
 
+<<<<<<< HEAD
     
     public void decodeMessage(String msg){
+=======
+    public static void decodeMessage(String msg){
+>>>>>>> 710ac592a73311f37be30d60dc2139b04c18a678
         String[] analyse = msg.split(";");
         
         if(analyse.length == 0){
