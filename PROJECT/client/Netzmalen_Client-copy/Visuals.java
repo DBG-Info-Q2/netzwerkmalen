@@ -43,8 +43,6 @@ public class Visuals
     JLabel Label;
     JLabel Netzwerkmalen;
     JTextArea ChatAusgabe;
-    JTextField ChatEingabe;
-    JButton Senden;
     JTextArea Punkte;
     boolean Test = true;
     String ratewort;
@@ -152,8 +150,6 @@ public class Visuals
 
         Label = new JLabel();
         ChatAusgabe = new JTextArea();
-        ChatEingabe = new JTextField();
-        Senden = new JButton();
         Punkte = new JTextArea();
 
         Netzwerkmalen = new JLabel();
@@ -163,17 +159,9 @@ public class Visuals
         ChatAusgabe.setColumns(1);
         ChatAusgabe.setLineWrap(true);
         ChatAusgabe.setWrapStyleWord(true);
-        ChatEingabe.setBounds(100,600,180,20);
-        Senden.setBounds(280,600,20,20);
-        Senden.addActionListener(new ActionListener(){
-                 public void actionPerformed(ActionEvent e){
-                     System.out.println(ChatEingabe.getText());
-                     schreiben(ChatEingabe.getText(), "Tobi");
-                     ChatEingabe.setText("");
-                    }
-                });
-        
+
         Panel.setBackground(new Color(142,208,255));
+        //Graphics background = canvas.drawRect(0, 0, image.getWidth(), image.getHeight());
 
         Punkte.setBounds(1000,100,200,200);
         Punkte.setEditable(false);
@@ -191,8 +179,6 @@ public class Visuals
         Fenster.setSize(1300,800);
         Panel.add(Punkte);
         Panel.add(ChatAusgabe);
-        Panel.add(ChatEingabe);
-        Panel.add(Senden);
         Panel.add(Label);
         Panel.add(Netzwerkmalen);
         Panel.setVisible(true);
@@ -238,7 +224,7 @@ public class Visuals
     }
 
     public void Eingabefarbe (){
-        if(Test== true){
+        if(Test== true){ //gilt nur für den Maler
             Farbe1 = new JButton(); 
             Farbe2 = new JButton(); 
             Farbe3 = new JButton(); 
@@ -340,14 +326,24 @@ public class Visuals
                     }
             });
         }
-        else{
+        else{ //gilt nur für die die Raten
             JTextField TFeingabe = new JTextField( 15);
-
+            JButton Senden = new JButton();
             TFeingabe.setForeground(Color.BLACK);
 
             TFeingabe.setBackground(Color.WHITE);
             TFeingabe.setBounds(400,620,500,40);
+            Senden.setBounds(900, 620,40, 40);
+            
+            Senden.addActionListener(new ActionListener(){
+                 public void actionPerformed(ActionEvent e){
+                     schreiben(TFeingabe.getText(), "Gert");
+                     TFeingabe.setText("");
+                    }
+            });
+            
             Panel.add(TFeingabe);
+            Panel.add(Senden);
 
         }
     }
