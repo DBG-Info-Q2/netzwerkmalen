@@ -30,19 +30,21 @@ public class Visuals
     JButton Farbe8;
     JButton Farbe9;
     JButton Farbe10;
-    Color c1=new Color (255,105, 180 ); // Rosa
+    Color c1=new Color (0,255, 255); // Türkis
     Color c2=new Color(0,0,0);// Schwarz
     Color c3=new Color(255, 0, 0);// Rot
     Color c4=new Color(242, 255, 0);// Gelb
-    Color c5=new Color(9, 255, 0);// Grün
+    Color c5=new Color(0, 180, 0);// Grün
     Color c6=new Color(139, 87, 66);// Braun
-    Color c7=new Color(0, 128, 255);// Blau
+    Color c7=new Color(0, 0, 255);// Blau
     Color c8=new Color(112, 112, 112);// Grau
     Color c9=new Color(186, 85, 211  );// Lila
     Color c10=new Color(255, 147, 5);// Orange
     JLabel Label;
     JLabel Netzwerkmalen;
-    JTextArea Chat;
+    JTextArea ChatAusgabe;
+    JTextField ChatEingabe;
+    JButton Senden;
     JTextArea Punkte;
     boolean Test = true;
     String ratewort;
@@ -92,6 +94,8 @@ public class Visuals
         //canvas.setPaintMode();
         //System.out.println(canvas.getColor());
         canvas.drawLine(X,Y,X2,Y2);
+        
+        Netzwerkkommunikation.sendMessage("4;"+X+";"+Y+";"+X2+";"+Y2+";"+color+";");
         //Fenster.repaint();
         //Welche Koordinate ist groesser??Tauschn...
         int minx=Math.min(X,X2)+POSX-5;
@@ -103,8 +107,10 @@ public class Visuals
         
 
     }
+    
+    
     public void schreiben(String Wort, String Spieler){
-        Chat.append(Spieler+": "+Wort+"\n");
+        ChatAusgabe.append(Spieler+": "+Wort+"\n");
     }
 
     public void Ratewort(String eingabewort){
@@ -145,15 +151,29 @@ public class Visuals
         Panel = new JPanel();
 
         Label = new JLabel();
-        Chat = new JTextArea();
+        ChatAusgabe = new JTextArea();
+        ChatEingabe = new JTextField();
+        Senden = new JButton();
         Punkte = new JTextArea();
 
         Netzwerkmalen = new JLabel();
-        Chat.setBounds(100,100,200,500);
-        Chat.setEditable(false);
-        Chat.setColumns(1);
-        Chat.setLineWrap(true);
-        Chat.setWrapStyleWord(true);
+        
+        ChatAusgabe.setBounds(100,100,200,500);
+        ChatAusgabe.setEditable(false);
+        ChatAusgabe.setColumns(1);
+        ChatAusgabe.setLineWrap(true);
+        ChatAusgabe.setWrapStyleWord(true);
+        ChatEingabe.setBounds(100,600,180,20);
+        Senden.setBounds(280,600,20,20);
+        Senden.addActionListener(new ActionListener(){
+                 public void actionPerformed(ActionEvent e){
+                     System.out.println(ChatEingabe.getText());
+                     schreiben(ChatEingabe.getText(), "Tobi");
+                     ChatEingabe.setText("");
+                    }
+                });
+        
+        Panel.setBackground(new Color(142,208,255));
 
         Punkte.setBounds(1000,100,200,200);
         Punkte.setEditable(false);
@@ -170,7 +190,9 @@ public class Visuals
 
         Fenster.setSize(1300,800);
         Panel.add(Punkte);
-        Panel.add(Chat);
+        Panel.add(ChatAusgabe);
+        Panel.add(ChatEingabe);
+        Panel.add(Senden);
         Panel.add(Label);
         Panel.add(Netzwerkmalen);
         Panel.setVisible(true);

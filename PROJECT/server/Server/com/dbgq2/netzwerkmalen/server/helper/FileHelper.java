@@ -20,10 +20,10 @@ public class FileHelper {
 			return true;
 
 		String newCacheString = "";
-		for (String s : currentCache) {
-			newCacheString += s + "\\n";
+		for (int a=0; a<currentCache.length; a++) {
+			newCacheString = newCacheString + currentCache[a] + ";";
 		}
-
+		
 		if (!localCacheCheck())
 			return true;
 
@@ -32,9 +32,10 @@ public class FileHelper {
 		File wordCacheFile = new File(FileHelper.source() + WORD_CACHE_FILE_NAME);
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(wordCacheFile));
-
-			while (reader.readLine() != null) {
-				fileCacheString = reader.readLine() + "\\n";
+			
+			String line;
+			while ((line = reader.readLine()) != null) {
+				fileCacheString = fileCacheString + line + ";";
 			}
 			reader.close();
 		} catch (IOException e) {
@@ -42,8 +43,8 @@ public class FileHelper {
 			e.printStackTrace();
 			return true;
 		}
-
-		return newCacheString.equals(fileCacheString);
+		
+		return !newCacheString.equals(fileCacheString);
 	}
 
 	public static boolean localCacheCheck() { // existiert schon eine Datei
