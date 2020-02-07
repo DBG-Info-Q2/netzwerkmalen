@@ -57,7 +57,9 @@ public class Netzwerkkommunikation
         }
     }
 
+
     public static void decodeMessage(String msg){
+
         String[] analyse = msg.split(";");
         
         if(analyse.length == 0){

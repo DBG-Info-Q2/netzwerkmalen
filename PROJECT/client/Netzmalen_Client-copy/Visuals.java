@@ -92,6 +92,8 @@ public class Visuals
         //canvas.setPaintMode();
         //System.out.println(canvas.getColor());
         canvas.drawLine(X,Y,X2,Y2);
+        
+        Netzwerkkommunikation.sendMessage("4;"+X+";"+Y+";"+X2+";"+Y2+";"+color+";");
         //Fenster.repaint();
         //Welche Koordinate ist groesser??Tauschn...
         int minx=Math.min(X,X2)+POSX-5;
@@ -103,6 +105,8 @@ public class Visuals
         
 
     }
+    
+    
     public void schreiben(String Wort, String Spieler){
         ChatAusgabe.append(Spieler+": "+Wort+"\n");
     }
