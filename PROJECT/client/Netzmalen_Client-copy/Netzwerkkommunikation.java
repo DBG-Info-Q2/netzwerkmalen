@@ -16,8 +16,9 @@ public class Netzwerkkommunikation
     static int playerAmount;
     static int winner;
     static String word;
+    static String recentChatMessage;
     int[] points;
-    static String[] chatMessages = new String[120];
+    
     
     public static void createSocket(){
             s=new Thread(new Runnable(){
@@ -70,8 +71,7 @@ public class Netzwerkkommunikation
                     break;
                 case "1" : time = Integer.parseInt(analyse[1]);
                     break;
-                case "2" : chatMessages[chatMsgIndicator+1]=analyse[1];
-                           chatMsgIndicator++;
+                case "2" : recentChatMessage = analyse[1];
                     break;
                 case "3" : 
                     break;
