@@ -43,7 +43,7 @@ public class COMMSocket {
 					// Lauft durch und ließt Nachrichten, solange wie der Teufel Leben mag.
 					while ((incomeLine = in.readLine()) != null) {
 						// Verarbeite die einkommende Nachricht.
-						Logger.debug("Reveived new paket from " + getID() + ": " + incomeLine);
+						//Logger.debug("Reveived new paket from " + getID() + ": " + incomeLine);
 						Communication.handlePaket(getID(), incomeLine);
 					}
 					Logger.log("Exit");
