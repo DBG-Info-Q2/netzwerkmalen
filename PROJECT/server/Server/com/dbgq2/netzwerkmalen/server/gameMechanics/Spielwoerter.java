@@ -66,7 +66,7 @@ public class Spielwoerter {
 
 			// Create URL or WebLink where the Woerter.txt file is located.
 			URL url = new URL(
-					"https://raw.githubusercontent.com/DBG-Info-Q2/netzwerkmalen/master/PROJECT/Woerter.txt");
+					"https://raw.githubusercontent.com/DBG-Info-Q2/netzwerkmalen/master/Woerter.txt");
 			// Open the connection to said link. May throw several errors.
 			URLConnection connect = url.openConnection();
 
