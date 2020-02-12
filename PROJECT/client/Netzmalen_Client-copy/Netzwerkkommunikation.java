@@ -100,6 +100,10 @@ public class Netzwerkkommunikation{
                 break;
                 case "4" :
                     // Paket update Drawing. Only valid if !drawer
+                    try{
+                        int x,y,x2,y2,color;
+                    }catch(Exception e){}
+                    // Logic.vs.zeichne();
                 break;
                 case "5" : 
                 
