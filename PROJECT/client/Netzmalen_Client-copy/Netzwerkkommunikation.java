@@ -7,7 +7,12 @@ public class Netzwerkkommunikation
 {
     public static Thread s = null;
     public static Socket socket = null;
+<<<<<<< HEAD
     
+=======
+
+    static boolean du;
+>>>>>>> 1f22c67c2ec2a2b0b5ef9dad5949a750bfd16417
     static boolean drawer;
     static boolean gameRunning;
     static int time;
@@ -193,11 +198,20 @@ public class Netzwerkkommunikation
 >>>>>>> 3e86adcaa0cb1a63d76268492eb1611d218abe04
                     break;
                 case "3" : 
-                    break;
-                case "4" : 
-                    break;
-                case "5" : drawer = Boolean.parseBoolean(analyse[1]);
-                    break;
+                    // Point update Paket. param0: newPointcount, param1: ID of player
+                break;
+                case "4" :
+                    // Paket update Drawing. Only valid if !drawer
+                    try{
+                        int x,y,x2,y2,color;
+                    }catch(Exception e){}
+                    // Logic.vs.zeichne();
+                break;
+                case "5" : 
+                
+                    drawer = Boolean.parseBoolean(analyse[1]);
+                    
+                break;
                 case "6" : word = analyse[1];
                     break;
                 case "7" : gameRunning = Boolean.parseBoolean(analyse[1]);

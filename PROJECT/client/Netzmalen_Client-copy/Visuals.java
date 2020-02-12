@@ -92,7 +92,7 @@ public class Visuals
         //System.out.println(canvas.getColor());
         canvas.drawLine(X,Y,X2,Y2);
         
-        Netzwerkkommunikation.sendMessage("4;"+X+";"+Y+";"+X2+";"+Y2+";"+color+";");
+        
         //Fenster.repaint();
         //Welche Koordinate ist groesser??Tauschn...
         int minx=Math.min(X,X2)+POSX-5;
@@ -210,6 +210,8 @@ public class Visuals
                         x=e.getX()-POSX+OFFX;
                         y=e.getY()-POSY+OFFY;
                         zeichne(x2,y2,x,y,color);
+                        // Send a Draw Paket to Server with only the message. Server will broadcast to all users.
+                        Netzwerkkommunikation.sendMessage(PaketUtil.createDrawUpdatePaket(x2,y2,x,y,color));
                         //System.out.println(""+x+","+y+","+x2+","+y2+"");
                         x2=x;
                         y2=y;

@@ -7,12 +7,16 @@ public class Logic
     boolean painting,loginProcess,gameRunning,drawer;
     ArrayList chat;
     Netzwerkkommunikation nc;
-    Visuals vs;
+    
+    // Access on by Netzwerkkommunikation. 
+    public static Visuals vs;
     
     String word;
     
+    /**
+     * Initialize the client. Create all Class Objects and start the game loop.
+     */
     String recentChatMessage;
-    
     public void gameloop(){
         nc = new Netzwerkkommunikation();   //init
         vs = new Visuals();
