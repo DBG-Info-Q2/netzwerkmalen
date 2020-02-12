@@ -7,8 +7,11 @@ public class Netzwerkkommunikation
 {
     public static Thread s = null;
     public static Socket socket = null;
+<<<<<<< HEAD
 
     static boolean du;
+=======
+>>>>>>> 8ffebe991ca18a3253f3fc2385f570223d430866
     static boolean drawer;
     static boolean gameRunning;
     static int time;
@@ -20,12 +23,15 @@ public class Netzwerkkommunikation
     static String recentChatMessage;
     int[] points;
 
+<<<<<<< HEAD
     
     
 
     static String[] chatMessages = new String[120];
 
 
+=======
+>>>>>>> 8ffebe991ca18a3253f3fc2385f570223d430866
     /**
      * Creates the communication Socket to the server. Tries to establish a connection.
      * Incoming messages get read in a thread and handled through #decodeMessage(String);
@@ -68,6 +74,7 @@ public class Netzwerkkommunikation
     
     
     /*
+     * Alte Version bitte nicht benutzen.
         public String leseIDAus() {
         readFileFromGitHubRepoOrFromLocal();
         File Woerterdatei = new File(FileHelper.source() + FileHelper.ID);
@@ -116,7 +123,12 @@ public class Netzwerkkommunikation
     }
     
     }*/
+<<<<<<< HEAD
 
+=======
+    
+    
+>>>>>>> 8ffebe991ca18a3253f3fc2385f570223d430866
     //File "ID" not yet implimented
     
     
@@ -144,6 +156,7 @@ public class Netzwerkkommunikation
             return;
         }else{
             switch(analyse[0]){
+<<<<<<< HEAD
                 case "0" : 
                     // Paket User Login. param0: name, param1: isHimself
                     String name = analyse[1];
@@ -161,6 +174,17 @@ public class Netzwerkkommunikation
                            //Visuals.schreiben(analyse[1], "Gert");
                            chatMessages[chatMsgIndicator+1]=analyse[1];
                            chatMsgIndicator++;
+=======
+                case "0" : playerName = analyse[1];
+                   if(Boolean.parseBoolean(analyse[2])){
+                   }else{
+                        //TODO: Add the player name to the scoreboard
+                    }
+                    break;
+                case "1" : time = Integer.parseInt(analyse[1]);
+                    break;
+                case "2" : recentChatMessage = analyse[1];
+>>>>>>> 8ffebe991ca18a3253f3fc2385f570223d430866
                     break;
                 case "3" : 
                     // Point update Paket. param0: newPointcount, param1: ID of player
@@ -168,12 +192,15 @@ public class Netzwerkkommunikation
                 case "4" :
                     // Paket update Drawing. Only valid if !drawer
                     try{
-                        int x,y,x2,y2,color;
-                    }catch(Exception e){}
-                    // Logic.vs.zeichne();
+                        int x=Integer.parseInt(analyse[1]),y=Integer.parseInt(analyse[2]),x2=Integer.parseInt(analyse[3]),y2=Integer.parseInt(analyse[4]),color=Integer.parseInt(analyse[5]);
+                        // Run in Visuals a zeichne to display the paket.
+                        Logic.vs.zeichne(x,y,x2,y2,color);
+                    }catch(Exception e){
+                        System.err.println("Error receiving draw paket ..");
+                        e.printStackTrace();
+                    }
                 break;
                 case "5" : 
-                
                     drawer = Boolean.parseBoolean(analyse[1]);
                     
                 break;

@@ -160,7 +160,8 @@ public class Communication {
 				// Increment amount of right guesses for the current game.
 				Gameserver.GOTT.currentRightGuesses++;
 			} else {
-				sendPaket("-1", analyse[0]+";"+id+": "+analyse[1]+";");
+				// Send paket in format Playername: Chatmessage from him.
+				sendPaket("-1", PaketUtil.createChatUpdatePaket(id+": "+analyse[1]));
 			}
 			break;
 		case "3":
