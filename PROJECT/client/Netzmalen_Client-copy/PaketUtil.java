@@ -1,5 +1,3 @@
-package com.dbgq2.netzwerkmalen.server.communication; 
-
 /**
  * Util to create Pakets 
  */
@@ -38,7 +36,7 @@ public class PaketUtil{
     }
 
     /**
-     * WIP
+     * Paket to transmit Drawn image
      */
     public static String createDrawUpdatePaket(int x1, int y1, int x2, int y2, int colour){
         return "4;"+x1+";"+y1+";"+x2+";"+y2+";"+colour+";";

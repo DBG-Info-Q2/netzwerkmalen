@@ -7,8 +7,12 @@ public class Netzwerkkommunikation
 {
     public static Thread s = null;
     public static Socket socket = null;
+<<<<<<< HEAD
     
+=======
+
     static boolean du;
+>>>>>>> 1f22c67c2ec2a2b0b5ef9dad5949a750bfd16417
     static boolean drawer;
     static boolean gameRunning;
     static int time;
@@ -16,14 +20,18 @@ public class Netzwerkkommunikation
     static int playerAmount;
     static int winner;
     static String word;
+    static String playerName;
     static String recentChatMessage;
     int[] points;
 
+<<<<<<< HEAD
+=======
     
     
 
     static String[] chatMessages = new String[120];
 
+>>>>>>> 3e86adcaa0cb1a63d76268492eb1611d218abe04
 
     /**
      * Creates the communication Socket to the server. Tries to establish a connection.
@@ -84,6 +92,58 @@ public class Netzwerkkommunikation
         }
     }*/
     
+    /*
+    Neue Version
+    
+    public void leseIDaus()
+    {
+        
+        File IDdatei = new File("T:"+(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI())
+					.getPath()+"/ID");
+        if (!IDdatei.canRead() || !IDdatei.isFile())
+            {System.out.println("Dateifehler");
+                System.exit(0);}
+        BufferedReader in = null;
+        try {
+            String zeile = null;
+            String ID="";
+            while ((zeile = in.readLine()) != null) {
+                ID = zeile;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (in != null)
+                try {
+                    in.close();
+                } catch (IOException e) {
+                }
+        } 
+        
+    }
+    
+    }*/
+    
+<<<<<<< HEAD
+    	public String leseIDAus() {
+		readFileFromGitHubRepoOrFromLocal();
+		File Woerterdatei = new File(FileHelper.source() + FileHelper.ID);
+		BufferedReader reader = null;
+		try {
+			reader = new BufferedReader(new FileReader(Woerterdatei));
+			String ID = "";
+			ID = reader.readLine();
+			reader.close();
+			return ID;
+		} catch (IOException e) {
+			e.printStackTrace();
+			Logger.error("ID doesn't exists");
+			return "";
+		}
+	}
+=======
+>>>>>>> 3e86adcaa0cb1a63d76268492eb1611d218abe04
+    
     //File "ID" not yet implimented
     
     
@@ -98,7 +158,7 @@ public class Netzwerkkommunikation
             printWriter.println(msg);
             printWriter.flush();
         }catch(Exception e){
-            e.printStackTrace();
+            //e.printStackTrace();
         }
     }
 
@@ -111,49 +171,54 @@ public class Netzwerkkommunikation
             return;
         }else{
             switch(analyse[0]){
+<<<<<<< HEAD
+                case "0" : playerName = analyse[1];
+                   if(Boolean.parseBoolean(analyse[2])){
+=======
                 case "0" : 
                     // Paket User Login. param0: name, param1: isHimself
                     String name = analyse[1];
                     boolean du = Boolean.parseBoolean(analyse[2]);
                     if(du){
+>>>>>>> 3e86adcaa0cb1a63d76268492eb1611d218abe04
                         //TODO: Set the players own name. For chat or other purposes..
                     }else{
                         //TODO: Add the player name to the scoreboard
                     }
+<<<<<<< HEAD
+                    break;
+                case "1" : time = Integer.parseInt(analyse[1]);
+                    break;
+                case "2" : recentChatMessage = analyse[1];
+=======
                 case "1" : time = Integer.parseInt(analyse[1]);
                     break;
                 case "2" : chatMessages[chatMsgIndicator+1]=analyse[1];
                            chatMsgIndicator++;
+>>>>>>> 3e86adcaa0cb1a63d76268492eb1611d218abe04
                     break;
                 case "3" : 
-                    break;
-                case "4" : 
-                    break;
-                case "5" : drawer = Boolean.parseBoolean(analyse[1]);
-                    break;
+                    // Point update Paket. param0: newPointcount, param1: ID of player
+                break;
+                case "4" :
+                    // Paket update Drawing. Only valid if !drawer
+                    try{
+                        int x,y,x2,y2,color;
+                    }catch(Exception e){}
+                    // Logic.vs.zeichne();
+                break;
+                case "5" : 
+                
+                    drawer = Boolean.parseBoolean(analyse[1]);
+                    
+                break;
                 case "6" : word = analyse[1];
                     break;
                 case "7" : gameRunning = Boolean.parseBoolean(analyse[1]);
                     break;
                 case "8" : winner = Integer.parseInt(analyse[1]);
                     break;
-    
-                    
-            
-            
-            
-            
-            
-            
             }
-        
-        
-        
-        
         }
-        
-    
-    }
-    
-    
+    } 
 }

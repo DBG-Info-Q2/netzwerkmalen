@@ -7,12 +7,16 @@ public class Logic
     boolean painting,loginProcess,gameRunning,drawer;
     ArrayList chat;
     Netzwerkkommunikation nc;
-    Visuals vs;
     
-    String drawnWord;
+    // Access on by Netzwerkkommunikation. 
+    public static Visuals vs;
     
+    String word;
+    
+    /**
+     * Initialize the client. Create all Class Objects and start the game loop.
+     */
     String recentChatMessage;
-    
     public void gameloop(){
         nc = new Netzwerkkommunikation();   //init
         vs = new Visuals();
@@ -41,8 +45,11 @@ public class Logic
             time=nc.time;
             drawer=nc.drawer;
             recentChatMessage=nc.recentChatMessage;
+            word=nc.word;
             
             color=vs.color;
+            
+            vs.ratewort=word;
             
             if(!recentChatMessage.equals("")){
                 vs.schreiben(recentChatMessage.split(":")[1], recentChatMessage.split(":")[0]); //recent chat message e.g. Hermann:Hallo
@@ -53,10 +60,6 @@ public class Logic
             
             gameRunning=nc.gameRunning;
         }
-    }
-    
-    public void setRecentMsg(String ff){
-        recentChatMessage = "kecko";
     }
     
     

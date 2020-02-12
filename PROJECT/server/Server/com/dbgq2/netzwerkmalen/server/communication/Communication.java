@@ -167,7 +167,6 @@ public class Communication {
 			Logger.error("False protocol. Client " + id + " sent PointsUpdatePaket.");
 			break; // Paket destin for client
 		case "4":
-			// WIP
 			// Logger.log("Client "+id+" sent DrawUpdatePaket.");
 			sendPaket("-1", paket);
 			break;
