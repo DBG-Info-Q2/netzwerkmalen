@@ -7,8 +7,6 @@ public class Netzwerkkommunikation
 {
     public static Thread s = null;
     public static Socket socket = null;
-
-    static boolean du;
     static boolean drawer;
     static boolean gameRunning;
     static int time;
@@ -16,14 +14,9 @@ public class Netzwerkkommunikation
     static int playerAmount;
     static int winner;
     static String word;
+    static String playerName;
     static String recentChatMessage;
     int[] points;
-
-    
-    
-
-    static String[] chatMessages = new String[120];
-
 
     /**
      * Creates the communication Socket to the server. Tries to establish a connection.
@@ -92,7 +85,7 @@ public class Netzwerkkommunikation
     {
         
         File IDdatei = new File("T:"+(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI())
-					.getPath()+"/ID");
+                    .getPath()+"/ID");
         if (!IDdatei.canRead() || !IDdatei.isFile())
             {System.out.println("Dateifehler");
                 System.exit(0);}
@@ -145,19 +138,15 @@ public class Netzwerkkommunikation
             return;
         }else{
             switch(analyse[0]){
-                case "0" : 
-                    // Paket User Login. param0: name, param1: isHimself
-                    String name = analyse[1];
-                    boolean du = Boolean.parseBoolean(analyse[2]);
-                    if(du){
-                        //TODO: Set the players own name. For chat or other purposes..
-                    }else{
+                case "0" : playerName = analyse[1];
+                   if(Boolean.parseBoolean(analyse[2])){
+                   }else{
                         //TODO: Add the player name to the scoreboard
                     }
+                    break;
                 case "1" : time = Integer.parseInt(analyse[1]);
                     break;
-                case "2" : chatMessages[chatMsgIndicator+1]=analyse[1];
-                           chatMsgIndicator++;
+                case "2" : recentChatMessage = analyse[1];
                     break;
                 case "3" : 
                     // Point update Paket. param0: newPointcount, param1: ID of player
@@ -183,23 +172,7 @@ public class Netzwerkkommunikation
                     break;
                 case "8" : winner = Integer.parseInt(analyse[1]);
                     break;
-    
-                    
-            
-            
-            
-            
-            
-            
             }
-        
-        
-        
-        
         }
-        
-    
-    }
-    
-    
+    } 
 }
