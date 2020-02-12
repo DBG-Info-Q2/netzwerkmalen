@@ -90,7 +90,8 @@ public class Netzwerkkommunikation
     public void leseIDaus()
     {
         
-        File IDdatei = new File("T:/Klasse q2/BrandIF/Netzmalen Max/PROJECT/server/Server/Woerter.txt");
+        File IDdatei = new File("T:"+(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI())
+					.getPath()+"/ID");
         if (!IDdatei.canRead() || !IDdatei.isFile())
             {System.out.println("Dateifehler");
                 System.exit(0);}
