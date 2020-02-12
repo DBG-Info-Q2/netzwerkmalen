@@ -84,6 +84,38 @@ public class Netzwerkkommunikation
         }
     }*/
     
+    /*
+    Neue Version
+    
+    public void leseIDaus()
+    {
+        
+        File IDdatei = new File("T:/Klasse q2/BrandIF/Netzmalen Max/PROJECT/server/Server/Woerter.txt");
+        if (!IDdatei.canRead() || !IDdatei.isFile())
+            {System.out.println("Dateifehler");
+                System.exit(0);}
+        BufferedReader in = null;
+        try {
+            String zeile = null;
+            String ID="";
+            while ((zeile = in.readLine()) != null) {
+                ID = zeile;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (in != null)
+                try {
+                    in.close();
+                } catch (IOException e) {
+                }
+        } 
+        
+    }
+    
+    }*/
+    
+    
     //File "ID" not yet implimented
     
     
