@@ -42,23 +42,25 @@ public class Logic
     {
         
         while(gameRunning){
-            time=nc.time;
+            time=nc.time;                                   //vars from nc to logic
             drawer=nc.drawer;
             recentChatMessage=nc.recentChatMessage;
             word=nc.word;
             
-            color=vs.color;
+            color=vs.color;                                 //vars from vs to logic
             
-            vs.ratewort=word;
+                                                            //vars from logic to nc
             
-            if(!recentChatMessage.equals("")){
+            vs.ratewort=word;                               //vars from logic to vs
+            
+            if(!recentChatMessage.equals("")){  //if new message -> visualized in vs
                 vs.schreiben(recentChatMessage.split(":")[1], recentChatMessage.split(":")[0]); //recent chat message e.g. Hermann:Hallo
             }
             
             
             
             
-            gameRunning=nc.gameRunning;
+            gameRunning=nc.gameRunning;                     //checking if game is still running
         }
     }
     

@@ -65,7 +65,6 @@ public class Visuals
     }
 
     public void zeichne(int X, int Y,int X2, int Y2, int color){
-
         if(color== 1){canvas.setColor(c1);
         }
         if(color== 2){canvas.setColor(c2);
@@ -92,7 +91,6 @@ public class Visuals
         //System.out.println(canvas.getColor());
         canvas.drawLine(X,Y,X2,Y2);
         
-        
         //Fenster.repaint();
         //Welche Koordinate ist groesser??Tauschn...
         int minx=Math.min(X,X2)+POSX-5;
@@ -101,10 +99,7 @@ public class Visuals
         int height=Math.abs(Y-Y2)+10;
        
         Fenster.repaint(100,minx,miny, width,height);
-        
-
     }
-    
     
     public void schreiben(String Wort, String Spieler){
         ChatAusgabe.append(Spieler+": "+Wort+"\n");
@@ -117,15 +112,13 @@ public class Visuals
     void PunkteListen(String Name, int Punkte){
         for(int o=0;o<5;o++){
             if (Name == Namen[o]){    
-                Punktearray[o]=Punkte; 
-
+                Punktearray[o]=Punkte;
             }   
         }
         Namen [Counter] = Name; 
         Punktearray [Counter]= Punkte;
         Counter++;
         Punkteschreiben();
-
     }
 
     public void Punkteschreiben(){
@@ -137,12 +130,10 @@ public class Visuals
 
     public void setup(){
         Fenster = new JFrame(){
-
             public void paint(Graphics g) {
                 super.paint(g);
                 g.drawImage(image,POSX,POSY,this);
             }
-
         };
 
         Panel = new JPanel();
@@ -185,7 +176,6 @@ public class Visuals
         Fenster.add(Panel);
         Panel.setLayout(null);
         Fenster.setVisible(true);
-
     }
 
     public void Zeichenübertragen(int b){
@@ -217,11 +207,9 @@ public class Visuals
                         y2=y;
                     }
                 }  
-
             };
         Panel.addMouseMotionListener(ma);
         Panel.addMouseListener(ma);
-
     }
 
     public void Eingabefarbe (){
@@ -263,8 +251,6 @@ public class Visuals
             Farbe8.setBounds(a+7*b,e,c,d);
             Farbe9.setBounds(a+8*b,e,c,d);
             Farbe10.setBounds(a+9*b,e,c,d);
-            
-            
             
             Panel.add(Farbe1);
             Panel.add(Farbe2);
@@ -327,8 +313,7 @@ public class Visuals
                     }
             });
             Zeichenübertragen(5);
-        }
-        else{ //gilt nur für die die Raten
+        }else{ //gilt nur für die die Raten
             JTextField TFeingabe = new JTextField( 15);
             JButton Senden = new JButton();
             TFeingabe.setForeground(Color.BLACK);
@@ -343,10 +328,8 @@ public class Visuals
                      TFeingabe.setText("");
                     }
             });
-            
             Panel.add(TFeingabe);
             Panel.add(Senden);
-
         }
     }
 }

@@ -10,7 +10,6 @@ public class Netzwerkkommunikation
     static boolean drawer;
     static boolean gameRunning;
     static int time;
-    static int chatMsgIndicator;
     static int playerAmount;
     static int winner;
     static String word;
@@ -139,34 +138,33 @@ public class Netzwerkkommunikation
             switch(analyse[0]){
                 case "0" : playerName = analyse[1];
                    if(Boolean.parseBoolean(analyse[2])){
+                       //TODO: change player name
                    }else{
                         //TODO: Add the player name to the scoreboard
                     }
                     break;
-                case "1" : time = Integer.parseInt(analyse[1]);
+                case "1" : time = Integer.parseInt(analyse[1]); //time
                     break;
-                case "2" : recentChatMessage = analyse[1];
+                case "2" : recentChatMessage = analyse[1];      //msg
                     break;
                 case "3" : 
                     // Point update Paket. param0: newPointcount, param1: ID of player
-                break;
+                    break;
                 case "4" :
                     // Paket update Drawing. Only valid if !drawer
                     try{
                         int x,y,x2,y2,color;
                     }catch(Exception e){}
                     // Logic.vs.zeichne();
-                break;
+                    break;
                 case "5" : 
-                
-                    drawer = Boolean.parseBoolean(analyse[1]);
-                    
-                break;
+                    drawer = Boolean.parseBoolean(analyse[1]);      
+                    break;
                 case "6" : word = analyse[1];
                     break;
                 case "7" : gameRunning = Boolean.parseBoolean(analyse[1]);
                     break;
-                case "8" : winner = Integer.parseInt(analyse[1]);
+                case "8" : winner = analyse[1];
                     break;
             }
         }
