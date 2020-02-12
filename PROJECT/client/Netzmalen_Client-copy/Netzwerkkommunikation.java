@@ -16,9 +16,23 @@ public class Netzwerkkommunikation
     static int playerAmount;
     static int winner;
     static String word;
+    static String recentChatMessage;
     int[] points;
-    static String[] chatMessages = new String[120];
+<<<<<<< HEAD
     
+    
+=======
+    static String[] chatMessages = new String[120];
+<<<<<<< HEAD
+
+    /**
+     * Creates the communication Socket to the server. Tries to establish a connection.
+     * Incoming messages get read in a thread and handled through #decodeMessage(String);
+     */
+>>>>>>> de4ce85c1b1674c03cc68b632bff4842ad5f684c
+=======
+    
+>>>>>>> facd73c31f59b81bec303d0982b1f094d21942c0
     public static void createSocket(){
             s=new Thread(new Runnable(){
                 @Override
@@ -33,6 +47,7 @@ public class Netzwerkkommunikation
                             // Verarbeite die einkommende Nachricht.
                             decodeMessage(incomeLine);
                             if(true){
+                            sendMessage(ID);
                             System.out.println("Game starting");
                             }
                             
@@ -45,6 +60,39 @@ public class Netzwerkkommunikation
             );
             s.start();
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    	public string leseIDAus() {
+		readFileFromGitHubRepoOrFromLocal();
+		File Woerterdatei = new File(FileHelper.source() + FileHelper.ID);
+		BufferedReader reader = null;
+		try {
+			reader = new BufferedReader(new FileReader(Woerterdatei));
+			String ID = "";
+			ID = reader.readLine();
+			reader.close();
+			return ID;
+		} catch (IOException e) {
+			e.printStackTrace();
+			Logger.error("ID doesn't exists");
+			return "";
+		}
+	}
+    
+    //File "ID" not yet implimented
+    
+    
+    
+    
+    
     
     public static void sendMessage(String msg){
         try{
@@ -66,12 +114,31 @@ public class Netzwerkkommunikation
             return;
         }else{
             switch(analyse[0]){
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> facd73c31f59b81bec303d0982b1f094d21942c0
                 case "0" : du = Boolean.parseBoolean(analyse[1]);
                     break;
                 case "1" : time = Integer.parseInt(analyse[1]);
                     break;
+<<<<<<< HEAD
+                case "2" : recentChatMessage = analyse[1];
+=======
+                case "0" : 
+                    // Paket User Login. param0: name, param1: isHimself
+                    String name = analyse[1];
+                    boolean du = Boolean.parseBoolean(analyse[2]);
+                    if(du){
+                        //TODO: Set the players own name. For chat or other purposes..
+                    }else{
+                        //TODO: Add the player name to the scoreboard
+                    }
+>>>>>>> de4ce85c1b1674c03cc68b632bff4842ad5f684c
+=======
                 case "2" : chatMessages[chatMsgIndicator+1]=analyse[1];
                            chatMsgIndicator++;
+>>>>>>> facd73c31f59b81bec303d0982b1f094d21942c0
                     break;
                 case "3" : 
                     break;
