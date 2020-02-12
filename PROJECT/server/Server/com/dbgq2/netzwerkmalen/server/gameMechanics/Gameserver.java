@@ -74,7 +74,7 @@ public class Gameserver {
 		Logger.log("Gamestateupdate Paket sending to all users");
 		Communication.sendPaket("-1", PaketUtil.createGameStateUpdatePaket(true));
 
-		//selectDrawerFromPlayerlist();
+		selectDrawerFromPlayerlist();
 		Logger.log("drawerID is: " + drawerID);
 		Communication.sendPaket("-1", PaketUtil.createRoleUpdatePaket(false));
 		Communication.sendPaket(drawerID, PaketUtil.createRoleUpdatePaket(true));
