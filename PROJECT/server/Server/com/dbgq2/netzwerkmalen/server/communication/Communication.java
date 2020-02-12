@@ -69,7 +69,7 @@ public class Communication {
 						try {
 							Socket newClient = SocketServer.accept(); // Halting listener Thread until new Connection
 																		// established with client.
-
+							//TODO: UID Format: ####-####-####
 							// Create an Unique ID for the Player.
 							String clientID = PlayerNamesUtil
 									.findNewName(playerList.keySet().toArray(new String[playerList.keySet().size()])); // Converts
