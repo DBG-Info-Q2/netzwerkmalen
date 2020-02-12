@@ -11,7 +11,7 @@ public class Logic
     // Access on by Netzwerkkommunikation. 
     public static Visuals vs;
     
-    String drawnWord;
+    String word;
     
     /**
      * Initialize the client. Create all Class Objects and start the game loop.
@@ -45,8 +45,11 @@ public class Logic
             time=nc.time;
             drawer=nc.drawer;
             recentChatMessage=nc.recentChatMessage;
+            word=nc.word;
             
             color=vs.color;
+            
+            vs.ratewort=word;
             
             if(!recentChatMessage.equals("")){
                 vs.schreiben(recentChatMessage.split(":")[1], recentChatMessage.split(":")[0]); //recent chat message e.g. Hermann:Hallo
@@ -57,10 +60,6 @@ public class Logic
             
             gameRunning=nc.gameRunning;
         }
-    }
-    
-    public void setRecentMsg(String ff){
-        recentChatMessage = "kecko";
     }
     
     
