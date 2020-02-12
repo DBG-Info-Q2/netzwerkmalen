@@ -62,7 +62,6 @@ public class Visuals
 
     public void Window(){
         setup();
-        Zeichenübertragen(5);
     }
 
     public void zeichne(int X, int Y,int X2, int Y2, int color){
@@ -325,6 +324,7 @@ public class Visuals
                      color=10;
                     }
             });
+            Zeichenübertragen(5);
         }
         else{ //gilt nur für die die Raten
             JTextField TFeingabe = new JTextField( 15);

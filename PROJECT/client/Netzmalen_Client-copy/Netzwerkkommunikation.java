@@ -98,7 +98,7 @@ public class Netzwerkkommunikation
             printWriter.println(msg);
             printWriter.flush();
         }catch(Exception e){
-            e.printStackTrace();
+            //e.printStackTrace();
         }
     }
 
