@@ -8,7 +8,6 @@ public class Netzwerkkommunikation
     public static Thread s = null;
     public static Socket socket = null;
     
-    static boolean du;
     static boolean drawer;
     static boolean gameRunning;
     static int time;
@@ -16,23 +15,16 @@ public class Netzwerkkommunikation
     static int playerAmount;
     static int winner;
     static String word;
+    static String playerName;
     static String recentChatMessage;
     int[] points;
-<<<<<<< HEAD
-    
-    
-=======
-    static String[] chatMessages = new String[120];
-<<<<<<< HEAD
+
 
     /**
      * Creates the communication Socket to the server. Tries to establish a connection.
      * Incoming messages get read in a thread and handled through #decodeMessage(String);
      */
->>>>>>> de4ce85c1b1674c03cc68b632bff4842ad5f684c
-=======
-    
->>>>>>> facd73c31f59b81bec303d0982b1f094d21942c0
+
     public static void createSocket(){
             s=new Thread(new Runnable(){
                 @Override
@@ -47,7 +39,7 @@ public class Netzwerkkommunikation
                             // Verarbeite die einkommende Nachricht.
                             decodeMessage(incomeLine);
                             if(true){
-                            sendMessage(ID);
+                            //sendMessage(ID);
                             System.out.println("Game starting");
                             }
                             
@@ -70,7 +62,7 @@ public class Netzwerkkommunikation
     
     
     
-    	public string leseIDAus() {
+    	public String leseIDAus() {
 		readFileFromGitHubRepoOrFromLocal();
 		File Woerterdatei = new File(FileHelper.source() + FileHelper.ID);
 		BufferedReader reader = null;
@@ -114,31 +106,16 @@ public class Netzwerkkommunikation
             return;
         }else{
             switch(analyse[0]){
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> facd73c31f59b81bec303d0982b1f094d21942c0
-                case "0" : du = Boolean.parseBoolean(analyse[1]);
-                    break;
-                case "1" : time = Integer.parseInt(analyse[1]);
-                    break;
-<<<<<<< HEAD
-                case "2" : recentChatMessage = analyse[1];
-=======
-                case "0" : 
-                    // Paket User Login. param0: name, param1: isHimself
-                    String name = analyse[1];
-                    boolean du = Boolean.parseBoolean(analyse[2]);
-                    if(du){
+                case "0" : playerName = analyse[1];
+                   if(Boolean.parseBoolean(analyse[2])){
                         //TODO: Set the players own name. For chat or other purposes..
                     }else{
                         //TODO: Add the player name to the scoreboard
                     }
->>>>>>> de4ce85c1b1674c03cc68b632bff4842ad5f684c
-=======
-                case "2" : chatMessages[chatMsgIndicator+1]=analyse[1];
-                           chatMsgIndicator++;
->>>>>>> facd73c31f59b81bec303d0982b1f094d21942c0
+                    break;
+                case "1" : time = Integer.parseInt(analyse[1]);
+                    break;
+                case "2" : recentChatMessage = analyse[1];
                     break;
                 case "3" : 
                     break;
@@ -152,23 +129,7 @@ public class Netzwerkkommunikation
                     break;
                 case "8" : winner = Integer.parseInt(analyse[1]);
                     break;
-    
-                    
-            
-            
-            
-            
-            
-            
             }
-        
-        
-        
-        
         }
-        
-    
-    }
-    
-    
+    } 
 }
