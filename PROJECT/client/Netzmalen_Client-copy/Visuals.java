@@ -3,6 +3,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.awt.event.*;
+import com.dbgq2.netzwerkmalen.server.communication.PaketUtil;
 /**
  * Beschreiben Sie hier die Klasse Visuals.
  * 
