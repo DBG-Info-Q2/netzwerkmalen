@@ -67,6 +67,7 @@ public class Netzwerkkommunikation
     
     
     /*
+     * Alte Version bitte nicht benutzen.
         public String leseIDAus() {
         readFileFromGitHubRepoOrFromLocal();
         File Woerterdatei = new File(FileHelper.source() + FileHelper.ID);
@@ -164,12 +165,15 @@ public class Netzwerkkommunikation
                 case "4" :
                     // Paket update Drawing. Only valid if !drawer
                     try{
-                        int x,y,x2,y2,color;
-                    }catch(Exception e){}
-                    // Logic.vs.zeichne();
+                        int x=Integer.parseInt(analyse[1]),y=Integer.parseInt(analyse[2]),x2=Integer.parseInt(analyse[3]),y2=Integer.parseInt(analyse[4]),color=Integer.parseInt(analyse[5]);
+                        // Run in Visuals a zeichne to display the paket.
+                        Logic.vs.zeichne(x,y,x2,y2,color);
+                    }catch(Exception e){
+                        System.err.println("Error receiving draw paket ..");
+                        e.printStackTrace();
+                    }
                 break;
                 case "5" : 
-                
                     drawer = Boolean.parseBoolean(analyse[1]);
                     
                 break;
