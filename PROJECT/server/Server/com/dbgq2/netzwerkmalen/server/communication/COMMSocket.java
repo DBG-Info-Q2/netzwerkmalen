@@ -15,7 +15,7 @@ import com.dbgq2.netzwerkmalen.server.helper.Logger;
  * Socket with a Thread to asynchronously receive messages from client
  */
 public class COMMSocket {
-
+	//HAAAAAALLLLLLOOOOOOOOOOOOOO ich bin ein fehler
 	private Thread incomeListener;
 	private String id;
 
