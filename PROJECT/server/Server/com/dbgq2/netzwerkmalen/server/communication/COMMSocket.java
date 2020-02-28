@@ -15,7 +15,8 @@ import com.dbgq2.netzwerkmalen.server.helper.Logger;
  * Socket with a Thread to asynchronously receive messages from client
  */
 public class COMMSocket {
-	//HAAAAAALLLLLLOOOOOOOOOOOOOO ich bin ein fehler
+
+	// This is a test comment. Can be removed after.
 	private Thread incomeListener;
 	private String id;
 
