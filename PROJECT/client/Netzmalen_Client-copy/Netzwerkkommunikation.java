@@ -3,6 +3,7 @@ import java.net.*;
 import java.io.*;
 import java.lang.*;
 
+
 public class Netzwerkkommunikation
 {
     public static Thread s = null;
@@ -36,6 +37,7 @@ public class Netzwerkkommunikation
                             // Verarbeite die einkommende Nachricht.
                             decodeMessage(incomeLine);
                             if(true){
+                            //ID=leseIDaus();
                             //sendMessage(ID);
                             System.out.println("Game starting");
                             }
@@ -52,7 +54,7 @@ public class Netzwerkkommunikation
     
     /*
      * Alte Version bitte nicht benutzen.
-        public String leseIDAus() {
+        public String leseIDaus() {
         readFileFromGitHubRepoOrFromLocal();
         File Woerterdatei = new File(FileHelper.source() + FileHelper.ID);
         BufferedReader reader = null;
@@ -69,13 +71,13 @@ public class Netzwerkkommunikation
         }
     }*/
     
-    /*
-    Neue Version
+    ///*
+    //Neue Version
     
-    public void leseIDaus()
+    public String leseIDaus()
     {
-        
-        File IDdatei = new File("T:"+(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI())
+        String ID="";
+        File IDdatei = new File("T:"+(Netzwerkkommunikation.class.getProtectionDomain().getCodeSource().getLocation().toURI())
                     .getPath()+"/ID");
         if (!IDdatei.canRead() || !IDdatei.isFile())
             {System.out.println("Dateifehler");
@@ -83,7 +85,7 @@ public class Netzwerkkommunikation
         BufferedReader in = null;
         try {
             String zeile = null;
-            String ID="";
+            
             while ((zeile = in.readLine()) != null) {
                 ID = zeile;
             }
@@ -97,9 +99,24 @@ public class Netzwerkkommunikation
                 }
         } 
         
+        return(ID);
     }
     
-    }*/
+    
+    
+    public void createnewID()
+    {File IDdatei = new File("T:"+(Netzwerkkommunikation.class.getProtectionDomain().getCodeSource().getLocation().toURI())
+     .getPath()+"/ID");
+     BufferedReader in = null;
+    try {FileWriter writer = new FileWriter("YourFile.txt");}
+    catch (IOException e) {e.printStackTrace();}
+    finally {if (in != null)try {in.close();} catch (IOException e) {}
+        
+    
+    
+    }
+}
+    //*/
     //File "ID" not yet implimented
     
     
