@@ -16,6 +16,7 @@ import com.dbgq2.netzwerkmalen.server.helper.Logger;
  */
 public class COMMSocket {
 
+	// This is a test comment. Can be removed after.
 	private Thread incomeListener;
 	private String id;
 

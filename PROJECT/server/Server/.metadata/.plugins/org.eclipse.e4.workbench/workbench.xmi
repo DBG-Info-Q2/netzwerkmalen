@@ -286,7 +286,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_l7DswjkhEeqtK-_XjDTXyA" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_kWcB0E15EequaLEMpFNrew" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_lmDueDkhEeqtK-_XjDTXyA"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_FwJG4F-hEeqSJaYK-dk-pw" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_lmDueDkhEeqtK-_XjDTXyA"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_l7DswzkhEeqtK-_XjDTXyA" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -307,7 +307,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_l7DsxzkhEeqtK-_XjDTXyA" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_kWeeEk15EequaLEMpFNrew" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_lmDt6TkhEeqtK-_XjDTXyA"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_FwMxQF-hEeqSJaYK-dk-pw" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_lmDt6TkhEeqtK-_XjDTXyA"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_l7DsyDkhEeqtK-_XjDTXyA" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -392,7 +392,6 @@
     <bindings xmi:id="_lmgZLTkhEeqtK-_XjDTXyA" keySequence="CTRL+J" command="_ll589DkhEeqtK-_XjDTXyA"/>
     <bindings xmi:id="_lmgZLjkhEeqtK-_XjDTXyA" keySequence="CTRL+K" command="_lmDteTkhEeqtK-_XjDTXyA"/>
     <bindings xmi:id="_lmgZLzkhEeqtK-_XjDTXyA" keySequence="CTRL+L" command="_lmDuRzkhEeqtK-_XjDTXyA"/>
-    <bindings xmi:id="_lmgZNjkhEeqtK-_XjDTXyA" keySequence="CTRL+O" command="_ll58bzkhEeqtK-_XjDTXyA"/>
     <bindings xmi:id="_lmgZRDkhEeqtK-_XjDTXyA" keySequence="CTRL+D" command="_ll59BjkhEeqtK-_XjDTXyA"/>
     <bindings xmi:id="_lmgZSjkhEeqtK-_XjDTXyA" keySequence="CTRL+SHIFT+X" command="_ll58cDkhEeqtK-_XjDTXyA"/>
     <bindings xmi:id="_lmgZSzkhEeqtK-_XjDTXyA" keySequence="CTRL+SHIFT+Y" command="_lmDuzDkhEeqtK-_XjDTXyA"/>
@@ -404,7 +403,6 @@
     <bindings xmi:id="_lmgZejkhEeqtK-_XjDTXyA" keySequence="CTRL+SHIFT+J" command="_lmDtrDkhEeqtK-_XjDTXyA"/>
     <bindings xmi:id="_lmgZfDkhEeqtK-_XjDTXyA" keySequence="CTRL+SHIFT+K" command="_lmDtVzkhEeqtK-_XjDTXyA"/>
     <bindings xmi:id="_lmgZfjkhEeqtK-_XjDTXyA" keySequence="SHIFT+CR" command="_lmDu5DkhEeqtK-_XjDTXyA"/>
-    <bindings xmi:id="_lmgZmjkhEeqtK-_XjDTXyA" keySequence="CTRL+SHIFT+F" command="_lmDuJzkhEeqtK-_XjDTXyA"/>
     <bindings xmi:id="_lmgZozkhEeqtK-_XjDTXyA" keySequence="ALT+CTRL+J" command="_lmDt1DkhEeqtK-_XjDTXyA"/>
     <bindings xmi:id="_lmgZvzkhEeqtK-_XjDTXyA" keySequence="CTRL+DEL" command="_lmDuSTkhEeqtK-_XjDTXyA"/>
     <bindings xmi:id="_lmgZxzkhEeqtK-_XjDTXyA" keySequence="CTRL+SHIFT+DEL" command="_lmDuMDkhEeqtK-_XjDTXyA"/>
@@ -495,7 +493,6 @@
     <bindings xmi:id="_lmgZazkhEeqtK-_XjDTXyA" keySequence="ALT+SHIFT+C" command="_lmDuMTkhEeqtK-_XjDTXyA"/>
     <bindings xmi:id="_lmgZbjkhEeqtK-_XjDTXyA" keySequence="CTRL+3" command="_lmDt7TkhEeqtK-_XjDTXyA"/>
     <bindings xmi:id="_lmgZbzkhEeqtK-_XjDTXyA" keySequence="CTRL+SHIFT+T" command="_lmDuXDkhEeqtK-_XjDTXyA"/>
-    <bindings xmi:id="_lmgZcDkhEeqtK-_XjDTXyA" keySequence="CTRL+SHIFT+T" command="_lmDtaTkhEeqtK-_XjDTXyA"/>
     <bindings xmi:id="_lmgZcTkhEeqtK-_XjDTXyA" keySequence="CTRL+SHIFT+U" command="_lmDtizkhEeqtK-_XjDTXyA"/>
     <bindings xmi:id="_lmgZcjkhEeqtK-_XjDTXyA" keySequence="ALT+SHIFT+F" command="_lmDuljkhEeqtK-_XjDTXyA"/>
     <bindings xmi:id="_lmgZczkhEeqtK-_XjDTXyA" keySequence="CTRL+SHIFT+V" command="_lmDusTkhEeqtK-_XjDTXyA"/>
@@ -1022,7 +1019,7 @@
     <tags>View</tags>
     <tags>categoryTag:Java</tags>
   </descriptors>
-  <descriptors xmi:id="_lovNuDkhEeqtK-_XjDTXyA" elementId="org.eclipse.egit.ui.RepositoriesView" label="Git Repositories" iconURI="platform:/plugin/org.eclipse.egit.ui/icons/eview16/repo_rep.png" tooltip="" category="Git" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+  <descriptors xmi:id="_lovNuDkhEeqtK-_XjDTXyA" elementId="org.eclipse.egit.ui.RepositoriesView" label="Git Repositories" iconURI="platform:/plugin/org.eclipse.egit.ui/icons/eview16/repo_rep.gif" tooltip="" category="Git" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
     <persistedState key="originalCompatibilityViewClass" value="org.eclipse.egit.ui.internal.repository.RepositoriesView"/>
     <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.egit.ui"/>
     <tags>View</tags>
@@ -1034,19 +1031,19 @@
     <tags>View</tags>
     <tags>categoryTag:Git</tags>
   </descriptors>
-  <descriptors xmi:id="_lovNujkhEeqtK-_XjDTXyA" elementId="org.eclipse.egit.ui.InteractiveRebaseView" label="Git Interactive Rebase" iconURI="platform:/plugin/org.eclipse.egit.ui/icons/eview16/rebase_interactive.png" tooltip="" category="Git" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+  <descriptors xmi:id="_lovNujkhEeqtK-_XjDTXyA" elementId="org.eclipse.egit.ui.InteractiveRebaseView" label="Git Interactive Rebase" iconURI="platform:/plugin/org.eclipse.egit.ui/icons/eview16/rebase_interactive.gif" tooltip="" category="Git" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
     <persistedState key="originalCompatibilityViewClass" value="org.eclipse.egit.ui.internal.rebase.RebaseInteractiveView"/>
     <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.egit.ui"/>
     <tags>View</tags>
     <tags>categoryTag:Git</tags>
   </descriptors>
-  <descriptors xmi:id="_lovNuzkhEeqtK-_XjDTXyA" elementId="org.eclipse.egit.ui.CompareTreeView" label="Git Tree Compare" iconURI="platform:/plugin/org.eclipse.egit.ui/icons/obj16/gitrepository.png" tooltip="" category="Git" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+  <descriptors xmi:id="_lovNuzkhEeqtK-_XjDTXyA" elementId="org.eclipse.egit.ui.CompareTreeView" label="Git Tree Compare" iconURI="platform:/plugin/org.eclipse.egit.ui/icons/obj16/gitrepository.gif" tooltip="" category="Git" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
     <persistedState key="originalCompatibilityViewClass" value="org.eclipse.egit.ui.internal.dialogs.CompareTreeView"/>
     <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.egit.ui"/>
     <tags>View</tags>
     <tags>categoryTag:Git</tags>
   </descriptors>
-  <descriptors xmi:id="_lovNvDkhEeqtK-_XjDTXyA" elementId="org.eclipse.egit.ui.ReflogView" label="Git Reflog" iconURI="platform:/plugin/org.eclipse.egit.ui/icons/eview16/reflog.png" tooltip="" category="Git" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+  <descriptors xmi:id="_lovNvDkhEeqtK-_XjDTXyA" elementId="org.eclipse.egit.ui.ReflogView" label="Git Reflog" iconURI="platform:/plugin/org.eclipse.egit.ui/icons/eview16/reflog.gif" tooltip="" category="Git" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
     <persistedState key="originalCompatibilityViewClass" value="org.eclipse.egit.ui.internal.reflog.ReflogView"/>
     <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.egit.ui"/>
     <tags>View</tags>
