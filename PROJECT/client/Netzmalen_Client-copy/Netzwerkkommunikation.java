@@ -168,7 +168,7 @@ public class Netzwerkkommunikation
 
                         int x=Integer.parseInt(analyse[1]),y=Integer.parseInt(analyse[2]),x2=Integer.parseInt(analyse[3]),y2=Integer.parseInt(analyse[4]),color=Integer.parseInt(analyse[5]);
                         // Run in Visuals a zeichne to display the paket.
-                        Logic.vs.zeichne(x,y,x2,y2,color);
+                        //Logic.vs.zeichne(x,y,x2,y2,color);
                     }catch(Exception e){
                         System.err.println("Error receiving draw paket ..");
                         e.printStackTrace();

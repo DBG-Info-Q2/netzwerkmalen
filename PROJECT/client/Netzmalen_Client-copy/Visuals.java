@@ -55,6 +55,10 @@ public class Visuals
     int x2=450;
     int y2=400;
     int color;
+    
+    JFrame FensterLoginFenster;
+    JPanel PanelLoginFenster;
+    JButton QueueButton;
 
     public Visuals(){
         Window();
@@ -332,4 +336,18 @@ public class Visuals
             Panel.add(Senden);
         }
     }
+    
+    public void warteFenster(){
+        FensterLoginFenster = new JFrame;
+        PanelLoginFenster = new JPanel;
+        
+        
+        FensterLoginFenster.setSize(800,400);
+        
+        
+        
+        
+        
+    }
+    
 }
