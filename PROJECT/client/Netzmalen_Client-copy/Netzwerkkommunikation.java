@@ -77,7 +77,7 @@ public class Netzwerkkommunikation
                     break;
                 case "1" : Integer.parseInt(analyse[1]);
                     break;
-                case "2" : //TODO: Logic.SATAN.vis."" = analyse[1];      //msg
+                case "2" : Logic.SATAN.vis.schreiben(analyse[1]);     //msg
                     break;
                 case "3" : 
                     // Point update Paket. param0: newPointcount, param1: ID of player
@@ -85,10 +85,8 @@ public class Netzwerkkommunikation
                 case "4" :
                     // Paket update Drawing. Only valid if !drawer
                     try{
-
-                        int x=Integer.parseInt(analyse[1]),y=Integer.parseInt(analyse[2]),x2=Integer.parseInt(analyse[3]),y2=Integer.parseInt(analyse[4]),color=Integer.parseInt(analyse[5]);
+                        Logic.SATAN.vis.zeichne(Integer.parseInt(analyse[1]), Integer.parseInt(analyse[2]), Integer.parseInt(analyse[3]), Integer.parseInt(analyse[4]), Integer.parseInt(analyse[5]));
                         // Run in Visuals a zeichne to display the paket.
-                        //Logic.vs.zeichne(x,y,x2,y2,color);
                     }catch(Exception e){
                         System.err.println("Error receiving draw paket ..");
                         e.printStackTrace();

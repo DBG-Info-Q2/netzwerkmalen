@@ -286,7 +286,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_l7DswjkhEeqtK-_XjDTXyA" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_FwJG4F-hEeqSJaYK-dk-pw" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_lmDueDkhEeqtK-_XjDTXyA"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_2PXUwGN-Eeqp_cFwPcUzLw" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_lmDueDkhEeqtK-_XjDTXyA"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_l7DswzkhEeqtK-_XjDTXyA" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -307,7 +307,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_l7DsxzkhEeqtK-_XjDTXyA" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_FwMxQF-hEeqSJaYK-dk-pw" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_lmDt6TkhEeqtK-_XjDTXyA"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_2PZxAGN-Eeqp_cFwPcUzLw" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_lmDt6TkhEeqtK-_XjDTXyA"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_l7DsyDkhEeqtK-_XjDTXyA" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -424,6 +424,8 @@
     <bindings xmi:id="_lmgaIDkhEeqtK-_XjDTXyA" keySequence="ALT+CTRL+ARROW_UP" command="_lmDvLTkhEeqtK-_XjDTXyA"/>
     <bindings xmi:id="_lmgaITkhEeqtK-_XjDTXyA" keySequence="ALT+CTRL+ARROW_DOWN" command="_lmDvHzkhEeqtK-_XjDTXyA"/>
     <bindings xmi:id="_lmgaJDkhEeqtK-_XjDTXyA" keySequence="CTRL+F10" command="_lmDufjkhEeqtK-_XjDTXyA"/>
+    <bindings xmi:id="_14nBoWN-Eeqp_cFwPcUzLw" keySequence="CTRL+O" command="_ll58bzkhEeqtK-_XjDTXyA"/>
+    <bindings xmi:id="_14o20GN-Eeqp_cFwPcUzLw" keySequence="CTRL+SHIFT+F" command="_lmDuJzkhEeqtK-_XjDTXyA"/>
   </bindingTables>
   <bindingTables xmi:id="_lmWoEzkhEeqtK-_XjDTXyA" elementId="org.eclipse.mylyn.tasks.ui.views.tasks" bindingContext="_lmDvrDkhEeqtK-_XjDTXyA">
     <bindings xmi:id="_lmWoFDkhEeqtK-_XjDTXyA" keySequence="INSERT" command="_lmDuxDkhEeqtK-_XjDTXyA"/>
@@ -602,6 +604,7 @@
     <bindings xmi:id="_lmgaIjkhEeqtK-_XjDTXyA" keySequence="CTRL+F9" command="_lmDtiDkhEeqtK-_XjDTXyA"/>
     <bindings xmi:id="_lmgaJTkhEeqtK-_XjDTXyA" keySequence="CTRL+F11" command="_lmDurzkhEeqtK-_XjDTXyA"/>
     <bindings xmi:id="_lmgaJjkhEeqtK-_XjDTXyA" keySequence="CTRL+F12" command="_lmDtXzkhEeqtK-_XjDTXyA"/>
+    <bindings xmi:id="_14oPwGN-Eeqp_cFwPcUzLw" keySequence="CTRL+SHIFT+T" command="_lmDtaTkhEeqtK-_XjDTXyA"/>
   </bindingTables>
   <bindingTables xmi:id="_lmWoGjkhEeqtK-_XjDTXyA" elementId="org.eclipse.ant.ui.AntEditorScope" bindingContext="_lmDvuzkhEeqtK-_XjDTXyA">
     <bindings xmi:id="_lmWoGzkhEeqtK-_XjDTXyA" keySequence="F3" command="_ll58bDkhEeqtK-_XjDTXyA"/>
@@ -1019,7 +1022,7 @@
     <tags>View</tags>
     <tags>categoryTag:Java</tags>
   </descriptors>
-  <descriptors xmi:id="_lovNuDkhEeqtK-_XjDTXyA" elementId="org.eclipse.egit.ui.RepositoriesView" label="Git Repositories" iconURI="platform:/plugin/org.eclipse.egit.ui/icons/eview16/repo_rep.gif" tooltip="" category="Git" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+  <descriptors xmi:id="_lovNuDkhEeqtK-_XjDTXyA" elementId="org.eclipse.egit.ui.RepositoriesView" label="Git Repositories" iconURI="platform:/plugin/org.eclipse.egit.ui/icons/eview16/repo_rep.png" tooltip="" category="Git" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
     <persistedState key="originalCompatibilityViewClass" value="org.eclipse.egit.ui.internal.repository.RepositoriesView"/>
     <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.egit.ui"/>
     <tags>View</tags>
@@ -1031,19 +1034,19 @@
     <tags>View</tags>
     <tags>categoryTag:Git</tags>
   </descriptors>
-  <descriptors xmi:id="_lovNujkhEeqtK-_XjDTXyA" elementId="org.eclipse.egit.ui.InteractiveRebaseView" label="Git Interactive Rebase" iconURI="platform:/plugin/org.eclipse.egit.ui/icons/eview16/rebase_interactive.gif" tooltip="" category="Git" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+  <descriptors xmi:id="_lovNujkhEeqtK-_XjDTXyA" elementId="org.eclipse.egit.ui.InteractiveRebaseView" label="Git Interactive Rebase" iconURI="platform:/plugin/org.eclipse.egit.ui/icons/eview16/rebase_interactive.png" tooltip="" category="Git" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
     <persistedState key="originalCompatibilityViewClass" value="org.eclipse.egit.ui.internal.rebase.RebaseInteractiveView"/>
     <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.egit.ui"/>
     <tags>View</tags>
     <tags>categoryTag:Git</tags>
   </descriptors>
-  <descriptors xmi:id="_lovNuzkhEeqtK-_XjDTXyA" elementId="org.eclipse.egit.ui.CompareTreeView" label="Git Tree Compare" iconURI="platform:/plugin/org.eclipse.egit.ui/icons/obj16/gitrepository.gif" tooltip="" category="Git" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+  <descriptors xmi:id="_lovNuzkhEeqtK-_XjDTXyA" elementId="org.eclipse.egit.ui.CompareTreeView" label="Git Tree Compare" iconURI="platform:/plugin/org.eclipse.egit.ui/icons/obj16/gitrepository.png" tooltip="" category="Git" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
     <persistedState key="originalCompatibilityViewClass" value="org.eclipse.egit.ui.internal.dialogs.CompareTreeView"/>
     <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.egit.ui"/>
     <tags>View</tags>
     <tags>categoryTag:Git</tags>
   </descriptors>
-  <descriptors xmi:id="_lovNvDkhEeqtK-_XjDTXyA" elementId="org.eclipse.egit.ui.ReflogView" label="Git Reflog" iconURI="platform:/plugin/org.eclipse.egit.ui/icons/eview16/reflog.gif" tooltip="" category="Git" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+  <descriptors xmi:id="_lovNvDkhEeqtK-_XjDTXyA" elementId="org.eclipse.egit.ui.ReflogView" label="Git Reflog" iconURI="platform:/plugin/org.eclipse.egit.ui/icons/eview16/reflog.png" tooltip="" category="Git" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
     <persistedState key="originalCompatibilityViewClass" value="org.eclipse.egit.ui.internal.reflog.ReflogView"/>
     <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.egit.ui"/>
     <tags>View</tags>
@@ -2251,7 +2254,7 @@
   <addons xmi:id="_llnBQzkhEeqtK-_XjDTXyA" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_llnBRDkhEeqtK-_XjDTXyA" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_llwyMDkhEeqtK-_XjDTXyA" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="_IYS0IKimEeS11vbz3f9ezw" elementId="org.eclipse.ui.ide.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_15NekGN-Eeqp_cFwPcUzLw" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
   <addons xmi:id="_dz0JgGOlEeSMMaPQU2nlzw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <categories xmi:id="_ll58IDkhEeqtK-_XjDTXyA" elementId="org.eclipse.team.ui.category.team" name="Team" description="Actions that apply when working with a Team"/>
   <categories xmi:id="_ll58ITkhEeqtK-_XjDTXyA" elementId="org.eclipse.ui.category.views" name="Views" description="Commands for opening views"/>

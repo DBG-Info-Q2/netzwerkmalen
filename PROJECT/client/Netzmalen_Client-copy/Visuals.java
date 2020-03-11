@@ -63,7 +63,6 @@ public class Visuals
 
     public Visuals(){
         //Window();
-        IPFenster();
     }
 
     public void Window(){
@@ -107,8 +106,8 @@ public class Visuals
         Fenster.repaint(100,minx,miny, width,height);
     }
     
-    public void schreiben(String Wort, String Spieler){
-        ChatAusgabe.append(Spieler+": "+Wort+"\n");
+    public void schreiben(String Wort){
+        ChatAusgabe.append(Wort+"\n");
     }
 
     public void Ratewort(String eingabewort){
@@ -330,7 +329,7 @@ public class Visuals
             
             Senden.addActionListener(new ActionListener(){
                  public void actionPerformed(ActionEvent e){
-                     schreiben(TFeingabe.getText(), "Gert");
+                     schreiben(TFeingabe.getText());
                      TFeingabe.setText("");
                     }
             });
