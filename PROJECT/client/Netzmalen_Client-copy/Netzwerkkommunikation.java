@@ -76,7 +76,7 @@ public class Netzwerkkommunikation
     
     public String leseIDaus()
     {
-        String ID="";
+        /*String ID="";
         File IDdatei = new File("T:"+(Netzwerkkommunikation.class.getProtectionDomain().getCodeSource().getLocation().toURI())
                     .getPath()+"/ID");
         if (!IDdatei.canRead() || !IDdatei.isFile())
@@ -99,13 +99,14 @@ public class Netzwerkkommunikation
                 }
         } 
         
-        return(ID);
+        return(ID);*/
+        return("hallo");
     }
     
     
     
     public void createnewID()
-    {File IDdatei = new File("T:"+(Netzwerkkommunikation.class.getProtectionDomain().getCodeSource().getLocation().toURI())
+    {/*File IDdatei = new File("T:"+(Netzwerkkommunikation.class.getProtectionDomain().getCodeSource().getLocation().toURI())
      .getPath()+"/ID");
      BufferedReader in = null;
     try {FileWriter writer = new FileWriter("YourFile.txt");}
@@ -114,7 +115,7 @@ public class Netzwerkkommunikation
         
     
     
-    }
+    }*/
 }
     //*/
     //File "ID" not yet implimented
