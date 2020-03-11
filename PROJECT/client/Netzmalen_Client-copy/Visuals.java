@@ -3,7 +3,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.awt.event.*;
-import com.dbgq2.netzwerkmalen.server.communication.PaketUtil;
+//import com.dbgq2.netzwerkmalen.server.communication.PaketUtil;
 /**
  * Beschreiben Sie hier die Klasse Visuals.
  * 
@@ -58,7 +58,8 @@ public class Visuals
     int color;
 
     public Visuals(){
-        Window();
+        //Window();
+        IPFenster();
     }
 
     public void Window(){
@@ -349,5 +350,11 @@ public class Visuals
             Panel.add(Senden);
 
         }
+    }
+    // Fenster zur Anmeldung zum Server mit eingabe für IP adresse -Justus
+    public void IPFenster(){
+       JFrame Anmeldefenster = new JFrame();
+       Anmeldefenster.setSize(1300,800);
+       Anmeldefenster.setVisible(true);
     }
 }
