@@ -75,7 +75,7 @@ public class Netzwerkkommunikation
                         //TODO: Add the player name to the scoreboard
                     }
                     break;
-                case "1" : Integer.parseInt(analyse[1]);
+                case "1" : Integer.parseInt(analyse[1]); //time update
                     break;
                 case "2" : Logic.SATAN.vis.schreiben(analyse[1]);     //msg
                     break;
