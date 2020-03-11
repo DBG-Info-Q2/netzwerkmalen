@@ -8,15 +8,7 @@ public class Netzwerkkommunikation
 {
     public static Thread s = null;
     public static Socket socket = null;
-    static boolean drawer;
-    static boolean gameRunning;
-    static int time;
-    static int playerAmount;
-    static String winner;
-    static String word;
-    static String playerName;
-    static String recentChatMessage;
-    int[] points;
+    
 
     /**
      * Creates the communication Socket to the server. Tries to establish a connection.
@@ -52,79 +44,6 @@ public class Netzwerkkommunikation
             s.start();
     }
     
-    /*
-     * Alte Version bitte nicht benutzen.
-        public String leseIDaus() {
-        readFileFromGitHubRepoOrFromLocal();
-        File Woerterdatei = new File(FileHelper.source() + FileHelper.ID);
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new FileReader(Woerterdatei));
-            String ID = "";
-            ID = reader.readLine();
-            reader.close();
-            return ID;
-        } catch (IOException e) {
-            e.printStackTrace();
-            Logger.error("ID doesn't exists");
-            return "";
-        }
-    }*/
-    
-    ///*
-    //Neue Version
-    
-    public String leseIDaus()
-    {
-        /*String ID="";
-        File IDdatei = new File("T:"+(Netzwerkkommunikation.class.getProtectionDomain().getCodeSource().getLocation().toURI())
-                    .getPath()+"/ID");
-        if (!IDdatei.canRead() || !IDdatei.isFile())
-            {System.out.println("Dateifehler");
-                System.exit(0);}
-        BufferedReader in = null;
-        try {
-            String zeile = null;
-            
-            while ((zeile = in.readLine()) != null) {
-                ID = zeile;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (in != null)
-                try {
-                    in.close();
-                } catch (IOException e) {
-                }
-        } 
-        
-        return(ID);*/
-        return("hallo");
-    }
-    
-    
-    
-    public void createnewID()
-    {/*File IDdatei = new File("T:"+(Netzwerkkommunikation.class.getProtectionDomain().getCodeSource().getLocation().toURI())
-     .getPath()+"/ID");
-     BufferedReader in = null;
-    try {FileWriter writer = new FileWriter("YourFile.txt");}
-    catch (IOException e) {e.printStackTrace();}
-    finally {if (in != null)try {in.close();} catch (IOException e) {}
-        
-    
-    
-    }*/
-}
-    //*/
-    //File "ID" not yet implimented
-    
-    
-    
-    
-    
-    
     public static void sendMessage(String msg){
         try{
             PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
@@ -150,15 +69,15 @@ public class Netzwerkkommunikation
                     String name = analyse[1];
                     boolean du = Boolean.parseBoolean(analyse[2]);
                     if(du){
-
+                        Logic.SATAN.logIn(analyse[1]);
                         //TODO: Set the players own name. For chat or other purposes..
                     }else{
                         //TODO: Add the player name to the scoreboard
                     }
                     break;
-                case "1" : time = Integer.parseInt(analyse[1]);
+                case "1" : Integer.parseInt(analyse[1]);
                     break;
-                case "2" : recentChatMessage = analyse[1];      //msg
+                case "2" : //TODO: Logic.SATAN.vis."" = analyse[1];      //msg
                     break;
                 case "3" : 
                     // Point update Paket. param0: newPointcount, param1: ID of player
@@ -176,13 +95,14 @@ public class Netzwerkkommunikation
                     }
                     break;
                 case "5" : 
-                    drawer = Boolean.parseBoolean(analyse[1]);
+                    Logic.SATAN.setRole(Boolean.parseBoolean(analyse[1]));
                     break;
-                case "6" : word = analyse[1];
+                case "6" : Logic.SATAN.setWord(analyse[1]);
                     break;
-                case "7" : gameRunning = Boolean.parseBoolean(analyse[1]);
+                case "7" : if (Boolean.parseBoolean(analyse[1])){Logic.SATAN.startGame();}
+                
                     break;
-                case "8" : winner = analyse[1];
+                case "8" : String winner = analyse[1];
                     break;
             }
         }

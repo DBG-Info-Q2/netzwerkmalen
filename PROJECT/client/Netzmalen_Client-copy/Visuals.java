@@ -357,7 +357,8 @@ public class Visuals
     public void warteFenster(){
         FensterLoginFenster = new JFrame();
         PanelLoginFenster = new JPanel();
-
+        
+        
         FensterLoginFenster.setSize(800,400);
         
         
