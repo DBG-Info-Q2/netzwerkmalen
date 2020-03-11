@@ -45,7 +45,9 @@ public class Visuals
     JLabel Netzwerkmalen;
     JTextArea ChatAusgabe;
     JTextArea Punkte;
-    boolean Test = true;
+    JTextArea Titel1;
+    JTextArea Titel2;
+    boolean Test = false;
     String ratewort;
     private int Counter = 0;
     int []Punktearray = new int [5];
@@ -56,13 +58,14 @@ public class Visuals
     int x2=450;
     int y2=400;
     int color;
-    
+
     JFrame FensterLoginFenster;
     JPanel PanelLoginFenster;
     JButton QueueButton;
 
     public Visuals(){
         //Window();
+
     }
 
     public void Window(){
@@ -95,14 +98,14 @@ public class Visuals
         //canvas.setPaintMode();
         //System.out.println(canvas.getColor());
         canvas.drawLine(X,Y,X2,Y2);
-        
+
         //Fenster.repaint();
         //Welche Koordinate ist groesser??Tauschn...
         int minx=Math.min(X,X2)+POSX-5;
         int miny=Math.min(Y,Y2)+POSY-5;
         int width=Math.abs(X-X2)+10;
         int height=Math.abs(Y-Y2)+10;
-       
+
         Fenster.repaint(100,minx,miny, width,height);
     }
     
@@ -110,8 +113,8 @@ public class Visuals
         ChatAusgabe.append(Wort+"\n");
     }
 
-    public void Ratewort(String eingabewort){
-        ratewort = ""+eingabewort+"";
+    public void Ratewort(){
+        ratewort = Logic.SATAN.spielwort;
     }
 
     void PunkteListen(String Name, int Punkte){
@@ -146,9 +149,21 @@ public class Visuals
         Label = new JLabel();
         ChatAusgabe = new JTextArea();
         Punkte = new JTextArea();
+        Titel1 = new JTextArea();
+        Titel2 = new JTextArea();
+
+        Titel1.setBounds(1000,70,200,30);
+        Titel1.setEditable(false);
+        Titel1.setText("Punkte");
+        Titel1.setFont(new Font("Pacifico", Font.PLAIN, 12));
+        
+        Titel2.setBounds(100,70,200,30);
+        Titel2.setEditable(false);
+        Titel2.setText("Chat");
+        Titel2.setFont(new Font("Pacifico", Font.PLAIN, 12));
 
         Netzwerkmalen = new JLabel();
-        
+
         ChatAusgabe.setBounds(100,100,200,500);
         ChatAusgabe.setEditable(false);
         ChatAusgabe.setColumns(1);
@@ -173,6 +188,8 @@ public class Visuals
 
         Fenster.setSize(1300,800);
         Panel.add(Punkte);
+        Panel.add(Titel1);
+        Panel.add(Titel2);
         Panel.add(ChatAusgabe);
         Panel.add(Label);
         Panel.add(Netzwerkmalen);
@@ -229,7 +246,7 @@ public class Visuals
             Farbe8 = new JButton(); 
             Farbe9 = new JButton(); 
             Farbe10 = new JButton();
-            
+
             Farbe1.setBackground(c1);
             Farbe2.setBackground(c2);
             Farbe3.setBackground(c3);
@@ -240,7 +257,7 @@ public class Visuals
             Farbe8.setBackground(c8);
             Farbe9.setBackground(c9);
             Farbe10.setBackground(c10);
-            
+
             int a=400;
             int b=50;
             int c=40;
@@ -256,7 +273,7 @@ public class Visuals
             Farbe8.setBounds(a+7*b,e,c,d);
             Farbe9.setBounds(a+8*b,e,c,d);
             Farbe10.setBounds(a+9*b,e,c,d);
-            
+
             Panel.add(Farbe1);
             Panel.add(Farbe2);
             Panel.add(Farbe3);
@@ -268,55 +285,55 @@ public class Visuals
             Panel.add(Farbe9);
             Panel.add(Farbe10);
             Farbe1.addActionListener(new ActionListener(){
-                 public void actionPerformed(ActionEvent e){
-                     color=1;
+                    public void actionPerformed(ActionEvent e){
+                        color=1;
                     }
-            });
-             Farbe2.addActionListener(new ActionListener(){
-                 public void actionPerformed(ActionEvent e){
-                     color=2;
+                });
+            Farbe2.addActionListener(new ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+                        color=2;
                     }
-            });
-             Farbe3.addActionListener(new ActionListener(){
-                 public void actionPerformed(ActionEvent e){
-                     color=3;
+                });
+            Farbe3.addActionListener(new ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+                        color=3;
                     }
-            });
-             Farbe4.addActionListener(new ActionListener(){
-                 public void actionPerformed(ActionEvent e){
-                     color=4;
+                });
+            Farbe4.addActionListener(new ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+                        color=4;
                     }
-            });
-             Farbe5.addActionListener(new ActionListener(){
-                 public void actionPerformed(ActionEvent e){
-                     color=5;
+                });
+            Farbe5.addActionListener(new ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+                        color=5;
                     }
-            });
-             Farbe6.addActionListener(new ActionListener(){
-                 public void actionPerformed(ActionEvent e){
-                     color=6;
+                });
+            Farbe6.addActionListener(new ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+                        color=6;
                     }
-            });
-             Farbe7.addActionListener(new ActionListener(){
-                 public void actionPerformed(ActionEvent e){
-                     color=7;
+                });
+            Farbe7.addActionListener(new ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+                        color=7;
                     }
-            });
-             Farbe8.addActionListener(new ActionListener(){
-                 public void actionPerformed(ActionEvent e){
-                     color=8;
+                });
+            Farbe8.addActionListener(new ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+                        color=8;
                     }
-            });
-             Farbe9.addActionListener(new ActionListener(){
-                 public void actionPerformed(ActionEvent e){
-                     color=9;
+                });
+            Farbe9.addActionListener(new ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+                        color=9;
                     }
-            });
-             Farbe10.addActionListener(new ActionListener(){
-                 public void actionPerformed(ActionEvent e){
-                     color=10;
+                });
+            Farbe10.addActionListener(new ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+                        color=10;
                     }
-            });
+                });
             Zeichenübertragen(5);
         }else{ //gilt nur für die die Raten
             JTextField TFeingabe = new JTextField( 15);
@@ -326,18 +343,17 @@ public class Visuals
             TFeingabe.setBackground(Color.WHITE);
             TFeingabe.setBounds(400,620,500,40);
             Senden.setBounds(900, 620,40, 40);
-            
+
             Senden.addActionListener(new ActionListener(){
-                 public void actionPerformed(ActionEvent e){
-                     schreiben(TFeingabe.getText());
-                     TFeingabe.setText("");
+                    public void actionPerformed(ActionEvent e){
+                        Logic.SATAN.com.sendMessage(PaketUtil.createChatUpdatePaket(TFeingabe.getText()));
                     }
-            });
+                });
             Panel.add(TFeingabe);
             Panel.add(Senden);
         }
     }
-    
+
     public void warteFenster(){
         FensterLoginFenster = new JFrame();
         PanelLoginFenster = new JPanel();
@@ -346,9 +362,5 @@ public class Visuals
         FensterLoginFenster.setSize(800,400);
         
         
-        
-        
-        
     }
-    
 }
