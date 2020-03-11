@@ -3,6 +3,7 @@ import java.net.*;
 import java.io.*;
 import java.lang.*;
 
+
 public class Netzwerkkommunikation
 {
     public static Thread s = null;
@@ -10,9 +11,8 @@ public class Netzwerkkommunikation
     static boolean drawer;
     static boolean gameRunning;
     static int time;
-    static int chatMsgIndicator;
     static int playerAmount;
-    static int winner;
+    static String winner;
     static String word;
     static String playerName;
     static String recentChatMessage;
@@ -37,6 +37,7 @@ public class Netzwerkkommunikation
                             // Verarbeite die einkommende Nachricht.
                             decodeMessage(incomeLine);
                             if(true){
+                            //ID=leseIDaus();
                             //sendMessage(ID);
                             System.out.println("Game starting");
                             }
@@ -51,16 +52,9 @@ public class Netzwerkkommunikation
             s.start();
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
     /*
-        public String leseIDAus() {
+     * Alte Version bitte nicht benutzen.
+        public String leseIDaus() {
         readFileFromGitHubRepoOrFromLocal();
         File Woerterdatei = new File(FileHelper.source() + FileHelper.ID);
         BufferedReader reader = null;
@@ -77,13 +71,13 @@ public class Netzwerkkommunikation
         }
     }*/
     
-    /*
-    Neue Version
+    ///*
+    //Neue Version
     
-    public void leseIDaus()
+    public String leseIDaus()
     {
-        
-        File IDdatei = new File("T:"+(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI())
+        String ID="";
+        File IDdatei = new File("T:"+(Netzwerkkommunikation.class.getProtectionDomain().getCodeSource().getLocation().toURI())
                     .getPath()+"/ID");
         if (!IDdatei.canRead() || !IDdatei.isFile())
             {System.out.println("Dateifehler");
@@ -91,7 +85,7 @@ public class Netzwerkkommunikation
         BufferedReader in = null;
         try {
             String zeile = null;
-            String ID="";
+            
             while ((zeile = in.readLine()) != null) {
                 ID = zeile;
             }
@@ -105,11 +99,24 @@ public class Netzwerkkommunikation
                 }
         } 
         
+        return(ID);
     }
     
-    }*/
     
     
+    public void createnewID()
+    {File IDdatei = new File("T:"+(Netzwerkkommunikation.class.getProtectionDomain().getCodeSource().getLocation().toURI())
+     .getPath()+"/ID");
+     BufferedReader in = null;
+    try {FileWriter writer = new FileWriter("YourFile.txt");}
+    catch (IOException e) {e.printStackTrace();}
+    finally {if (in != null)try {in.close();} catch (IOException e) {}
+        
+    
+    
+    }
+}
+    //*/
     //File "ID" not yet implimented
     
     
@@ -137,36 +144,44 @@ public class Netzwerkkommunikation
             return;
         }else{
             switch(analyse[0]){
-                case "0" : playerName = analyse[1];
-                   if(Boolean.parseBoolean(analyse[2])){
-                   }else{
+                case "0" : 
+                    // Paket User Login. param0: name, param1: isHimself
+                    String name = analyse[1];
+                    boolean du = Boolean.parseBoolean(analyse[2]);
+                    if(du){
+
+                        //TODO: Set the players own name. For chat or other purposes..
+                    }else{
                         //TODO: Add the player name to the scoreboard
                     }
                     break;
                 case "1" : time = Integer.parseInt(analyse[1]);
                     break;
-                case "2" : recentChatMessage = analyse[1];
+                case "2" : recentChatMessage = analyse[1];      //msg
                     break;
                 case "3" : 
                     // Point update Paket. param0: newPointcount, param1: ID of player
-                break;
+                    break;
                 case "4" :
                     // Paket update Drawing. Only valid if !drawer
                     try{
-                        int x,y,x2,y2,color;
-                    }catch(Exception e){}
-                    // Logic.vs.zeichne();
-                break;
+
+                        int x=Integer.parseInt(analyse[1]),y=Integer.parseInt(analyse[2]),x2=Integer.parseInt(analyse[3]),y2=Integer.parseInt(analyse[4]),color=Integer.parseInt(analyse[5]);
+                        // Run in Visuals a zeichne to display the paket.
+                        //Logic.vs.zeichne(x,y,x2,y2,color);
+                    }catch(Exception e){
+                        System.err.println("Error receiving draw paket ..");
+                        e.printStackTrace();
+                    }
+                    break;
                 case "5" : 
-                
                     drawer = Boolean.parseBoolean(analyse[1]);
-                    
-                break;
+                    break;
                 case "6" : word = analyse[1];
                     break;
                 case "7" : gameRunning = Boolean.parseBoolean(analyse[1]);
                     break;
-                case "8" : winner = Integer.parseInt(analyse[1]);
+                case "8" : winner = analyse[1];
                     break;
             }
         }
