@@ -67,6 +67,10 @@ public class Visuals
         //Window();
 
     }
+    
+    public void setTime(int currentTime){
+        //TODO: CREATE FUNCTION
+    }
 
     public void Window(){
         setup();
