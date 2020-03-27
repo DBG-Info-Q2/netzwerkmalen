@@ -1,4 +1,5 @@
 package com.dbgq2.netzwerkmalen.server.communication;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -69,7 +70,7 @@ public class Communication {
 						try {
 							Socket newClient = SocketServer.accept(); // Halting listener Thread until new Connection
 																		// established with client.
-							//TODO: UID Format: ####-####-####
+							// TODO: UID Format: ####-####-####
 							// Create an Unique ID for the Player.
 							String clientID = PlayerNamesUtil
 									.findNewName(playerList.keySet().toArray(new String[playerList.keySet().size()])); // Converts
@@ -151,7 +152,6 @@ public class Communication {
 			Logger.error("False protocol. Client " + id + " sent TimeUpdatePaket.");
 			break; // Paket destin for client
 		case "2": // Chat Paket used to communicatie
-			Logger.log("Client '" + id + "' sent ChatUpdatePaket: " + analyse[1]);
 			// Analyse, if the chat, the player has sent contains the gameword.
 			if (Eingabekontrolle.checkWord(analyse[1])) {
 				// Word is contained, calculate points for the user and handle adding them to
@@ -159,9 +159,18 @@ public class Communication {
 				Gameserver.GOTT.points.calculateANDaddPoints(id, id.equals(Gameserver.GOTT.drawerID));
 				// Increment amount of right guesses for the current game.
 				Gameserver.GOTT.currentRightGuesses++;
+				Logger.log("Player '" + id + "' has guessed the word correctly with: '" + analyse[1] + "'"); // Annouce
+																												// the
+																												// player
+																												// has
+																												// guessed
+																												// the
+																												// word
+																												// correctly.
 			} else {
 				// Send paket in format Playername: Chatmessage from him.
-				sendPaket("-1", PaketUtil.createChatUpdatePaket(id+": "+analyse[1]));
+				sendPaket("-1", PaketUtil.createChatUpdatePaket(id + ": " + analyse[1]));
+				System.out.println("[" + id + "]: " + analyse[1]); // Print the chat to console.
 			}
 			break;
 		case "3":
@@ -230,7 +239,7 @@ public class Communication {
 	}
 
 	public void broadcastMessage(String message) {
-		if(message==null) {
+		if (message == null) {
 			Logger.error("Message cannot be null");
 			return;
 		}
@@ -238,12 +247,12 @@ public class Communication {
 	}
 
 	public void sendMessage(String id, String message) {
-		if(id==null||message==null) {
+		if (id == null || message == null) {
 			Logger.error("Player ID or Message cannot be null");
 			return;
 		}
-		if(!isOnline(id)) {
-			Logger.error("Player with ID '"+id+"' is not online!");
+		if (!isOnline(id)) {
+			Logger.error("Player with ID '" + id + "' is not online!");
 			return;
 		}
 		COMMSocket player = getPlayer(id);

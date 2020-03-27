@@ -15,15 +15,26 @@ public class Logic
     public IDManager idM = new IDManager();
 
     public static Logic SATAN;
+    
+    // When creating the Class object, also instantiate the SATAN singleton.
+    // , so other classes can access.
+    public Logic(){
+        SATAN=this;
+        
+    }
 
+    // This procedure starts the client. IT is to be called when the client has to be started
     public void intitializeClient()
     {
         com.createSocket();
+        vis.setup(); 
     }
 
+    // Set the players own ingame name
     public void logIn(String name)
     {
         id = name;
+        System.out.println("Your current name given by the Server is: "+name);
     }
     
     public void setRole(boolean drawer)

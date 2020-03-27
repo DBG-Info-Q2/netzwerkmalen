@@ -44,7 +44,7 @@ public class CommandExit implements Command {
 			String message = "";
 			for (String s : arguments)
 				message += " " + s;
-			message = message.replace("\n", "");
+			message = message.replace("\n", "").replaceFirst(" ", "");
 
 			Logger.log("Shutting down Server for reason: '" + message + "'");
 			if (Gameserver.GOTT != null) {

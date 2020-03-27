@@ -69,7 +69,7 @@ public class Netzwerkkommunikation
                     String name = analyse[1];
                     boolean du = Boolean.parseBoolean(analyse[2]);
                     if(du){
-                        Logic.SATAN.logIn(analyse[1]);
+                        Logic.SATAN.logIn(name);
                         //TODO: Set the players own name. For chat or other purposes..
                     }else{
                         //TODO: Add the player name to the scoreboard
